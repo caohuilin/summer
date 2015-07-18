@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>企业1 22网站</title>
+    <title>企业网站</title>
     <link href="css/main.css" rel="stylesheet" type="text/css">
-
+    <script type="text/javascript">
+      myFocus.set({
+        id:'picBox'}
+      )
+    </script>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -16,7 +20,9 @@
 
 
 <script type="text/javascript" src="js/setHomeSetFav.js" charset="gb2312"></script>
-
+<script type="text/javascript" src="js/myfocus-2.0.1.min.js"></script>
+<script type="text/javascript" src="js/mf-patton/mF_YSlider.js"></script>
+<link href="js/mf-patton/mF_YSlider.css" rel="stylesheet" type="text/css">
 <body>
 	<div class="top">
         <div class="top_content">
@@ -38,25 +44,38 @@
         </div><!--logo结束-->
         <div class="nav">
             <div class="nav_left">
-                <ul>
-                    <li><a href="#">首页</a></li>
-                    <li><a href="list.html">关于慕课</a></li>
-                    <li><a href="list.html">新闻动态</a></li>
-                    <li><a href="list.html">课程中心</a></li>
-                    <li><a href="list.html">在线课程</a></li>
-                    <li><a href="list.html">人才招聘</a></li>
-                </ul>
             </div>
             <div class="nav_mid">
-                <div class="nav_mid_left"></div>
-                <div class="nav_mid_right"></div>
+                <div class="nav_mid_left">
+                  <ul>
+                      <li><a href="#">首页</a></li>
+                      <li><a href="list.html">关于慕课</a></li>
+                      <li><a href="list.html">新闻动态</a></li>
+                      <li><a href="list.html">课程中心</a></li>
+                      <li><a href="list.html">在线课程</a></li>
+                      <li><a href="list.html">人才招聘</a></li>
+                  </ul>
+                </div>
+                <div class="nav_mid_right">
+                  <form action="" method="post">
+                      <input type="text" class="search_text">
+                  </form>
+                </div>
             </div>
             <div class="nav_right">
-                <form action="" method="post">
-                    <input type="text">
-                </form>
+
             </div>
-         </div>
+         </div><!--nav 结束-->
+        <div class="ad" id="picBox">
+          <div class="pic">
+              <ul>
+                  <li><img src="images/ad2.jpg"></li>
+                  <li><img src="images/ad3.jpg"></li>
+                  <li><img src="images/ad4.jpg"></li>
+              </ul>
+        </div>
+        </div>
+
     </div><!--wrapj结束-->
 </body>
 </html>

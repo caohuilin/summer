@@ -3,26 +3,30 @@
 *{
 	margin: 0;
 	padding: 0;
-	font-size: 12px
+	font-size: 12px;
 }
 body{
 	background: #F5F5F5;
 }
-
+.wrap{
+	width: 1000px;
+	margin: 0 auto;
+}
 .top{
-	width: 100%;
+	width: 1000px;
 	height: 27px;
 	background: url(../images/top_bg.jpg) repeat-x;
+	margin: 0 auto;
 }
 .top_content{
-	width: 100%;
+	width: 1000px;
 	margin: 0 auto;
+	line-height: 27px;
 }
 .top_content li{
 	list-style-image:url(../images/li_bg.gif);
 	float: right;
 	width: 70px;
-	line-height: 27px;
 }
 .top_content a:link,.top_content a:visited{
 	color: #8E8E8E;
@@ -32,17 +36,15 @@ body{
 	color: #900;
 	text-decoration: none;
 }
-.warp{
-	width: 1000px;
-	margin: 0 auto;
-}
+
 .logo{
-	height: 80px;
+	height: 84px;
 	background-color: #FFF;
 }
 .logo_left{
-	width: 200px;
+	width: 375px;
 	float: left;
+	display: inline;
 }
 .logo_right{
 	width: 300px;
@@ -50,6 +52,7 @@ body{
 	height: 28px;
 	margin-top: 30px;
 	color:#8E8E8E;
+	display: inline;
 }
 .logo_right img{
 	vertical-align: middle;
@@ -57,7 +60,7 @@ body{
 }
 .tel{
 	font-family: "微软雅黑";
-	font-size: 16px;
+	font-size: 22px;
 	color: #C00;
 }
 .nav{
@@ -65,17 +68,65 @@ body{
 }
 .nav_left{
 	width: 10px;
-	height:40px;
 	background: url(../images/nav_left.jpg)no-repeat;
-	float: left;
 }
 .nav_mid{
 	width: 980px;
 	background: url(../images/nav_bg.jpg) repeat-x;
-	float: left;
+	line-height: 40px;
 }
 .nav_right{
-	width:10px;height: 40px;
+	width:10px;
 	background: url(../images/nav_right.jpg)no-repeat;
+}
+.nav_left,.nav_mid,.nav_right{
 	float: left;
+	height: 40px;
+	display: inline;
+}
+.nav_mid_left,.nav_mid_right{
+	float: left;
+	display: inline;
+}
+.nav_mid li{
+	float: left;
+	list-style-type: none;
+	width: 100px;
+	font-family: "微软雅黑";
+	text-align: center;
+}
+.nav_mid a:link, .nav_mid a:visited {
+	font-size: 16px;
+	color: #FFF;
+	text-decoration: none;
+}
+.nav_mid a:hover, .nav_mid a:active {
+	font-size: 16px;
+	color: #FF0;
+	text-decoration: none;
+}
+.nav_mid_left{
+	width: 680px;
+}
+.nav_mid_right{
+	width: 300px;
+}
+.nav_mid_left, .nav_mid_right {
+	float: left;
+	display: inline;
+}
+.search_text{
+	width: 190px;
+	float: left;
+	height: 25px;
+	margin-top: 5px;
+	background: url(../images/search.jpg)no-repeat right center;
+	background-color: #FFF;
+	padding-right: 25px;
+	border: 1px solid #FFF;
+}
+.ad{
+	height: 320px;
+	overflow: hidden;
+	margin-top: 5px;
 }
