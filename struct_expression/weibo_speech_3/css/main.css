@@ -1,0 +1,22 @@
+.demo03{
+  width: 458px;
+  padding: 20px;
+  background: #9CF;
+  border: 1px solid #CCC;
+  margin-left: 100px;
+  position: relative;
+}
+.demo03 img{
+  float: left;
+  margin: -20px 0 0 -100px;
+}
+.demo03 p{
+  font-size: 12px;
+  line-height: 25px;
+}
+.demo03 span{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 12px;
+}
