@@ -1,0 +1,64 @@
+body,p,h1,h2,h3,h4,h5,h6,form,ul,ol,hr {
+  margin: 0;
+  padding: 0;
+}
+ul,ol{
+  list-style: none;
+}
+
+.demo01{
+  width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+.demo01 .left{
+  width: 100px;
+  float: left;
+}
+.demo01 img{
+  margin-left: 20px;
+}
+.demo01 .right{
+  width: 458px;
+  padding: 20px;
+  float: right;
+  background: #9CF;
+  border: 1px solid #CCC;
+}
+.demo01 p{
+  font-size: 12px;
+  line-height: 25px;
+}
+.demo01 span{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 12px;
+}
+
+.demo02{
+  width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+.demo02 img{
+  float: left;
+  margin-left: 20px;
+}
+.demo02 .right{
+  width: 458px;
+  padding: 20px;
+  float: right;
+  background: #9CF;
+  border: 1px solid #CCC;
+}
+.demo02 p{
+  font-size: 12px;
+  line-height: 25px;
+}
+.demo02 span{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 12px;
+}
