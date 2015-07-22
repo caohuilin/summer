@@ -1,0 +1,57 @@
+ul{
+  list-style: none;
+
+}
+li h3 ,ul{
+  margin: 0;
+  padding: 0;
+}
+li h3{
+  font-size: 14px;
+  font-weight: 400;
+  float: left;
+}
+li{
+  display: block;
+  height: 31px;
+  line-height: 31px;
+  overflow: hidden;
+  border: 1px solid #DEDEDE;
+}
+.cat{
+  width: 150px;
+  background: #F8F8F8;
+  border: 1px solid #BBB;
+}
+li i{
+  background: url(../images/sidebar.png);
+  display: inline-block;
+  width: 30px;
+  height: 24px;
+  margin: 3px 10px 0 0;
+  float: left;
+}
+.cat-1 i{
+  background-position: 0 0;
+}
+.cat-2 i{
+  background-position: 0 -24px;
+}
+.cat-3 i{
+  background-position: 0 -48px;
+}
+.cat-4 i{
+  background-position: 0 -72px;;
+}
+.cat-5 i{
+  background-position: 0 -96px;
+}
+.cat-6 i{
+  background-position: 0 -120px;
+}
+.cat-7 i{
+  background-position: 0 -144px;
+}
+.cat-8 i{
+  background-position: 0 -168px;
+}
