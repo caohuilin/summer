@@ -1,0 +1,20 @@
+body{
+  font: 13px/26px "微软雅黑";
+}
+.typeList{
+  width: 540px;
+  height: 30px;
+  border: 1px solid #DFDFDF;
+  border-width: 1px;
+  margin: 50px auto;
+  overflow: hidden;
+}
+.typeList ul{
+  height: 30px;
+  line-height: 30px;
+  padding-left: 15px;
+}
+.typeList li{
+  float: left;
+  margin-right: 12px;
+}
