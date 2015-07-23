@@ -17,4 +17,26 @@ body{
 .typeList li{
   float: left;
   margin-right: 12px;
+  position: relative;
+}
+.typeList ul li input{
+  display: none;
+}
+.typeList ul li b{
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(../images/checkbox.gif) no-repeat -12px -18px;
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+.typeList li label{
+  padding-left: 23px;
+}
+.typeList li:hover b{
+  background-position: -12px -118px;
+}
+.typeList ul .selected b,.typeList ul .selected:hover b{
+  background-position: -12px -218px;
 }
