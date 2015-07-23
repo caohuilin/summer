@@ -3,15 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="css/public.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="js/main.js"  charset="gb2312"></script>
   </head>
   <body>
     <div class="type">
-      <form class="typeForm" action="index.html" method="post">
+    <!--  <form class="typeForm" action="index.html" method="post">
         <label for="">配送类型</label>
         <input type="radio" name="name" value=""><label for="">全部</label>
         <input type="radio" name="name" value=""><label for="">京东配送</label>
         <input type="radio" name="name" value=""><label for="">第三方配送/label>
       </form>
+    -->
+    <dl id="type">
+      <dt>配送类型:</dt>
+      <dd class="selected" onclick="show(0)"><a href="#"><b ></b >全部</a></dd>
+      <dd  onclick="show(1)"><a href="#"><b></b>京东配送</a></dd>
+      <dd onclick="show(2)"><a href="#"><b></b>第三方配送</a></dd>
+    </dl>
     </div>
   </body>
 </html>

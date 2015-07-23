@@ -1,0 +1,49 @@
+body{
+  font: 12px/22px "微软雅黑";
+}
+a{
+  color: #000000;
+  text-decoration: none;
+}
+.type{
+  width: 400px;
+  height: 32px;
+  border: 1px solid #DFDFDF;
+  margin: 30px auto;
+}
+.type dl{
+  height: 32px;
+  line-height: 32px;
+  padding-left: 15px;}
+.type dt{
+  float: left;
+}
+.type dd{
+  float: left;
+  margin: 0 10px 0 8px;
+}
+.type dd a:hover{
+  color: #C00;
+  text-decoration: underline;
+}
+.type dd a{
+  display: block;
+  position: relative;
+  padding-left: 23px;
+}
+.type dd b{
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(../images/radiobutton.gif) no-repeat -14px -18px;
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+.type dd a:hover b{
+  background-position :-14px -118px;
+}
+.type .selected b,.type .selected a:hover b{
+  background-position: -14px -218px;
+
+}
