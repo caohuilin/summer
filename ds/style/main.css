@@ -75,6 +75,7 @@
   background: #FF8C00;
   margin-top: 23px;
   margin-right: 59px;
+  display: inline;
 }
 .shopText{
   height: 100%;
@@ -137,14 +138,18 @@
   left: 0;
   top: 35px;
   width: 100%;
+  padding-bottom: 1px;
 }
 .shopClass_item{
-  padding: 14px 10px;
+  padding: 13px 10px;
   border-bottom: #3487F2 solid 1px;
   border-top: #5AA1FE solid 1px;
+  line-height: 16px;
 }
 .shopClass_item dt{
-  height: 22px;
+  height: 21px;
+  line-height: 1;
+  overflow: hidden;
 }
 .shopClass_item .b{
   font:14px/1 "微软雅黑";
@@ -324,4 +329,31 @@
   color: #181818;
   line-height: 30px;
   text-align: center;
+}
+.aa{
+  height: 25px;
+}
+/*底部*/
+.footer{
+  text-align: center;
+  background-color: #D4D4D4;
+  line-height: 24px;
+  padding: 50px 0px;
+  margin-top: 25px;
+}
+.footer i{
+  font-style: normal;
+  margin: 0 5px;
+}
+.footer a{
+  color: #000;
+}
+.footer a:hover{
+  color: #F60;
+}
+.web{
+  padding-top: 30px;
+}
+.web img{
+  margin: 0 12px;
 }
