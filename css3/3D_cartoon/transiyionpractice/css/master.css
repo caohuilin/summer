@@ -1,0 +1,13 @@
+.block{
+  width: 400px;
+  height: 400px;
+  background: #69C;
+  margin: 0 auto;
+  transition: background 2s;
+  -webkit-transition: background 2s;
+  -moz-transition: background 2s;
+  -o-transition: background 2s;
+}
+.block:hover{
+  background: red;
+}
