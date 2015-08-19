@@ -1,0 +1,37 @@
+.top-nav{
+  font-size: 14px;
+  font-weight: bold;
+  list-style: none;
+}
+.top-nav li{
+  float: left;
+  margin-right: 1px;
+}
+.top-nav li a{
+  line-height: 34px;
+  text-decoration: none;
+  background: #3F240E;
+  color: #FFF;
+  display: block;
+  width: 80px;
+  text-align: center;
+}
+.top-nav ul{
+  list-style: none;
+  display: none;
+  padding: 0;
+  position: absolute;
+}
+.top-nav li a:hover{
+  background: url(../images/slide-pannel_14.png) 0 0 repeat-x;
+}
+.note{
+  display: block;
+  color: #3F240E;
+  background: url(../images/slide-pannel_14.png) 0 0 repeat-x;
+}
+.corner{
+  display: block;
+  height: 11px;
+  background: url(../images/bird.png) 31px 0 no-repeat;
+}
