@@ -1,25 +1,31 @@
-var curIndex=1;
+if(!localStorage.curIndex){
+  localStorage.curIndex=1;
+}
 
 function next(){
 
-  if(curIndex == 6)
+  if(localStorage.curIndex == 6)
        return;
-  var curPage = document.getElementById("page"+curIndex);
-  curPage.style.webkitTransform = "rotateX(-90deg)";
+  var curPage = document.getElementById("page"+localStorage.curIndex);
+  curPage.style.webkitTransform = "rotateX(-87.1deg)";
+  curPage.style.mozTransform = "rotateX(-87.1deg)";
 
-  curIndex++;
+  localStorage.curIndex++;
 
-  var nextPage = document.getElementById("page"+curIndex);
+  var nextPage = document.getElementById("page"+localStorage.curIndex);
   nextPage.style.webkitTransform= "rotateX(0deg)";
+  nextPage.style.mozTransform= "rotateX(0deg)";
 }
 function prev(){
-  if(curIndex == 1)
+  if(localStorage.curIndex == 1)
        return;
-  var curPage = document.getElementById("page"+curIndex);
-  curPage.style.webkitTransform= "rotateX(90deg)";
+  var curPage = document.getElementById("page"+localStorage.curIndex);
+  curPage.style.webkitTransform= "rotateX(87.1deg)";
+  curPage.style.mozTransform= "rotateX(87.1deg)";
 
-  curIndex--;
+  localStorage.curIndex--;
 
-  var prevPage = document.getElementById("page"+curIndex);
+  var prevPage = document.getElementById("page"+localStorage.curIndex);
   prevPage.style.webkitTransform= "rotateX(0deg)";
+  prevPage.style.mozTransform= "rotateX(0deg)";
 }
