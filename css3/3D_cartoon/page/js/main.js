@@ -2,6 +2,7 @@ if(!localStorage.curIndex){
   localStorage.curIndex=1;
 }
 
+
 function next(){
 
   if(localStorage.curIndex == 6)
