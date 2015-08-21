@@ -1,0 +1,76 @@
+body{
+  margin:  0 auto;
+}
+ul{
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+  color: #FFF;
+  font-size: 14px;
+  padding: 0 3px;
+  display: block;
+}
+.menu li{
+  display: block;
+  float: left;
+  margin: 3px;
+  background: gray;
+  width: 140px;
+  text-align: center;
+  color: #FFF;
+  font-size: 9pt;
+}
+#logo{
+  background: #FFF;
+  width: 230px;
+}
+#logo a{
+  color: gray;
+  font-size: 35pt;
+  background: #FFF;
+}
+#toplogo{
+  display: none;
+  margin: 0 auto;
+  text-align: center;
+}
+#toplogo a{
+  color: black;
+  font-size: 35pt;
+}
+.rMenu{
+  display: none;
+
+}
+@media (min-width:585px) and (max-width:823px){
+  #logo{
+    display: none;
+  }
+  #toplogo{
+    display: block;
+    width: 100%;
+  }
+  .menu{
+    width: 585px;
+  }
+}
+@media (max-width:585px){
+  #logo{
+    display: none;
+  }
+  #toplogo{
+    display: block;
+  }
+  .menu{
+    width: 100%;
+  }
+  .menu li{
+    width: 100%;
+  }
+  .rMenu{
+    display: block;
+    text-align: right;
+  }
+}
