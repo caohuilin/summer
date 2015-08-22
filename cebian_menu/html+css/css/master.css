@@ -37,6 +37,7 @@ ul{
   position: absolute;
   top: 5px;
   right: 5px;
+  cursor: pointer;
 }
 .sidebar-move-left{
   animation-name:smf ;
@@ -48,9 +49,91 @@ ul{
   from{
   }
     to{
-      transform: translateX(-120px);
+    transform: translateX(-120px);
     }
 }
 .closeBar-move-right{
-  left: 160px;
+  animation-name:cmr ;
+  animation-duration: 1s ;
+  animation-iteration-count:1 ;
+  animation-fill-mode: forwards;
+}
+@keyframes cmr{
+  from{
+  }
+    to{
+     transform: translateX(160px) rotate(405deg) scale(1.5);
+    }
+}
+.sidebar-move-right{
+  animation-name:smr ;
+  animation-duration: 1s ;
+  animation-iteration-count:1 ;
+  animation-fill-mode: forwards;
+}
+@keyframes smr{
+  from{
+  }
+    to{
+    transform: translateX(120px);
+    }
+}
+.closeBar-move-left{
+  animation-name:cmf ;
+  animation-duration: 1s ;
+  animation-iteration-count:1 ;
+  animation-fill-mode: forwards;
+}
+@keyframes cmf{
+  from{
+    transform: sscale(1.5);
+  }
+    to{
+     transform: translateX(-160px) rotate(-360deg) scale(1);
+    }
+}
+.menuContent-move-right{
+  animation-name:mmr ;
+  animation-duration: 0.5s ;
+  animation-iteration-count:1 ;
+  animation-fill-mode: forwards;
+}
+@keyframes mmr{
+  from{
+    opacity: 0;
+  }
+    to{
+      opacity: 1;
+    transform: translateX(120px);
+    }
+}
+.menuContent-move-left{
+  animation-name:mml ;
+  animation-duration: 1s ;
+  animation-iteration-count:1 ;
+  animation-fill-mode: forwards;
+}
+@keyframes mml{
+  from{
+    opacity: 1;
+  }
+    to{
+      opacity: 0;
+    transform: translateX(-120px);
+    }
+}
+.menuContent-move-up{
+  animation-name:mmu ;
+  animation-duration: 1s ;
+  animation-iteration-count:1 ;
+  animation-fill-mode: forwards;
+}
+@keyframes mmu{
+  from{
+    opacity: 0;
+  }
+    to{
+      opacity: 1;
+    transform: translateY(-250px);
+    }
 }
