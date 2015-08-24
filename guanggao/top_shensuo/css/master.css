@@ -1,0 +1,15 @@
+body, div, img, span { margin:0; padding:0; }
+#content{ width:960px; height:1000px; background:#ccc; margin:0 auto; }
+#ad{ width:960px; margin:0 auto; position: relative; overflow: hidden; display:none;}
+#close{
+    position:absolute;
+    width:20px;
+	height:20px;
+	text-align:center;
+	line-height:20px;
+	background:#CF3;
+	top:0;
+	right:0;
+	display: none;
+	cursor: pointer;
+}
