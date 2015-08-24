@@ -1,0 +1,29 @@
+.main{
+  width: 1190px;
+  margin: 0 auto;
+}
+.rightAd{
+  width: 400px;
+  height: 300px;
+  background: #CCC;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  bottom:0;
+}
+.pic  #closeBtn{
+  background: url("../images/icon.jpg") no-repeat -399px -19px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+}
+.pic  #closeBtn:hover{
+  background-position: -343px -19px;
+}
+.hide{
+  display: none;
+}
