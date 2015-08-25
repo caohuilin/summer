@@ -1,0 +1,33 @@
+body{
+  margin: 0 auto;
+  padding: 0px;
+}
+#pn{
+  background: #E8E8E8;
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+  font-size: 9pt;
+  height: auto;
+}
+.slide{
+  margin: 0 auto;
+  padding: 0;
+  width: 600px;
+  border-top: solid 4px gray;
+}
+.btn_slide{
+  background: gray;
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  color: #FFF;
+  padding: 10px 0 0;
+  text-decoration: none;
+}
+#hpn{
+  display: none;
+}
