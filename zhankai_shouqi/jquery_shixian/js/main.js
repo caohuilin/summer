@@ -1,0 +1,9 @@
+$(document).ready(function(){
+  $("#strHref").toggle(function(){
+    $(this).text("收起");
+    $("#hpn").show(1000);
+  },function(){
+    $(this).text("展开");
+    $("#hpn").hide(1000);
+  });
+});
