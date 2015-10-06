@@ -1,0 +1,130 @@
+@charset "UTF-8";
+@import "less/z";
+
+@link_color:#333;
+@link_hover:#fa7d3c;
+@body_bgc:#99d6f3;
+@main_bgc:#7fc3e2;
+
+.reset();
+
+body{
+  background-color: @body_bgc;
+}
+.header{
+  @h:48px;
+  @border: 2px;
+
+  height: @h;
+  width: 1241+100px;
+  margin: 0 auto;
+
+  .logo{
+    height: 29px;
+    width: 83px;
+    background: url("../img/logo.png")left top no-repeat;
+    .fl();
+    margin: 8px 30px 11px 0px;
+  }
+  a{
+    display: block;
+    height: 100%;
+  }
+  &_content{
+    .bc();
+    background-color: #fff;
+    border-top:@border solid @link_hover;
+    .clearfix();
+  }
+  .search{
+    @w:568px;
+    @h:28px;
+    @input_w:520px;
+    width: auto;
+    height: @h;
+    .fl();
+    border: solid 1px #ccc;
+    background-color: #f2f2f5;
+    margin: 10px 0;
+    &_input{
+      width: @input_w;
+      height: @h;
+      line-height: @h~"\9";
+      padding: 0 8px;
+      @media screen and (min-width: 1295px)
+    }
+    &_btn{
+      width: 17px;
+      height: 16px;
+      background: url("../img/search.png") left top no-repeat;
+      margin-top: 5px;
+      margin-right: 10px;
+      .fr();
+    }
+  }
+  &Nav{
+    .fl();
+    height: 22px;
+    margin: 13px 0;
+    margin-left: 50px;
+    border-right: solid 1px #ccc;
+    li{
+      .fl();
+      .font-fm();
+      .font-s16();
+      margin-right: 29px;
+    }
+    a{
+      height: 22px;
+      line-height: 22px;
+      .d-ib();
+      padding-left: 26px;
+      color: @link_color;
+      &:hover{
+        color: @link_hover;
+      }
+    }
+    #icon_01{
+      background: url("../img/icon_01.png")left center no-repeat;
+    }
+    #icon_02{
+      background: url("../img/icon_02.png")left center no-repeat;
+    }
+    #icon_03{
+      background: url("../img/icon_03.png")left center no-repeat;
+    }
+    #icon_04{
+      background: url("../img/icon_04.png")left center no-repeat;
+    }
+  }
+  .headerLi{
+    .fr();
+    height: 22px;
+    margin: 13px 0;
+    li{
+      .fl();
+      .font-fm();
+      .font-s16();
+      margin-right: 29px;
+    }
+    a{
+      height: 22px;
+      line-height: 22px;
+      .d-ib();
+      padding-left: 26px;
+      color: @link_color;
+      &:hover{
+        color: @link_hover;
+      }
+    }
+  }
+  #iv_01{
+    background: url("../img/iv_01.png")left center no-repeat;
+  }
+  #iv_02{
+    background: url("../img/iv_02.png")left center no-repeat;
+  }
+  #iv_03{
+    background: url("../img/iv_03.png")left center no-repeat;
+  }
+}

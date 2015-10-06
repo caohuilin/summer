@@ -1,0 +1,153 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #99d6f3;
+}
+.header {
+  height: 48px;
+  width: 1341px;
+  margin: 0 auto;
+}
+.header .logo {
+  height: 29px;
+  width: 83px;
+  background: url("../img/logo.png") left top no-repeat;
+  float: left;
+  display: inline;
+  margin: 8px 30px 11px 0px;
+}
+.header a {
+  display: block;
+  height: 100%;
+}
+.header_content {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border-top: 2px solid #fa7d3c;
+  *zoom: 1;
+}
+.header_content:before,
+.header_content:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.header_content:after {
+  clear: both;
+}
+.header .search {
+  width: auto;
+  height: 28px;
+  float: left;
+  display: inline;
+  border: solid 1px #ccc;
+  background-color: #f2f2f5;
+  margin: 10px 0;
+}
+.header .search_input {
+  width: 520px;
+  height: 28px;
+  line-height: 28px \9;
+  padding: 0 8px;
+}
+.header .search_btn {
+  width: 17px;
+  height: 16px;
+  background: url("../img/search.png") left top no-repeat;
+  margin-top: 5px;
+  margin-right: 10px;
+  float: right;
+  display: inline;
+}
+.headerNav {
+  float: left;
+  display: inline;
+  height: 22px;
+  margin: 13px 0;
+  margin-left: 50px;
+  border-right: solid 1px #ccc;
+}
+.headerNav li {
+  float: left;
+  display: inline;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 16px;
+  margin-right: 29px;
+}
+.headerNav a {
+  height: 22px;
+  line-height: 22px;
+  display: inline-block;
+  padding-left: 26px;
+  color: #333333;
+}
+.headerNav a:hover {
+  color: #fa7d3c;
+}
+.headerNav #icon_01 {
+  background: url("../img/icon_01.png") left center no-repeat;
+}
+.headerNav #icon_02 {
+  background: url("../img/icon_02.png") left center no-repeat;
+}
+.headerNav #icon_03 {
+  background: url("../img/icon_03.png") left center no-repeat;
+}
+.headerNav #icon_04 {
+  background: url("../img/icon_04.png") left center no-repeat;
+}
+.header .headerLi {
+  float: right;
+  display: inline;
+  height: 22px;
+  margin: 13px 0;
+}
+.header .headerLi li {
+  float: left;
+  display: inline;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 16px;
+  margin-right: 29px;
+}
+.header .headerLi a {
+  height: 22px;
+  line-height: 22px;
+  display: inline-block;
+  padding-left: 26px;
+  color: #333333;
+}
+.header .headerLi a:hover {
+  color: #fa7d3c;
+}
+.header #iv_01 {
+  background: url("../img/iv_01.png") left center no-repeat;
+}
+.header #iv_02 {
+  background: url("../img/iv_02.png") left center no-repeat;
+}
+.header #iv_03 {
+  background: url("../img/iv_03.png") left center no-repeat;
+}
