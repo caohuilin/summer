@@ -25,26 +25,25 @@ a {
 body {
   background-color: #99d6f3;
 }
-.header {
-  height: 48px;
-  width: 1341px;
-  margin: 0 auto;
-}
-.header .logo {
+.logo {
   height: 29px;
   width: 83px;
   background: url("../img/logo.png") left top no-repeat;
   float: left;
   display: inline;
-  margin: 8px 30px 11px 0px;
+  margin: 8px 25px 11px 320px;
+}
+.header {
+  height: 48px;
+  width: 1000px;
+  float: left;
+  display: inline;
 }
 .header a {
   display: block;
   height: 100%;
 }
 .header_content {
-  margin-left: auto;
-  margin-right: auto;
   background-color: #fff;
   border-top: 2px solid #fa7d3c;
   *zoom: 1;
@@ -119,35 +118,250 @@ body {
 .headerNav #icon_04 {
   background: url("../img/icon_04.png") left center no-repeat;
 }
-.header .headerLi {
-  float: right;
+.header_list {
+  float: left;
   display: inline;
   height: 22px;
-  margin: 13px 0;
+  margin: 13px 10px;
 }
-.header .headerLi li {
+.header_list li {
   float: left;
   display: inline;
   font-family: "Microsoft Yahei", "微软雅黑";
   font-size: 16px;
   margin-right: 29px;
 }
-.header .headerLi a {
+.header_list a {
   height: 22px;
   line-height: 22px;
   display: inline-block;
   padding-left: 26px;
   color: #333333;
 }
-.header .headerLi a:hover {
+.header_list a:hover {
   color: #fa7d3c;
 }
-.header #iv_01 {
+#iv_01 {
   background: url("../img/iv_01.png") left center no-repeat;
 }
-.header #iv_02 {
+#iv_02 {
   background: url("../img/iv_02.png") left center no-repeat;
 }
-.header #iv_03 {
+#iv_03 {
   background: url("../img/iv_03.png") left center no-repeat;
+}
+.main {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #7fc3e2;
+  height: 400px;
+  padding-top: 16px;
+  *zoom: 1;
+}
+.main:before,
+.main:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.main:after {
+  clear: both;
+}
+.leftArea {
+  width: 750px;
+  float: left;
+  display: inline;
+}
+.rightArea {
+  width: 230px;
+  float: right;
+  display: inline;
+}
+.leftArea_cont {
+  width: 150px;
+  float: left;
+  display: inline;
+}
+.leftCont {
+  width: 600px;
+  float: right;
+  display: inline;
+}
+.nav {
+  font-size: 14px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  line-height: 34px;
+}
+.nav > li > a {
+  color: #FFF;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 0 0 15px;
+}
+.nav > li > a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.nav li span {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  display: block;
+  height: 12px;
+  width: 13px;
+}
+.nav #list01 {
+  background: url("../img/list01.png") left top no-repeat;
+}
+.nav #list02 {
+  background: url("../img/list02.png") left top no-repeat;
+}
+.nav #list03 {
+  background: url("../img/list03.png") left top no-repeat;
+}
+.nav_line {
+  height: 1px;
+  background-color: #80B9DB;
+  margin: 13px 0 13px 0;
+  position: relative;
+}
+.nav #set {
+  position: absolute;
+  top: -8px;
+  left: 110px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url("../img/set.png") left top no-repeat;
+}
+.nav .strong_font {
+  font-weight: bold;
+}
+.nav_list > li > a {
+  padding-left: 30px;
+}
+.releaseBox {
+  height: 150px;
+  padding-top: 15px;
+  background-color: #FFF;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.releaseBox .release_top {
+  padding: 0 12px;
+  *zoom: 1;
+  margin-bottom: 8px;
+}
+.releaseBox .release_top:before,
+.releaseBox .release_top:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.releaseBox .release_top:after {
+  clear: both;
+}
+.releaseBox .release_text {
+  height: 18px;
+  width: 177px;
+  background: url("../img/new_bg.png") left center no-repeat;
+  text-indent: -99em;
+  float: left;
+  display: inline;
+}
+.releaseBox .release_link {
+  float: right;
+  display: inline;
+  height: 18px;
+  line-height: 18px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 12px;
+}
+.releaseBox .release_link a {
+  color: #32a2d5;
+}
+.releaseBox .release_link a:hover {
+  text-decoration: underline;
+}
+.releaseBox .release_area {
+  height: 78px;
+  border: solid 1px #ccc;
+  margin: 0 10px 5px;
+}
+.releaseBox textarea {
+  width: 100%;
+  height: 78px;
+  line-height: 20px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 12px;
+  margin: 5px 5px;
+}
+.releaseBox .release_select {
+  *zoom: 1;
+  padding: 0 10px;
+}
+.releaseBox .release_select:before,
+.releaseBox .release_select:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.releaseBox .release_select:after {
+  clear: both;
+}
+.releaseBox .release_texts {
+  float: left;
+  display: inline;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 12px;
+  padding-top: 4px;
+}
+.releaseBox .release_texts li {
+  float: left;
+  display: inline;
+  margin-right: 20px;
+}
+.releaseBox .release_texts a {
+  height: 19px;
+  line-height: 19px;
+  display: inline-block;
+  color: #333333;
+  padding-left: 25px;
+}
+.releaseBox .release_texts a:hover {
+  color: #fa7d3c;
+}
+.releaseBox .release_texts #re_s01 {
+  background: url("../img/re_s01.png") left center no-repeat;
+}
+.releaseBox .release_texts #re_s02 {
+  background: url("../img/re_s02.png") left center no-repeat;
+}
+.releaseBox .release_texts #re_s03 {
+  background: url("../img/re_s03.png") left center no-repeat;
+}
+.releaseBox .release_texts #re_s04 {
+  background: url("../img/re_s04.png") left center no-repeat;
+}
+.releaseBox .release_texts #re_s05 {
+  background: url("../img/re_s05.png") left center no-repeat;
+}
+.releaseBox .release_btns {
+  float: right;
+  display: inline;
+}
+.releaseBox .u_release_btn {
+  width: 82px;
+  height: 30xp;
+  background-color: #ffc09f;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 14px;
+  color: #FFF;
+}
+.releaseBox .u_btn_active {
+  background-color: #ff8140;
 }
