@@ -177,6 +177,7 @@ body {
   width: 230px;
   float: right;
   display: inline;
+  margin-right: 10px;
 }
 .leftArea_cont {
   width: 150px;
@@ -347,6 +348,9 @@ body {
 .releaseBox .release_texts #re_s05 {
   background: url("../img/re_s05.png") left center no-repeat;
 }
+.releaseBox .release_texts #re_s06 {
+  background: url("../img/re_s06.png") left center no-repeat;
+}
 .releaseBox .release_btns {
   float: right;
   display: inline;
@@ -364,4 +368,297 @@ body {
 }
 .releaseBox .u_btn_active {
   background-color: #ff8140;
+}
+.showList {
+  width: 600px;
+  height: 5564px;
+  margin-top: 15px;
+  *zoom: 1;
+}
+.showList:before,
+.showList:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.showList:after {
+  clear: both;
+}
+.showList .item {
+  margin-bottom: 15px;
+  border-radius: 2px;
+  height: 270px;
+  padding: 10px 16px 10px 10px;
+  background-color: #fff;
+}
+.showList .item .item_cont {
+  margin-top: -20px;
+}
+.showList .item .item_cont dt img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+  float: left;
+  display: inline;
+}
+.showList .item .item_cont .item_userName a {
+  color: #333;
+  font-size: 14px;
+  font-weight: 700;
+}
+.showList .item .item_cont .item_userName .v {
+  width: 14px;
+  height: 14px;
+  margin-left: 3px;
+  display: inline-block;
+  background: url("../img/v.png") top center no-repeat;
+}
+.showList .item .item_cont .item_content img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin-left: 55px;
+}
+.showList .item_option {
+  height: 22px;
+  padding: 8px 0;
+  border-top: solid 1px #ccc;
+  *zoom: 1;
+  text-align: center;
+}
+.showList .item_option:before,
+.showList .item_option:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.showList .item_option:after {
+  clear: both;
+}
+.showList .item_option li {
+  float: left;
+  display: inline;
+  width: 25%;
+  height: 22px;
+  border-right: solid 1px #ccc;
+}
+.showList .item_option #last {
+  border-right: none;
+}
+.showList .item_option a {
+  color: #333333;
+}
+.showList .item_option a:hover {
+  color: #32a2d5;
+  text-decoration: none;
+}
+.userCard {
+  height: 150px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #fff;
+}
+.userCard .userCardBg {
+  background-image: url(http://img.t.sinajs.cn/t5/skin/public/profile_cover/028_s.jpg?version=b0e0732254195c8b);
+  height: 65px;
+}
+.userHead {
+  text-align: center;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  height: 40px;
+}
+.userHead h3 {
+  margin-top: 5px;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+.userHead img {
+  margin-top: -42px;
+  height: 58px;
+  width: 58px;
+  vertical-align: top;
+  border-radius: 50%;
+  border: solid 4px #ccc;
+}
+.userLinks {
+  width: 195px;
+  height: 33px;
+  *zoom: 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+.userLinks:before,
+.userLinks:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.userLinks:after {
+  clear: both;
+}
+.userLinks li {
+  float: left;
+  display: inline;
+  width: 65px;
+  height: 33px;
+  margin-right: -1px;
+  border-right: solid 1px #ccc;
+  text-align: center;
+  font-size: 14px;
+}
+.userLinks .last {
+  border-right: none;
+}
+.userLinks a {
+  color: #333333;
+}
+.userLinks strong {
+  display: inline-block;
+  width: 65px;
+  font-size: 18px;
+  font-family: "Arial";
+}
+.song {
+  height: 250px;
+  margin-top: 15px;
+  background-color: #fff;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.song .head {
+  height: 39px;
+  line-height: 39px;
+  border-bottom: solid 1px #ccc;
+}
+.song .head a {
+  color: #333333;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 16px;
+  width: 144px;
+  margin: 0 auto;
+  display: block;
+}
+.song .head a:hover {
+  color: #fa7d3c;
+}
+.song li {
+  height: 36px;
+  width: 210px;
+  border-bottom: solid 1px #ccc;
+  background: url(../img/play.png) center right no-repeat;
+}
+.song li a {
+  color: #333333;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 14px;
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  padding-left: 100px;
+}
+.song li a:hover {
+  color: #fa7d3c;
+}
+.song li span {
+  background-color: #fa7d3c;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-left: 65px;
+}
+.song .active {
+  background: url(../img/play_1.png) center left no-repeat;
+  height: 96px;
+}
+.song .active a {
+  line-height: 96px;
+}
+.song .active span {
+  margin-top: 30px;
+}
+.song .active img {
+  display: none;
+}
+.song .foot {
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+}
+.hotBox {
+  background-color: #fff;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.hot_title {
+  height: 38px;
+  line-height: 38px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  *zoom: 1;
+  padding: 0 10px;
+  border: solid 1px #ccc;
+}
+.hot_title:before,
+.hot_title:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.hot_title:after {
+  clear: both;
+}
+.hot_title h3 {
+  float: left;
+  display: inline;
+  font-size: 14px;
+  margin: 10px;
+}
+.hot_title a {
+  float: right;
+  display: inline;
+  font-size: 12px;
+  color: #333333;
+}
+.hot_list {
+  padding-top: 12px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 12px;
+  padding: 12px 10px 0;
+}
+.hot_list li {
+  height: 30px;
+  line-height: 30px;
+  vertical-align: top;
+}
+.hot_list li a {
+  color: #333333;
+  float: left;
+  display: inline;
+}
+.hot_list li a:hover {
+  color: #32a2d5;
+}
+.hot_list li span {
+  float: right;
+  display: inline;
+}
+.hot_more {
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 12px;
+  height: 38px;
+  line-height: 38px;
+  border-top: solid 1px #ccc;
+  text-align: center;
+}
+.hot_more a {
+  color: #333333;
+  float: left;
+  display: inline;
+}
+.hot_more a:hover {
+  color: #32a2d5;
 }
