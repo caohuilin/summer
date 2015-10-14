@@ -185,3 +185,94 @@ a {
 .userMail {
   padding-left: 20px;
 }
+.logo {
+  position: relative;
+  height: 59px;
+  width: 1000px;
+  margin: 0 auto;
+}
+.logo img {
+  float: left;
+  display: inline;
+}
+.logo .search {
+  border: solid 1px #dadada;
+  float: right;
+  display: inline;
+  width: 236px;
+  height: 22px;
+  margin: 16px 1px 0;
+  background: url("../img/search.png") top right no-repeat;
+}
+.logo #text {
+  width: 178px;
+  height: 22px;
+  float: left;
+  display: inline;
+}
+.navigation {
+  width: 1000px;
+  height: 37px;
+  border-top: solid 2px #CB0D0D;
+  margin: 0 auto;
+}
+.navigation li {
+  float: left;
+  display: inline;
+  margin-left: 0;
+  border-bottom: solid 1px #dadada;
+}
+.navigation li a {
+  width: 61.5px;
+  text-align: center;
+  display: inline-block;
+  color: #666666;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 13px;
+}
+.navigation li:hover {
+  border-left: solid 1px #dadada;
+  background-color: #CB0D0D;
+}
+.navigation li:hover a {
+  color: #fff;
+}
+.navigation li + li {
+  border-right: solid 1px #dadada;
+}
+.navigation #first {
+  border-left: solid 1px #dadada;
+  background-color: #CB0D0D;
+}
+.navigation #first a {
+  color: #fff;
+}
+.weather {
+  height: 42px;
+  width: 1000px;
+  margin: 0 auto;
+  *zoom: 1;
+}
+.weather:before,
+.weather:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.weather:after {
+  clear: both;
+}
+.weather span {
+  float: left;
+  display: inline;
+  padding-right: 20px;
+}
+.weather img {
+  display: block;
+  width: 15px;
+  height: 15px;
+  float: left;
+  display: inline;
+  margin-right: 10px;
+  margin-top: 3px;
+}
