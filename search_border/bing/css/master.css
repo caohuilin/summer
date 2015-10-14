@@ -4,7 +4,7 @@ body{
 .bg-div{
   background-image: url("../img/river.jpg");
   width: 1000px;
-  height: 600px;
+  height: 400px;
   margin: 0 auto;
   position: relative;
   text-align: center;
@@ -43,4 +43,27 @@ body{
   position: absolute;
   top: 20%;
   left: 20%;
+}
+.suggest{
+  width: 417px;
+  background: #fff;
+  border: 1px solid #999;
+  position:absolute;
+  top:129px;
+  left:332px
+}
+.suggest ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.suggest ul li{
+  padding: 3px;
+  font-size: 14px;
+  line-height: 25px;
+  cursor: pointer;
+}
+.suggest ul li:hover{
+  text-decoration: underline;
+  background-color: #e5e5e5;
 }

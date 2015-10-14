@@ -11,11 +11,21 @@
     <div class="bg-div">
       <div class="search-box">
         <div class="logo"></div>
-        <form class="" action="index.html" method="post">
-          <input type="text" class="search-input-text" name="name" value="">
+        <form id="search-form" action="index.html" method="post">
+          <input type="text" class="search-input-text" id="search-input" name="name" value="">
           <input type="submit" class="search-input-button" name="name" value="">
         </form>
       </div>
     </div>
+    <div class="suggest" id="search-suggest" style="display:none">
+      <ul id="search-result">
+        <li>搜索结果1</li>
+        <li>搜索结果2</li>
+        <li>搜索结果3</li>
+        <li>搜索结果4</li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
