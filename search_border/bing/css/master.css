@@ -1,0 +1,46 @@
+body{
+  background-color: #333;
+}
+.bg-div{
+  background-image: url("../img/river.jpg");
+  width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+.logo{
+  background: url('../img/logo.png') top left no-repeat;
+  width: 107px;
+  height: 53px;
+  float: left;
+  margin: -6px 18px 0 0;
+}
+.bg-div form{
+  float: left;
+  background-color: #fff;
+  padding: 5px;
+  width: 407px;
+}
+.search-input-text{
+  border: 0;
+  float: left;
+  height: 29px;
+  line-height: 29px;
+  outline: none;
+  width: 375px;
+  font-size: 100%;
+}
+.search-input-button{
+  border: 0;
+  background-image: url(../img/search-button.png);
+  float: left;
+  width: 29px;
+  height: 29px;
+  cursor: pointer;
+}
+.search-box{
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
