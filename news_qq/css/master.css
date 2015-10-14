@@ -1,0 +1,187 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+.nav_ul {
+  position: absolute;
+  left: -7px;
+  top: 38px;
+  background-color: #fff;
+  border: solid 1px #dadada;
+  display: block;
+  width: 90px;
+}
+.nav_ul li {
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+.nav_ul li + li {
+  border-top: solid 1px #dadada;
+}
+.nav_ul li:hover {
+  background-color: #ccc;
+}
+.header {
+  height: 38px;
+  border-bottom: solid 1px #dadada;
+  *zoom: 1;
+}
+.header:before,
+.header:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.header:after {
+  clear: both;
+}
+.login {
+  float: right;
+  display: inline;
+  width: 200px;
+}
+.nav {
+  width: 1000px;
+  height: 35px;
+  margin: 0 auto;
+}
+.nav > ul > li {
+  float: left;
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  margin: 0 9px;
+}
+.nav li a {
+  font-size: 12px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  color: #666666;
+}
+.nav li a:hover {
+  color: #333333;
+}
+.nav .more {
+  padding-right: 25px;
+  border-right: solid 1px #dadada;
+  position: relative;
+}
+.nav .more span {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: url('../img/more.png') left top no-repeat;
+  position: absolute;
+  left: 25px;
+  top: 15px;
+}
+.nav .more > ul {
+  position: absolute;
+  left: -7px;
+  top: 38px;
+  background-color: #fff;
+  border: solid 1px #dadada;
+  display: block;
+  width: 90px;
+}
+.nav .more > ul li {
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+.nav .more > ul li + li {
+  border-top: solid 1px #dadada;
+}
+.nav .more > ul li:hover {
+  background-color: #ccc;
+}
+.nav .help {
+  padding-right: 25px;
+  border-right: solid 1px #dadada;
+  position: relative;
+  border-right: none;
+}
+.nav .help span {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: url('../img/more.png') left top no-repeat;
+  position: absolute;
+  left: 25px;
+  top: 15px;
+}
+.nav .help > ul {
+  position: absolute;
+  left: -7px;
+  top: 38px;
+  background-color: #fff;
+  border: solid 1px #dadada;
+  display: block;
+  width: 90px;
+}
+.nav .help > ul li {
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+.nav .help > ul li + li {
+  border-top: solid 1px #dadada;
+}
+.nav .help > ul li:hover {
+  background-color: #ccc;
+}
+.userHead,
+.userWeibo,
+.userKongjian,
+.userMail {
+  float: left;
+  display: inline;
+  color: #666666;
+  height: 35px;
+  line-height: 35px;
+  position: relative;
+  padding-left: 20px;
+  margin: 0 2px;
+}
+.userHead img,
+.userWeibo img,
+.userKongjian img,
+.userMail img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+.userHead:hover,
+.userWeibo:hover,
+.userKongjian:hover,
+.userMail:hover {
+  background-color: #ccc;
+}
+.userWeibo,
+.userKongjian,
+.userMail {
+  padding-left: 20px;
+}
