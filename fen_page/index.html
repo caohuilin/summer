@@ -5,6 +5,9 @@
     <title>直角普通分页页码</title>
     <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
   </head>
+  <!--行内元素中间有间隙
+  产生原因：换行符、tab、空格产生间隙
+  解决方法： 1、元素写成一行 2.设置font-size：0-->
   <body>
     <div class="page-normal">
       <span class="page-prev">&lt</span>
@@ -15,7 +18,7 @@
       <a href="#">5</a>
       <a href="#">6</a>
       <a href="#">7</a>
-      ...
+      <span class="ellipsis">...</span>
       <a href="#">199</a>
       <a href="#">200</a>
       <a href="#">&gt</a>
