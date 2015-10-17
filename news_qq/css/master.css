@@ -285,11 +285,19 @@ a {
   height: 7329px;
   border-top: solid 1px #dadada;
   border-right: solid 1px #dadada;
+  float: left;
+  display: inline;
+}
+.rightArea {
+  width: 300px;
+  float: right;
+  display: inline;
 }
 .hot1 {
   width: 670px;
   height: 70px;
   margin-right: 15px;
+  margin-bottom: 20px;
   padding: 10px 0 20px;
   border-bottom: dotted 1px #dadada;
 }
@@ -385,4 +393,48 @@ a {
 }
 .class_list li + li {
   border-left: solid 1px #dadada;
+}
+.huaTi {
+  width: 293px;
+  border-top: solid 3px #333333;
+  margin-bottom: 20px;
+}
+.huaTi .con {
+  height: 150px;
+}
+.huaTi .con h3 {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.huaTi .con img {
+  float: left;
+  display: inline;
+}
+.huaTi .con p {
+  font-size: 12px;
+  width: 150px;
+  padding-left: 150px;
+  padding-top: 15px;
+  color: #666666;
+}
+.huaTi .con p a {
+  color: #333333;
+}
+.huaTi .con p a:hover {
+  color: #FF1737;
+}
+.huaTi ul {
+  padding-left: 15px;
+}
+.huaTi ul li {
+  height: 25px;
+  line-height: 25px;
+}
+.huaTi ul a {
+  font-size: 13px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  color: #333333;
+}
+.huaTi ul a:hover {
+  color: #FF1737;
 }
