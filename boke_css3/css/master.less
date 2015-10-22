@@ -27,7 +27,7 @@ button{
     .font-s18();
 }
 .wrapper{
-  max-width: 1080px;
+  max-width: 100%;
   margin: 0 auto;
 }
 //body样式
@@ -40,6 +40,9 @@ button{
 //header样式
 header{
   background: rgba(0, 0, 0, .2);
+  animation-name: slideDown;
+  animation-duration: .5s;
+  animation-fill-mode: both;
 }
 .logo{
   float: left;
@@ -59,7 +62,6 @@ nav{
   position: fixed;
   .clearfix();
   top: 0;
-  left: 0;
   ul{
     list-style: none;
     margin: 0;
@@ -98,7 +100,10 @@ nav{
     p{
       .font-s24();
       line-height: 30px;
-      padding-top: 180px;
+      padding-top: 50%;
+      strong{
+        color:#2E2D35;
+      }
     }
     .more{
       margin-top: 230px;
@@ -121,15 +126,28 @@ nav{
     width: 60%;
     background: #078494;
   }
-  .icon-group{
+  .icon-groups{
     margin-top: 20px;
     .icon{
       display: inline-block;
+      position: relative;
       height: 80px;
       width: 80px;
       transform: rotate(45deg);
       margin: 20px;
       border: 2px solid #1193A5;
+      a{
+        transform: rotate(-45deg);
+        .font-s18();
+        cursor: pointer;
+        position: absolute;
+        top: 36%;
+        left: 6%;
+        p{
+          color: #0EF599;
+          display: inline-block;
+        }
+        }
     }
   }
 }
@@ -137,8 +155,13 @@ nav{
   background: #252f34;
   color: #fff;
   //height: 305px;
+  .article-preview > div {
+    float: left;
+    display: inline-block;
+  }
   .img-section{
     width: 45%;
+    overflow: hidden;
     img{
       width: 100%;
     }
@@ -146,10 +169,12 @@ nav{
   .text-section{
     width: 55%;
     position: relative;
-    top: 68px;
     left: 50px;
+    margin-top: 3%;
     h2{
-      margin-bottom: 20px;
+      margin: 40px 0;
+      color: #9890DD;
+      .font-s40();
     }
     p{
       .font-s18();
@@ -196,10 +221,12 @@ nav{
       h3{
         .font-s24();
         text-align: center;
+        padding-bottom: 20px;
       }
       p{
         .font-s18();
         letter-spacing: 1px;
+        padding-left: 60px;
       }
       &:first-child{
         background: rgba( 0, 0, 0, 0.04);
@@ -228,7 +255,7 @@ footer{
   text-align: center;
   padding: 50px;
   .share-group{
-    width: 1080px;
+    width: 100%;
     margin: 0 auto;
   }
   li{
@@ -240,5 +267,6 @@ footer{
   }
   .copy{
     padding: 20px;
+    color: #fff;
   }
 }
