@@ -1,0 +1,183 @@
+@charset "UTF-8";
+@import "less/z";
+@import "less/css3";
+
+.reset();
+//设置常量
+@head_height: 50px;
+@a_hover: #03a9f4;
+//公共样式
+li{
+  .fl();
+  a{
+    .font-s18();
+    color: #000;
+  }
+}
+body{
+  font-family: 'Helvetica Neue','Hiragino Sans GB','WenQuanYi Micro Hei','Microsoft Yahei',sans-serif;
+}
+.button{
+  border: solid 1px #c2c2c2;
+  padding:5px 10px;
+}
+.act{
+  background: @a_hover;
+  border-color: @a_hover;
+}
+.ac:hover{
+  background: #ededed;
+}
+//header样式
+.site-header{
+  height: @head_height;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container{
+  width: 80%;
+  height: @head_height;
+  margin: 0 auto;
+  line-height: @head_height;
+  .clearfix();
+  .logo{
+    .fl();
+    img{
+      width: 150px;
+    }
+  }
+  .head-nav{
+    .fl();
+    height: @head_height;
+    width: 45%;
+    li{
+        padding-left: 10%;
+    }
+  }
+  .active a,& a:hover{
+    color:@a_hover;
+  }
+  .head-use{
+    .fr();
+    width: 26%;
+    li{
+      padding-left: 5%;
+    }
+    a{
+      color: #666;
+      .font-s16();
+    }
+    .language{
+      a:hover{
+          color: rgba(31,33,35,0.76);
+        }
+      i{
+        padding-left: 10px;
+      }
+    }
+
+  }
+}
+.con_1{
+  width: 100%;
+  height: 900px;
+  background: url("../img/hero-lg.jpg") no-repeat;
+  .banner{
+    position: absolute;
+    top: 50%;
+    left: 37%;
+    h1{
+      font-size: 55px;
+      margin-bottom: 25px;
+      color: inherit;
+      font-weight: 500;
+      }
+      p{
+        font-size: 20px;
+        padding-left: 10%;
+        padding-top: 24px;
+        padding-bottom: 20px;
+      }
+      .button{
+        .font-s25();
+        color: #fff;
+        margin: 0 30%;
+      }
+  }
+}
+.con_2{
+  width: 60%;
+  height: 511px;
+  margin: 0 auto;
+  margin-top: 185px;
+  .content{
+    width: 100%;
+    height: 511px;
+    padding: 0 10px;
+    h2{
+      .font-s44();
+    }
+    .clo{
+      margin-top: 30px;
+      height: 408px;
+    }
+    .icon{
+      height: 144px;
+      width: 18%;
+      margin-right: 9%;
+      margin-bottom: 40px;
+      .fl();
+      .ic{
+        width: 44px;
+        height: 44px;
+        margin: 0 auto 20px;
+        background: url("../img/feature-icon@2x.png") no-repeat;
+      }
+      h3{
+        margin-bottom: 14px;
+        line-height: 1.2;
+        .font-s18();
+        font-weight: 500;
+        text-align: center;
+      }
+      span{
+        height: 40px;
+        color: grey;
+        text-align: center;
+        .font-s14();
+      }
+
+    }
+    .last{
+      margin-right: 0;
+    }
+  }
+}
+#icon_1{
+  background-position-x: 0;
+}
+#icon_2{
+  background-position-x: -42px;
+}
+#icon_3{
+  background-position-x: -42*2px;
+}
+#icon_4{
+  background-position-x: -129px;
+}
+#icon_5{
+  background-position-x: -174px;
+}
+#icon_6{
+  background-position-x: -218px;
+}
+#icon_7{
+  background-position-x: -262px;
+}
+#icon_8{
+  background-position-x: -305px;
+}

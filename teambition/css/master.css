@@ -1,0 +1,208 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+li {
+  float: left;
+  display: inline;
+}
+li a {
+  font-size: 18px;
+  color: #000;
+}
+body {
+  font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+}
+.button {
+  border: solid 1px #c2c2c2;
+  padding: 5px 10px;
+}
+.act {
+  background: #03a9f4;
+  border-color: #03a9f4;
+}
+.ac:hover {
+  background: #ededed;
+}
+.site-header {
+  height: 50px;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container {
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  line-height: 50px;
+  *zoom: 1;
+}
+.container:before,
+.container:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.container:after {
+  clear: both;
+}
+.container .logo {
+  float: left;
+  display: inline;
+}
+.container .logo img {
+  width: 150px;
+}
+.container .head-nav {
+  float: left;
+  display: inline;
+  height: 50px;
+  width: 45%;
+}
+.container .head-nav li {
+  padding-left: 10%;
+}
+.container .active a,
+.container a:hover {
+  color: #03a9f4;
+}
+.container .head-use {
+  float: right;
+  display: inline;
+  width: 26%;
+}
+.container .head-use li {
+  padding-left: 5%;
+}
+.container .head-use a {
+  color: #666;
+  font-size: 16px;
+}
+.container .head-use .language a:hover {
+  color: rgba(31, 33, 35, 0.76);
+}
+.container .head-use .language i {
+  padding-left: 10px;
+}
+.con_1 {
+  width: 100%;
+  height: 900px;
+  background: url("../img/hero-lg.jpg") no-repeat;
+}
+.con_1 .banner {
+  position: absolute;
+  top: 50%;
+  left: 37%;
+}
+.con_1 .banner h1 {
+  font-size: 55px;
+  margin-bottom: 25px;
+  color: inherit;
+  font-weight: 500;
+}
+.con_1 .banner p {
+  font-size: 20px;
+  padding-left: 10%;
+  padding-top: 24px;
+  padding-bottom: 20px;
+}
+.con_1 .banner .button {
+  font-size: 25px;
+  color: #fff;
+  margin: 0 30%;
+}
+.con_2 {
+  width: 60%;
+  height: 511px;
+  margin: 0 auto;
+  margin-top: 185px;
+}
+.con_2 .content {
+  width: 100%;
+  height: 511px;
+  padding: 0 10px;
+}
+.con_2 .content h2 {
+  font-size: 44px;
+}
+.con_2 .content .clo {
+  margin-top: 30px;
+  height: 408px;
+}
+.con_2 .content .icon {
+  height: 144px;
+  width: 18%;
+  margin-right: 9%;
+  margin-bottom: 40px;
+  float: left;
+  display: inline;
+}
+.con_2 .content .icon .ic {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 20px;
+  background: url("../img/feature-icon@2x.png") no-repeat;
+}
+.con_2 .content .icon h3 {
+  margin-bottom: 14px;
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+.con_2 .content .icon span {
+  height: 40px;
+  color: grey;
+  text-align: center;
+  font-size: 14px;
+}
+.con_2 .content .last {
+  margin-right: 0;
+}
+#icon_1 {
+  background-position-x: 0;
+}
+#icon_2 {
+  background-position-x: -42px;
+}
+#icon_3 {
+  background-position-x: -84px;
+}
+#icon_4 {
+  background-position-x: -129px;
+}
+#icon_5 {
+  background-position-x: -174px;
+}
+#icon_6 {
+  background-position-x: -218px;
+}
+#icon_7 {
+  background-position-x: -262px;
+}
+#icon_8 {
+  background-position-x: -305px;
+}
