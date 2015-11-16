@@ -1,0 +1,96 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+#G-lightbox-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 10000;
+}
+#G-lightbox-popup {
+  position: fixed;
+  width: 300px;
+  left: 50%;
+  top: 0;
+  margin-left: -150px;
+  z-index: 10001;
+}
+#G-lightbox-popup .lightbox-pic-view {
+  position: relative;
+  border: 5px solid #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  background: url("../img/icon/loading.gif") no-repeat center center;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-btn {
+  position: relative;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  z-index: 1;
+  background-color: #0c0;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn {
+  left: 0;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn-show {
+  background: url(../img/icon/prev.png) no-repeat left center;
+  cursor: pointer;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-next-btn {
+  right: 0;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-next-btn-show {
+  background: url(../img/icon/next.png) no-repeat right center;
+  cursor: pointer;
+}
+#G-lightbox-popup .lightbox-pic-view .light-box-image {
+  display: block;
+}
+.lightbox-pic-caption {
+  position: relative;
+  margin: 0 5px;
+  margin-top: -60px;
+  background: #000;
+  opacity: 0.5;
+}
+.lightbox-pic-caption .lightbox-caption-area {
+  color: #fff;
+  padding: 10px 5px;
+}
+.lightbox-pic-caption .lightbox-caption-area .lightbox-of-index {
+  color: #999;
+}
+.lightbox-pic-caption .light-close-btn {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  width: 27px;
+  height: 27px;
+  background: url("../img/icon/close.png") no-repeat center center;
+}
