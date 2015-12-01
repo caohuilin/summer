@@ -14,8 +14,8 @@
       this.picViewArea = this.popupWin.find("div.lightbox-pic-view");//图片预览区域
       this.popupPic = this.popupWin.find("img.light-box-image");//图片
       this.picCaptionArea = this.popupWin.find("div.lightbox-pic-caption");//图片描述区域
-      this.nextBtn = this.popupMask.find("span.lightbox-next-btn");//
-      this.prevBtn = this.popupMask.find("span.lightbox-prev-btn");//
+      this.nextBtn = this.popupWin.find("span.lightbox-next-btn");//
+      this.prevBtn = this.popupWin.find("span.lightbox-prev-btn");//
 
       this.captionArea = this.popupWin.find("div.lightbox-caption-area");
       this.captionText = this.popupWin.find("p.lightbox-pic-desc");//图片描述
@@ -113,11 +113,12 @@
         if(this.index<0){
           //this.prevBtn.addClass("disabled").removeClass("lightbox-prev-btn-show");
           this.index = 0;
+
           alert("已经是第一张图片了");
         }
           var src = this.groupData[this.index].src;
           this.loadPicSize(src);
-    
+
       /*  if(this.index != this.groupData.length-1){
           this.nextBtn.removeClass("disabled");
         };*/
@@ -261,9 +262,9 @@
     },
     renderDom:function(){
       var strDom ='<div class="lightbox-pic-view">'+
-        //'<span class="lightbox-btn lightbox-prev-btn"></span>'+
+        '<span class="lightbox-btn lightbox-prev-btn"></span>'+
         '<img class="light-box-image"src="" alt="" />'+
-        //'<span class="lightbox-btn lightbox-next-btn"></span>'+
+        '<span class="lightbox-btn lightbox-next-btn"></span>'+
       '</div>'+
       '<div class="lightbox-pic-caption">'+
         '<div class="lightbox-caption-area">'+
@@ -273,11 +274,11 @@
         '<span class="light-close-btn"></span>'+
       '</div>';
 
-      var strDom2 = '<span class="lightbox-btn lightbox-prev-btn"></span>'+
-               '<span class="lightbox-btn lightbox-next-btn"></span>';
+      /*var strDom2 = '<span class="lightbox-btn lightbox-prev-btn"></span>'+
+               '<span class="lightbox-btn lightbox-next-btn"></span>';*/
       //插入到this.popupWin
       this.popupWin.html(strDom);
-      this.popupMask.html(strDom2);
+      //this.popupMask.html(strDom2);
       //把遮罩和弹出框插入到body
       this.bodyNode.append(this.popupMask,this.popupWin);
     }
