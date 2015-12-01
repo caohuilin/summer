@@ -14,6 +14,27 @@
   //filter: alpha(opacity(50%));
   z-index: 10000;
   display: none;
+  .lightbox-btn{
+    position: absolute;
+    top: 0;
+    width: 30%;
+    height: 100%;
+      z-index: 10005;
+  }
+  .lightbox-prev-btn{
+    left: 0;
+  }
+   .lightbox-prev-btn-show{
+     background: url(../img/icon/prev.png) no-repeat 200px center;
+     cursor: pointer;
+   }
+  .lightbox-next-btn{
+    right: 0;
+  }
+  .lightbox-next-btn-show{
+    background: url(../img/icon/next.png) no-repeat  200px center;
+    cursor: pointer;
+  }
 }
 #G-lightbox-popup{
   position: fixed;
@@ -29,27 +50,6 @@
      border-radius: 3px;
      overflow: hidden;
      background: url("../img/icon/loading.gif") no-repeat center center;
-     .lightbox-btn{
-       position: absolute;
-       top: 0;
-       width: 40%;
-       height: 100%;
-       z-index: 1;
-     }
-     .lightbox-prev-btn{
-       left: 0;
-     }
-      .lightbox-prev-btn-show{
-        background: url(../img/icon/prev.png) no-repeat left center;
-        cursor: pointer;
-      }
-     .lightbox-next-btn{
-       right: 0;
-     }
-     .lightbox-next-btn-show{
-       background: url(../img/icon/next.png) no-repeat right center;
-       cursor: pointer;
-     }
      .light-box-image{
        display: block;
      }

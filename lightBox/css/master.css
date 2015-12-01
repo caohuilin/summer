@@ -33,6 +33,27 @@ a {
   z-index: 10000;
   display: none;
 }
+#G-lightbox-mask .lightbox-btn {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 10005;
+}
+#G-lightbox-mask .lightbox-prev-btn {
+  left: 0;
+}
+#G-lightbox-mask .lightbox-prev-btn-show {
+  background: url(../img/icon/prev.png) no-repeat 200px center;
+  cursor: pointer;
+}
+#G-lightbox-mask .lightbox-next-btn {
+  right: 0;
+}
+#G-lightbox-mask .lightbox-next-btn-show {
+  background: url(../img/icon/next.png) no-repeat 200px center;
+  cursor: pointer;
+}
 #G-lightbox-popup {
   position: fixed;
   width: 400px;
@@ -48,27 +69,6 @@ a {
   border-radius: 3px;
   overflow: hidden;
   background: url("../img/icon/loading.gif") no-repeat center center;
-}
-#G-lightbox-popup .lightbox-pic-view .lightbox-btn {
-  position: absolute;
-  top: 0;
-  width: 40%;
-  height: 100%;
-  z-index: 1;
-}
-#G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn {
-  left: 0;
-}
-#G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn-show {
-  background: url(../img/icon/prev.png) no-repeat left center;
-  cursor: pointer;
-}
-#G-lightbox-popup .lightbox-pic-view .lightbox-next-btn {
-  right: 0;
-}
-#G-lightbox-popup .lightbox-pic-view .lightbox-next-btn-show {
-  background: url(../img/icon/next.png) no-repeat right center;
-  cursor: pointer;
 }
 #G-lightbox-popup .lightbox-pic-view .light-box-image {
   display: block;

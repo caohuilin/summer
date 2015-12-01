@@ -5,6 +5,7 @@
       //创建遮罩和弹出层
       this.popupMask = $('<div id="G-lightbox-mask">');
       this.popupWin = $('<div id="G-lightbox-popup">');
+
       //保存body
       this.bodyNode = $(document.body);
       //渲染剩余的Dom 并且插入到body
@@ -13,8 +14,8 @@
       this.picViewArea = this.popupWin.find("div.lightbox-pic-view");//图片预览区域
       this.popupPic = this.popupWin.find("img.light-box-image");//图片
       this.picCaptionArea = this.popupWin.find("div.lightbox-pic-caption");//图片描述区域
-      this.nextBtn = this.popupWin.find("span.lightbox-next-btn");//
-      this.prevBtn = this.popupWin.find("span.lightbox-prev-btn");//
+      this.nextBtn = this.popupMask.find("span.lightbox-next-btn");//
+      this.prevBtn = this.popupMask.find("span.lightbox-prev-btn");//
 
       this.captionArea = this.popupWin.find("div.lightbox-caption-area");
       this.captionText = this.popupWin.find("p.lightbox-pic-desc");//图片描述
@@ -46,63 +47,81 @@
       this.closeBtn.click(function(){
         self.popupMask.fadeOut();
         self.popupWin.fadeOut();
+        self.clear = false;
       });
 
       //绑定上下切换按钮事件
       this.flag = true;
       this.nextBtn.hover(function(){
-        if(!$(this).hasClass("disabled")&&self.groupData.length>1){
+        //if(!$(this).hasClass("disabled")&&self.groupData.length>1){
           $(this).addClass("lightbox-next-btn-show");
-        };
-      },function(){
+      //};
+    }/*,function(){
         if(!$(this).hasClass("disabled")&&self.groupData.length>1){
           $(this).removeClass("lightbox-next-btn-show");
         };
-      }).click(function(e){
-        if(!$(this).hasClass("disabled")&&self.flag){
+      }*/).click(function(e){
+        if(/*!$(this).hasClass("disabled")&&*/self.flag){
           self.flag = false;
           e.stopPropagation();
             self.goto("next");
         };
       });
       this.prevBtn.hover(function(){
-        if(!$(this).hasClass("disabled")&&self.groupData.length>1){
+      // if(!$(this).hasClass("disabled")&&self.groupData.length>1){
           $(this).addClass("lightbox-prev-btn-show");
-        };
-      },function(){
+      //  };
+      }/*,function(){
         if(!$(this).hasClass("disabled")&&self.groupData.length>1){
           $(this).removeClass("lightbox-prev-btn-show");
         };
-      }).click(function(e){
-        if(!$(this).hasClass("disabled")&&self.flag){
+      }*/).click(function(e){
+        if(/*!$(this).hasClass("disabled")&&*/self.flag){
           self.flag = false;
           e.stopPropagation();
           self.goto("prev");
         }
+      });
+      //绑定窗口调整事件
+      var timer = null;
+      this.clear = false;
+      $(window).resize(function(){
+        if(self.clear){
+          window.clearTimeout(timer);
+          timer = window.setTimeout(function(){
+            self.loadPicSize(self.groupData[self.index].src);
+          },500);
+        };
       });
   };
   LightBox.prototype={
     goto:function(dir){
       if(dir === "next"){
         this.index++;
-        if(this.index>=this.groupData.length-1){
-          this.nextBtn.addClass("disabled").removeClass("lightbox-next-btn-show");
-        };
-        if(this.index != 0){
+        if(this.index>=this.groupData.length){
+          //this.nextBtn.addClass("disabled").removeClass("lightbox-next-btn-show");
+          this.index = this.groupData.length-1;
+          alert("已经是最后一张图片了");
+        }
+          var src = this.groupData[this.index].src;
+          this.loadPicSize(src);
+        /*if(this.index != 0){
           this.prevBtn.removeClass("disabled");
-        };
-        var src = this.groupData[this.index].src;
-        this.loadPicSize(src);
+        };*/
       }else if(dir === "prev"){
         this.index--;
-        if(this.index<=0){
-          this.prevBtn.addClass("disabled").removeClass("lightbox-prev-btn-show");
-        };
-        if(this.index != this.groupData.length-1){
+        if(this.index<0){
+          //this.prevBtn.addClass("disabled").removeClass("lightbox-prev-btn-show");
+          this.index = 0;
+          alert("已经是第一张图片了");
+        }
+          var src = this.groupData[this.index].src;
+          this.loadPicSize(src);
+    
+      /*  if(this.index != this.groupData.length-1){
           this.nextBtn.removeClass("disabled");
-        };
-        var src = this.groupData[this.index].src;
-        this.loadPicSize(src);
+        };*/
+
       };
 },
     loadPicSize:function(sourceSrc){
@@ -110,6 +129,7 @@
       self.popupPic.css({
         width:"auto",height:"auto"
       }).hide();
+      self.picCaptionArea.hide();
       this.preLoadImg(sourceSrc,function(){
         //alert("OK");
         self.popupPic.attr("src",sourceSrc);
@@ -143,6 +163,7 @@
         }).fadeIn();
         self.picCaptionArea.fadeIn();
         self.flag = true;
+        self.clear = true;
       });
       //设置描述文字
       this.captionText.text(this.groupData[this.index]);
@@ -192,9 +213,9 @@
         self.loadPicSize(sourceSrc);
       });
       //根据当前点击的元素的ID，获取在当前组别里的索引
-      this.index = this.getIndexOf(currentId);
+     this.index = this.getIndexOf(currentId);
       var groupDataLength = this.groupData.length;
-      if(groupDataLength>1){
+    /*  if(groupDataLength>1){
         if(this.index === 0){
           this.prevBtn.addClass("disabled");
           this.nextBtn.removeClass("disabled");
@@ -205,7 +226,7 @@
           this.prevBtn.removeClass("disabled");
           this.nextBtn.removeClass("disabled");
         }
-      };
+      };*/
     },
     getIndexOf:function(currentId){
       var index = 0;
@@ -240,9 +261,9 @@
     },
     renderDom:function(){
       var strDom ='<div class="lightbox-pic-view">'+
-        '<span class="lightbox-btn lightbox-prev-btn"></span>'+
+        //'<span class="lightbox-btn lightbox-prev-btn"></span>'+
         '<img class="light-box-image"src="" alt="" />'+
-        '<span class="lightbox-btn lightbox-next-btn"></span>'+
+        //'<span class="lightbox-btn lightbox-next-btn"></span>'+
       '</div>'+
       '<div class="lightbox-pic-caption">'+
         '<div class="lightbox-caption-area">'+
@@ -252,8 +273,11 @@
         '<span class="light-close-btn"></span>'+
       '</div>';
 
+      var strDom2 = '<span class="lightbox-btn lightbox-prev-btn"></span>'+
+               '<span class="lightbox-btn lightbox-next-btn"></span>';
       //插入到this.popupWin
       this.popupWin.html(strDom);
+      this.popupMask.html(strDom2);
       //把遮罩和弹出框插入到body
       this.bodyNode.append(this.popupMask,this.popupWin);
     }
