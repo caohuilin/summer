@@ -13,14 +13,16 @@
   opacity: 0.5;
   //filter: alpha(opacity(50%));
   z-index: 10000;
+  display: none;
 }
 #G-lightbox-popup{
   position: fixed;
-  width: 300px;
+  width: 400px;
   left: 50%;
-  top: 0;
-  margin-left: -150px;
+  top: 50px;
+  margin-left: -200px;
   z-index: 10001;
+  display: none;
   .lightbox-pic-view{
      position: relative;
      border: 5px solid #fff;
@@ -28,12 +30,11 @@
      overflow: hidden;
      background: url("../img/icon/loading.gif") no-repeat center center;
      .lightbox-btn{
-       position: relative;
+       position: absolute;
        top: 0;
        width: 40%;
        height: 100%;
        z-index: 1;
-       background-color: #0c0;
      }
      .lightbox-prev-btn{
        left: 0;
@@ -60,6 +61,7 @@
   margin-top: -60px;
   background: #000;
   opacity: 0.5;
+  z-index: 2;
   .lightbox-caption-area{
     color: #fff;
     padding: 10px 5px;
@@ -73,6 +75,8 @@
     right: 10px;
     width: 27px;
     height: 27px;
+    cursor: pointer;
+    z-index: 1;
     background: url("../img/icon/close.png") no-repeat center center;
   }
 }
