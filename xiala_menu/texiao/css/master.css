@@ -11,9 +11,6 @@ a{
   margin-left: 60px;
   color: #666;
 }
-.navlist:first-child a{
-  margin-left: 0;
-}
 .expand{
   height: 0px;
   overflow: hidden;
