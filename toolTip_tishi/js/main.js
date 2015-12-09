@@ -82,12 +82,12 @@ addEvent(demo,"mouseover",function(e){
           break;
       case "tooltip4":
           _id = "t4";
-          _html = '<img src="../images/1.jpg" width="500" />';
+          _html = '<img src="images/1.jpg" width="500" />';
           _width = 520;
           break;
     case "tooltip5":
           _id = "t5";
-          _html = '<div id="mycard"><img src="../images/2.jpg" alt=""/><p><strong>昵称一定要长</strong></p><p>我的简介我的简介</p></div>';
+          _html = '<div id="mycard"><img src="images/2.jpg" alt=""/><p><strong>昵称一定要长</strong></p><p>我的简介我的简介</p></div>';
          _width = 300;
          break;
     case "tooltip6":
