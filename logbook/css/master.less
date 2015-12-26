@@ -54,6 +54,7 @@
   }
 }
 #mask{
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -81,9 +82,18 @@
     color: #555;
     padding: 0 20px;
   }
-  .content{
+  .icon{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: url("../img/close.png")no-repeat;
+  }
+  .con{
     font-size: 15px;
-    height: 50px;
+    height: 500px;
+    width:  550px;
     margin: 20px 5px;
     padding: 5px 20px;
     color: #666;
@@ -99,9 +109,23 @@
     }
     .mood{
       margin: 40px 5px;
+      width: 100%;
+      height: 50px;
+      ul{
+        margin-top: 10px;
+      }
       li{
         .fl();
         margin: 0 8px;
+      }
+    }
+    .note{
+      textarea{
+        width: 540px;
+        height: 200px;
+        border: solid 1px #ccc;
+        margin-top: 5px;
+        background-color: #e5e5e5;
       }
     }
   }

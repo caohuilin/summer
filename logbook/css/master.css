@@ -74,6 +74,7 @@ a {
   height: 20px;
 }
 #mask {
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -102,14 +103,23 @@ a {
   color: #555;
   padding: 0 20px;
 }
-#popup .content {
+#popup .icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: url("../img/close.png") no-repeat;
+}
+#popup .con {
   font-size: 15px;
-  height: 50px;
+  height: 500px;
+  width: 550px;
   margin: 20px 5px;
   padding: 5px 20px;
   color: #666;
 }
-#popup .content .date input {
+#popup .con .date input {
   width: 540px;
   height: 26px;
   border: 1px solid #c5c5c5;
@@ -117,13 +127,25 @@ a {
   padding: 2px 5px;
   background: url(../img/date.png) top right no-repeat;
 }
-#popup .content .mood {
+#popup .con .mood {
   margin: 40px 5px;
+  width: 100%;
+  height: 50px;
 }
-#popup .content .mood li {
+#popup .con .mood ul {
+  margin-top: 10px;
+}
+#popup .con .mood li {
   float: left;
   display: inline;
   margin: 0 8px;
+}
+#popup .con .note textarea {
+  width: 540px;
+  height: 200px;
+  border: solid 1px #ccc;
+  margin-top: 5px;
+  background-color: #e5e5e5;
 }
 .content {
   width: 100%;

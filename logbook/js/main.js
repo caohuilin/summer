@@ -23,8 +23,8 @@
 
   //个人信息的点击事件
   var flag = 1;
-  $("#inf").click(function(){
-    alert(1);
+  $("#inf").on('click',function(){
+    //alert(1);
     if(flag){
           $("#user").show();
           flag = 0;
@@ -35,17 +35,13 @@
   });
 
   //我的日志的点击事件
-  var flag2 = 1;
- $("#note").click(function(){
-   if(flag2){
-         $("#mask").show();
-         $("#popup").show();
-         flag = 0;
-   }else{
-     $("#mask").hide();
-     $("#popup").hide();
-     flag = 1;
-   }
+ $("#note").on('click',function(){
+      $("#mask").show();
+      $("#popup").show();
  });
+  $(".icon").on('click',function(){
+    $("#mask").hide();
+    $("#popup").hide();
+  });
 
 })(jQuery);
