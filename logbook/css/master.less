@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@import "less/z";
+@import "less/css3";
+
+.reset();
+.header{
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+}
+.icon{
+  margin: 5px 0 3px 40px;
+  .fl();
+}
+.nav{
+  .fr();
+  height: 50px;
+  line-height: 50px;
+  button{
+    width: 80px;
+    height: 30px;
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #aaa;
+  }
+}
+#note{
+  background-color: #007edf;
+  color:#fff;
+  margin:0 10px;
+}
+#inf{
+  background-color: #f2f2f2;
+  color: #8298B6;
+  margin: 0 20px 0 10px;
+
+}
+#user{
+  z-index: 2;
+  width: 184px;
+  height: 140px;
+  position: absolute;
+  right: 19px;
+  top: 47px;
+  border: solid 2px #ccc;
+  background: #fff;
+  display: none;
+  li{
+    list-style: disc;
+    font-size: 14px;
+    padding: 5px 5px;
+    margin-left: 20px;
+    height: 20px;
+  }
+}
+#mask{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 5;
+}
+#popup{
+  display: none;
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  left: 50%;
+  top: 35px;
+  margin-left: -300px;
+  z-index: 10;
+  background-color: #fff;
+  .title{
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 2px solid #ccc;
+    font-size: 25px;
+    color: #555;
+    padding: 0 20px;
+  }
+  .content{
+    font-size: 15px;
+    height: 50px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    color: #666;
+    .date{
+      input{
+        width: 540px;
+        height: 26px;
+        border: 1px solid #c5c5c5;
+        margin: 10px 0;
+        padding: 2px 5px;
+        background: url(../img/date.png) top right no-repeat;
+      }
+    }
+    .mood{
+      margin: 40px 5px;
+      li{
+        .fl();
+        margin: 0 8px;
+      }
+    }
+  }
+}
+.content{
+  width: 100%;
+  height: 800px;
+  z-index: 1;
+}
+.leftArea{
+  border: 1px solid #ccc;
+  width: 30%;
+  height: 800px;
+  .fl();
+}
+.rightArea{
+  width: 69%;
+  height: 800px;
+  .fr();
+  .departments{
+    li{
+      display:block;
+      width: 90% auto;
+      height: 45px;
+      line-height: 45px;
+      border: solid 1px #E5E5E5;
+      background: #F5F5F5;
+      margin: 15px;
+      padding-left: 20px;
+    }
+  }
+  .date{
+    font-size: 20px;
+    padding: 15px 20px;
+    color:#8298B6;
+  }
+}
