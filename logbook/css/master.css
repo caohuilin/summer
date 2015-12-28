@@ -26,6 +26,11 @@ a {
   width: 100%;
   height: 50px;
   border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 3;
 }
 .icon {
   margin: 5px 0 3px 40px;
@@ -41,6 +46,7 @@ a {
 .nav button {
   width: 80px;
   height: 30px;
+  line-height: 30px;
   font-size: 12px;
   border-radius: 2px;
   border: 1px solid #aaa;
@@ -153,27 +159,89 @@ a {
   z-index: 1;
 }
 .leftArea {
-  border: 1px solid #ccc;
-  width: 30%;
+  border-right: 1px solid #ccc;
+  width: 19%;
   height: 800px;
+  position: absolute;
+  top: 50px;
+  left: 0;
   float: left;
   display: inline;
 }
+.leftArea .date {
+  margin-top: 20px;
+  margin-left: 15px;
+  border-bottom: solid 1px #E5E5E5;
+}
+.leftArea .c_de {
+  margin: 20px 20px;
+}
+.leftArea .c_de > li {
+  display: block;
+  line-height: 40px;
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #a5a5a5;
+}
+.leftArea .c_de > li:hover {
+  color: #333;
+}
+.leftArea .gd {
+  display: none;
+  margin: 0 20px 10px;
+}
+.leftArea .gd li {
+  display: block;
+  line-height: 30px;
+  font-size: 15px;
+  padding: 5px 20px;
+  color: #a5a5a5;
+}
+.leftArea .gd li:hover {
+  color: #333;
+}
 .rightArea {
-  width: 69%;
+  margin-top: 50px;
+  width: 79%;
   height: 800px;
   float: right;
   display: inline;
 }
-.rightArea .departments li {
+.rightArea .departments > li {
   display: block;
-  width: 90% auto;
   height: 45px;
   line-height: 45px;
   border: solid 1px #E5E5E5;
   background: #F5F5F5;
-  margin: 15px;
+  margin: 30px 15px 0;
   padding-left: 20px;
+  cursor: pointer;
+}
+.rightArea .departments > li .num {
+  display: inline-block;
+  padding-left: 30px;
+}
+.rightArea .departments .gs {
+  border: solid 1px #e5e5e5;
+  border-top: none;
+  margin: 15px;
+  margin-top: 0px;
+  display: none;
+}
+.rightArea .departments .gs .name {
+  float: left;
+  display: inline;
+  padding-right: 30px;
+}
+.rightArea .departments .gs li {
+  display: block;
+  background: #fff;
+  width: 90% auto;
+  height: 80px;
+  line-height: 30px;
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #dd0000;
 }
 .rightArea .date {
   font-size: 20px;
