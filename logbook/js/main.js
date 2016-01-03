@@ -7,6 +7,8 @@
     var depart = {};
     var us_ht = {};
     var name_ht = {};
+    var user={};
+    var notess = {};
     $.get("http://96a8to7r.apps.qbox.me/users",function(users){
     //  console.log(users);
       $.each(users.data,function(i,us){
@@ -19,8 +21,12 @@
           us_ht[us.department] = "<li><div class='name'>姓名："+us.real_name+"</div><div class='mood'>心情：</div><div class='note'>日志:</div></li>";
           name_ht[us.department] = "<li>"+us.real_name+"</li>";
         }
+        user[us.real_name] = us.id;
+        notess[us.id]={
+          'data':[]
+        }
       });
-    //  console.log(name_ht);
+
       var html = "";
       var html2 = "";
       $.each(departments.data,function(i,dep){
@@ -60,6 +66,7 @@
             flag = 1;
           }
         });
+
       });
 
       //左边区域的点击事件
@@ -88,9 +95,30 @@
           }
         });
       });
+      //获取日志
+      $.get("http://96a8to7r.apps.qbox.me/posts?uid=5662ecda489e900001f38001",function(notes){
+        $.each(notes.data,function(i,note){
+          notess[note.user_id]['data'].push(note);
+        });
+      });
+      //左边区域点击人的事件
     });
   });
 
+
+
+  //日期
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth()+1;
+  var date = now.getDate();
+  if(month<10){
+    month = "0" + month;
+  }
+  if(date<10){
+    date = "0" + date;
+  }
+  $(".rightArea .date").html(year+"-"+month+"-"+date);
   //个人信息
    $.get("http://96a8to7r.apps.qbox.me/user/overview",function(user){
     //console.log(user.data);

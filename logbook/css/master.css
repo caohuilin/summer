@@ -182,6 +182,7 @@ a {
   padding: 10px 20px;
   font-size: 15px;
   color: #a5a5a5;
+  cursor: pointer;
 }
 .leftArea .c_de > li:hover {
   color: #333;
@@ -191,6 +192,7 @@ a {
   margin: 0 20px 10px;
 }
 .leftArea .gd li {
+  cursor: pointer;
   display: block;
   line-height: 30px;
   font-size: 15px;
