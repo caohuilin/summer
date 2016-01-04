@@ -103,26 +103,51 @@
       //  console.log(JSON.stringify(notess[note.user_id]));
         });
         //左边区域点击人的事件
-        var gd = $ (".gd >li");
-      //  for (var i=0;i<gd.length;i++){
+      var gd = $ (".gd >li");
+      var html3="";
       $.each(gd,function(i,d){
           gd.eq(i).on("click",function(){
-            var k = i;
-            console.log(k);
-            var con = gd.eq(k)[0].innerHTML;
+            var con = gd.eq(i)[0].innerHTML;
             var id = user[con].id;
             var not = notess[id]['data'];
             //console.log(not);
-            var html3="<div class='name'>"+user[con].real_name+"</div><div class='de'>--"+user[con].department+"</div><div class='note_nav'>";
+            html3 += "<div class='name'>"+user[con].real_name+"</div><div class='de'>--"+user[con].department+"</div><div class='note_nav'>";
             for(var j=0;j<not.length;j++){
-              html3+="<li>"+not[j].day+"</li>"
+              html3+="<li>"+not[j].day+"</li><div class='notess'><div div='mo'>心情："+not[j].mood+"</div><div class='rizhi'>日志：<div class='con'>"+not[j].content+"</div></div></div>"
            }
            html3+="</div>"
-           console.log(html3);
            $(".rightArea").html(html3);
+           //点击事件
+           var show3 = -1;
+           var flag3 = 1;
+           var gd2 = $(".note_nav >li");
+           //console.log(gd2);
+           var no2 = $(".notess");
+           //console.log(no2);
+           $.each(gd2,function(k,d){
+             gd2.eq(k).on("click", function(){
+             if(show3 != -1){
+                no2.eq(show3).css("display","none");
+              }
+             if(show3 == k){
+               if(flag3){
+                 no2.eq(show3).css("display","none");
+                 flag3 = 0;
+               }
+               else{
+                 no2.eq(show3).css("display","block");
+                 flag3 = 1;
+               }
+             }else{
+                show3= k;
+                 no2.eq(k).css("display","block");
+                 flag3 = 1;
+               }
+             });
+           });
           });
         });
-      });
+        });
     });
   });
 
