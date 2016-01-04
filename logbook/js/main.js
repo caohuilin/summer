@@ -21,7 +21,7 @@
           us_ht[us.department] = "<li><div class='name'>姓名："+us.real_name+"</div><div class='mood'>心情：</div><div class='note'>日志:</div></li>";
           name_ht[us.department] = "<li>"+us.real_name+"</li>";
         }
-        user[us.real_name] = us.id;
+        user[us.real_name] = us;
         notess[us.id]={
           'data':[]
         }
@@ -99,9 +99,30 @@
       $.get("http://96a8to7r.apps.qbox.me/posts?uid=5662ecda489e900001f38001",function(notes){
         $.each(notes.data,function(i,note){
           notess[note.user_id]['data'].push(note);
+        //  console.log(notess[note.user_id]);
+      //  console.log(JSON.stringify(notess[note.user_id]));
+        });
+        //左边区域点击人的事件
+        var gd = $ (".gd >li");
+      //  for (var i=0;i<gd.length;i++){
+      $.each(gd,function(i,d){
+          gd.eq(i).on("click",function(){
+            var k = i;
+            console.log(k);
+            var con = gd.eq(k)[0].innerHTML;
+            var id = user[con].id;
+            var not = notess[id]['data'];
+            //console.log(not);
+            var html3="<div class='name'>"+user[con].real_name+"</div><div class='de'>--"+user[con].department+"</div><div class='note_nav'>";
+            for(var j=0;j<not.length;j++){
+              html3+="<li>"+not[j].day+"</li>"
+           }
+           html3+="</div>"
+           console.log(html3);
+           $(".rightArea").html(html3);
+          });
         });
       });
-      //左边区域点击人的事件
     });
   });
 
@@ -150,11 +171,9 @@
     $("#mask").hide();
     $("#popup").hide();
   });
-
+//日历
   $('.date div').datepicker({
     format:'yyyy-mm-dd',
     todayHighlight:true
   });
-
-
 })(jQuery);
