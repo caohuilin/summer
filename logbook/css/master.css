@@ -94,7 +94,7 @@ a {
   display: none;
   position: fixed;
   width: 600px;
-  height: 600px;
+  height: 550px;
   left: 50%;
   top: 35px;
   margin-left: -300px;
@@ -119,7 +119,7 @@ a {
 }
 #popup .con {
   font-size: 15px;
-  height: 500px;
+  height: 410px;
   width: 550px;
   margin: 20px 5px;
   padding: 5px 20px;
@@ -152,6 +152,46 @@ a {
   border: solid 1px #ccc;
   margin-top: 5px;
   background-color: #e5e5e5;
+}
+#popup button {
+  width: 52px;
+  height: 29px;
+  margin: 10px 30px;
+  border: solid 1px rgba(149, 151, 158, 0.98);
+  color: #503F3F;
+}
+.add_com_text {
+  display: none;
+  position: fixed;
+  width: 600px;
+  height: 300px;
+  left: 50%;
+  top: 35px;
+  margin-left: -300px;
+  z-index: 10;
+  background-color: #fff;
+}
+.add_com_text .title {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #555;
+  padding: 5px 29px;
+}
+.add_com_text textarea {
+  display: block;
+  width: 540px;
+  height: 200px;
+  border: solid 1px #ccc;
+  margin: 10px 29px;
+  background-color: #e5e5e5;
+}
+.add_com_text button {
+  width: 52px;
+  height: 29px;
+  margin: 10px 30px;
+  border: solid 1px rgba(149, 151, 158, 0.98);
+  color: #503F3F;
 }
 .content {
   width: 100%;
@@ -245,23 +285,32 @@ a {
   font-size: 15px;
   color: #dd0000;
 }
+.rightArea .departments .gs .name {
+  width: 150px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 17px;
+  margin: 15px 20px;
+  color: #707173;
+  float: left;
+  display: inline;
+}
 .rightArea .date {
   font-size: 20px;
   padding: 15px 20px;
   color: #8298B6;
 }
-.rightArea .name {
-  font-weight: bold;
-  font-size: 20px;
-  margin: 15px 20px;
-  color: #8298B6;
-  float: left;
-  display: inline;
-}
 .rightArea .de {
   font-size: 16px;
   margin-top: 20px;
   color: #8298B6;
+  float: left;
+  display: inline;
+}
+.rightArea .name {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 15px 20px;
   float: left;
   display: inline;
 }
@@ -282,10 +331,35 @@ a {
   display: none;
   border: solid 1px #e5e5e5;
   border-top: none;
-  height: 230px;
+  height: auto;
   padding: 10px 15px;
   font-size: 17px;
   line-height: 40px;
   margin: 15px;
   margin-top: 0px;
+}
+.rightArea .note_nav .notess .con {
+  font-size: 14px;
+}
+.rightArea .note_nav .notess .comment {
+  font-size: 14px;
+  margin: 10px 0;
+}
+.rightArea .note_nav .notess .comment a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.rightArea .note_nav .notess .comment .all_com {
+  display: none;
+  font-size: 12px;
+}
+.rightArea .note_nav .notess .add_comment {
+  font-size: 14px;
+  border-top: solid 1px #e5e5e5;
+  height: 60px;
+  line-height: 60px;
+}
+.rightArea .note_nav .notess .add_comment a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }

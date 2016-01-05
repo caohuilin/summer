@@ -7,7 +7,8 @@
     var depart = {};
     var us_ht = {};
     var name_ht = {};
-    var user={};
+    var user = {};
+    var user_id = {}
     var notess = {};
     $.get("http://96a8to7r.apps.qbox.me/users",function(users){
     //  console.log(users);
@@ -22,11 +23,11 @@
           name_ht[us.department] = "<li>"+us.real_name+"</li>";
         }
         user[us.real_name] = us;
+        user_id[us.id] = us;
         notess[us.id]={
           'data':[]
         }
       });
-
       var html = "";
       var html2 = "";
       $.each(departments.data,function(i,dep){
@@ -96,28 +97,46 @@
         });
       });
       //获取日志
+      var all_notes = {};
       $.get("http://96a8to7r.apps.qbox.me/posts?uid=5662ecda489e900001f38001",function(notes){
         $.each(notes.data,function(i,note){
+          all_notes[note.id]=note;
           notess[note.user_id]['data'].push(note);
         //  console.log(notess[note.user_id]);
       //  console.log(JSON.stringify(notess[note.user_id]));
-        });
+        })
         //左边区域点击人的事件
       var gd = $ (".gd >li");
-      var html3="";
       $.each(gd,function(i,d){
           gd.eq(i).on("click",function(){
             var con = gd.eq(i)[0].innerHTML;
             var id = user[con].id;
             var not = notess[id]['data'];
             //console.log(not);
-            html3 += "<div class='name'>"+user[con].real_name+"</div><div class='de'>--"+user[con].department+"</div><div class='note_nav'>";
+            var html3 = "<div class='name'>"+user[con].real_name+"</div><div class='de'>--"+user[con].department+"</div><div class='note_nav'>";
             for(var j=0;j<not.length;j++){
-              html3+="<li>"+not[j].day+"</li><div class='notess'><div div='mo'>心情："+not[j].mood+"</div><div class='rizhi'>日志：<div class='con'>"+not[j].content+"</div></div></div>"
+              html3+="<li>"+not[j].day+"</li><div class='notess'><div div='mo'>心情："+not[j].mood+"</div><div class='rizhi'>日志：<div class='con'>"+not[j].content+"</div></div><div class='comment'><a id='see_com"+id+j+"'>查看所有评论</a><div class='all_com' id='com"+id+j+"'>暂无评论</div></div><div class='add_comment'><a id='add_com"+id+j+"'>添加评论</a></div></div>"
            }
            html3+="</div>"
            $(".rightArea").html(html3);
-           //点击事件
+           //获取评论
+           $.get("http://96a8to7r.apps.qbox.me/posts/5672d427b999b70001f86ac0/comments",function(coms){
+             $.each(coms.data,function(i,con){
+             var us_id = all_notes[con.post_id].user_id;
+             var com_us_sq = notess[us_id]['data'];
+             for(var j=0;j<com_us_sq.length;j++){
+               if(com_us_sq[j].id == con.post_id){
+                 if(con.content==""){
+                   var html4 = "<div class='com_con'>暂无评论</div>";
+                 }else{
+                   var html4 = "<div class='com_con'>"+con.content+"</div>";
+                 }
+                 $("#com"+us_id+j).html(html4);
+               }
+             }
+             });
+           });
+           //点击时间显示日志事件
            var show3 = -1;
            var flag3 = 1;
            var gd2 = $(".note_nav >li");
@@ -145,9 +164,31 @@
                }
              });
            });
+           //点击查看所有评论的事件
+           $.each(user_id,function(i,us){
+             var u_id = us.id;
+             $.each(notess[u_id].data,function(j,no){
+               $("#see_com"+u_id+j).on("click",function(){
+                 //console.log("#see_com"+u_id+j);
+                 $("#com"+u_id+j).css("display","block");
+               });
+               $("#add_com"+u_id+j).on("click",function(){
+                   $("#mask").show();
+                 $(".add_com_text").css("display","block");
+                 $(".certern").on("click",function(){
+                   $("#mask").hide();
+                   $(".add_com_text").css("display","none");
+                 });
+               });
+               $("#mask").on("click",function(){
+                 $("#mask").hide();
+                 $(".add_com_text").css("display","none");
+               });
+             });
+           });
           });
         });
-        });
+      });
     });
   });
 
@@ -193,6 +234,14 @@
       $("#popup").show();
  });
   $(".icon").on('click',function(){
+    $("#mask").hide();
+    $("#popup").hide();
+  });
+  $(".certern").on("click",function(){
+    $("#mask").hide();
+    $("#popup").hide();
+  });
+  $("#mask").on("click",function(){
     $("#mask").hide();
     $("#popup").hide();
   });
