@@ -201,7 +201,6 @@ a {
 .leftArea {
   border-right: 1px solid #ccc;
   width: 19%;
-  height: 800px;
   position: absolute;
   top: 50px;
   left: 0;
@@ -245,7 +244,6 @@ a {
 .rightArea {
   margin-top: 50px;
   width: 79%;
-  height: 800px;
   float: right;
   display: inline;
 }
@@ -362,4 +360,11 @@ a {
 .rightArea .note_nav .notess .add_comment a:hover {
   text-decoration: none;
   cursor: pointer;
+}
+.po_fx {
+  position: fixed;
+}
+.po_fx_l {
+  position: fixed;
+  left: 21%;
 }

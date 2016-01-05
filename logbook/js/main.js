@@ -168,9 +168,16 @@
            $.each(user_id,function(i,us){
              var u_id = us.id;
              $.each(notess[u_id].data,function(j,no){
+               var show4 = 0;
                $("#see_com"+u_id+j).on("click",function(){
                  //console.log("#see_com"+u_id+j);
-                 $("#com"+u_id+j).css("display","block");
+                 if(show4 == 0){
+                   $("#com"+u_id+j).css("display","block");
+                   show4 = 1;
+                 }else{
+                   $("#com"+u_id+j).css("display","none");
+                   show4 = 0;
+                 }
                });
                $("#add_com"+u_id+j).on("click",function(){
                    $("#mask").show();
@@ -249,5 +256,16 @@
   $('.date div').datepicker({
     format:'yyyy-mm-dd',
     todayHighlight:true
+  });
+  //两边分开进行鼠标控制
+  $(".leftArea").hover(function(){
+    if($(".leftArea").hasClass("po_fx"))
+      $(".leftArea").removeClass("po_fx");
+    $(".rightArea").addClass("po_fx_l");
+  });
+  $(".rightArea").hover(function(){
+    if($(".rightArea").hasClass("po_fx_l"))
+      $(".rightArea").removeClass("po_fx_l");
+    $(".leftArea").addClass("po_fx");
   });
 })(jQuery);
