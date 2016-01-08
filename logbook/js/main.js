@@ -115,10 +115,13 @@
             //console.log(not);
             var html3 = "<div class='name'>"+user[con].real_name+"</div><div class='de'>--"+user[con].department+"</div><div class='note_nav'>";
             for(var j=0;j<not.length;j++){
-              html3+="<li>"+not[j].day+"</li><div class='notess'><div div='mo'>心情："+not[j].mood+"</div><div class='rizhi'>日志：<div class='con'>"+not[j].content+"</div></div><div class='comment'><a id='see_com"+id+j+"'>查看所有评论</a><div class='all_com' id='com"+id+j+"'>暂无评论</div></div><div class='add_comment'><a id='add_com"+id+j+"'>添加评论</a></div></div>"
+              html3+="<li>"+not[j].day+"</li><div class='notess'><div div='mo'>心情："+not[j].mood+"</div><div class='rizhi'>日志：<div class='con'>"+marked(not[j].content)+"</div></div><div class='comment'><a id='see_com"+id+j+"'>查看所有评论</a><div class='all_com' id='com"+id+j+"'>暂无评论</div></div><div class='add_comment'><a id='add_com"+id+j+"'>添加评论</a></div></div>"
            }
            html3+="</div>"
            $(".rightArea").html(html3);
+           //var sel = $(".note_nav .notess .rizhi .con");
+           //var html5 = sel.innerHTML;
+           //sel.innerHTML = marked(html5);
            //获取评论
            $.get("http://96a8to7r.apps.qbox.me/posts/5672d427b999b70001f86ac0/comments",function(coms){
              $.each(coms.data,function(i,con){
