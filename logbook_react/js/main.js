@@ -1,4 +1,31 @@
 ;(function($){
+  var Header = React.createClass({
+    render:function(){
+      return (
+        <header className="header"></header>
+      )
+    }
+  });
+  var Content = React.createClass({
+    render:function(){
+      return(
+        <div className="content"></div>
+      )
+    }
+  });
+  ReactDOM.render(
+    <div className="main" >
+      <Header/>
+      <Content />
+    </div>,
+    document.getElementById('main')
+  );
+
+
+
+
+
+
 
   return
   //部门 以及每个部门中的人
