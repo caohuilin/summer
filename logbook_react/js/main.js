@@ -1,18 +1,74 @@
 ;(function($){
+
+  //Note按钮组件
+  var NoteBtn = React.createClass({
+    render:function(){
+      return (
+        <button id="note" type="button" name="button">我的日志</button>
+      );
+    }
+  });
+  //具体的个人信息组件
+  var UserInf = React.createClass({
+    render:function(){
+      return(
+        <ul id="user" style={this.props.style}>
+          <li id="change_dep">修改部门</li>
+          <li>登出</li>
+        </ul>
+      )
+    }
+  });
+  //个人信息Inf按钮组件
+  var Inf = React.createClass({
+    getInitialState:function(){
+      return {
+        UserInfShow:false
+      }
+    },
+    showInf:function(){
+      this.setState({
+        UserInfShow:!this.state.UserInfShow
+      })
+    },
+    render:function(){
+      var style = {display:this.state.UserInfShow?"block":"none"}
+      return(
+        <span>
+          <button id="inf" type="button" name="button" onClick={this.showInf}>个人信息</button>
+          <UserInf style={style}/>
+        </span>
+      )
+    }
+  });
+
+  //Header组件
   var Header = React.createClass({
     render:function(){
       return (
-        <header className="header"></header>
+        <header className="header">
+          <div className="icon">
+            <img src="img/icon.png" alt="" />
+          </div>
+          <div className="nav">
+            <NoteBtn />
+            <Inf />
+          </div>
+        </header>
       )
     }
   });
+
+  //Content组件
   var Content = React.createClass({
     render:function(){
       return(
-        <div className="content"></div>
+        <div className="content">
+        </div>
       )
     }
   });
+  //加载最终页面 两个组件Header和Content
   ReactDOM.render(
     <div className="main" >
       <Header/>
