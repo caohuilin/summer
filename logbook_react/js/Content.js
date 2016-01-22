@@ -24,18 +24,40 @@ var Dates = React.createClass({
 //Departments组件
 var Departments = React.createClass({
   getInitialState:function(){
-    return {department:[]};
+    return {department:[],users:[]};
   },
   componentWillMount:function(){
     var self = this;
     $.get("http://96a8to7r.apps.qbox.me/departments",function(department){
       self.setState({department:department.data});
     });
+    $.get("http://96a8to7r.apps.qbox.me/users",function(users){
+      self.setState({users:users.data});
+    });
   },
   render:function(){
-    var departmentNode = this.state.department.map(function(dep,id){
+    var self = this;
+    var departmentNode = self.state.department.map(function(dep,id){
+      var usersNode = self.state.users.map(function(user,id2){
+        if(user.department == dep){
+          return (
+            <li key={id2}>
+              <div className="name">姓名：{user.real_name}</div>
+              <div className="mood">心情：</div>
+              <div className="note">日志：</div>
+            </li>
+          );
+        }else{
+          return null;
+        };
+      });
       return(
-        <li key={id}>{dep}</li>
+        <li key={id}>
+          {dep}
+          <ul className="gs">
+            {usersNode}
+          </ul>
+        </li>
       );
     });
     return(
