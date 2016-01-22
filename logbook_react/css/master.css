@@ -272,7 +272,7 @@ a {
   border: solid 1px #e5e5e5;
   border-top: none;
   margin: 15px;
-  margin-top: 0px;
+  margin-top: 0;
   display: none;
 }
 .rightArea .departments div .gs .name {
@@ -283,7 +283,7 @@ a {
 .rightArea .departments div .gs li {
   display: block;
   background: #fff;
-  width: 90% auto;
+  width: 90%;
   height: 80px;
   line-height: 30px;
   padding: 10px 20px;
@@ -341,7 +341,7 @@ a {
   font-size: 17px;
   line-height: 40px;
   margin: 15px;
-  margin-top: 0px;
+  margin-top: 0;
 }
 .rightArea .note_nav .notess .con {
   font-size: 14px;
