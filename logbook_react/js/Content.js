@@ -24,7 +24,7 @@ var Dates = React.createClass({
 //Departments组件
 var Departments = React.createClass({
   getInitialState:function(){
-    return {department:[],users:[]};
+    return {department:[],users:[],showUser:-1};
   },
   componentWillMount:function(){
     var self = this;
@@ -34,6 +34,10 @@ var Departments = React.createClass({
     $.get("http://96a8to7r.apps.qbox.me/users",function(users){
       self.setState({users:users.data});
     });
+  },
+  setShowUsers:function(id){
+    if(id==this.state.showUser) id=-1;
+    this.setState({showUser:id});
   },
   render:function(){
     var self = this;
@@ -51,13 +55,23 @@ var Departments = React.createClass({
           return null;
         };
       });
+      var style={};
+
+      if(self.state.showUser==-1){
+        style={display:"none"};
+      }else if (self.state.showUser==id){
+        style={display:"block"};
+      }else{
+        style={display:"none"};
+      }
+      console.log(self.state,id, style)
       return(
-        <li key={id}>
-          {dep}
-          <ul className="gs">
+        <div key={id}>
+          <li onClick={self.setShowUsers.bind(null,id)}>{dep}</li>
+          <ul className="gs" style={style}>
             {usersNode}
           </ul>
-        </li>
+        </div>
       );
     });
     return(

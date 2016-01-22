@@ -254,7 +254,7 @@ a {
   float: right;
   display: inline;
 }
-.rightArea .departments > li {
+.rightArea .departments div > li {
   display: block;
   height: 45px;
   line-height: 45px;
@@ -264,23 +264,23 @@ a {
   padding-left: 20px;
   cursor: pointer;
 }
-.rightArea .departments > li .num {
+.rightArea .departments div > li .num {
   display: inline-block;
   padding-left: 30px;
 }
-.rightArea .departments .gs {
+.rightArea .departments div .gs {
   border: solid 1px #e5e5e5;
   border-top: none;
   margin: 15px;
   margin-top: 0px;
   display: none;
 }
-.rightArea .departments .gs .name {
+.rightArea .departments div .gs .name {
   float: left;
   display: inline;
   padding-right: 30px;
 }
-.rightArea .departments .gs li {
+.rightArea .departments div .gs li {
   display: block;
   background: #fff;
   width: 90% auto;
@@ -290,7 +290,7 @@ a {
   font-size: 15px;
   color: #dd0000;
 }
-.rightArea .departments .gs .name {
+.rightArea .departments div .gs .name {
   width: 150px;
   height: 30px;
   font-weight: bold;
