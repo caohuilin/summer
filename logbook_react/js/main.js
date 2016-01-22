@@ -1,19 +1,16 @@
 ;(function($){
   //我的日志的具体组件
   Note_me = React.createClass({
-    closePopup:function(){
-
-    },
     render:function(){
       var style = {display:this.props.show?"block":"none"};
       return(
         <div className="note_me"style={style}>
-          <div id="mask" onClick={this.closePopup}></div>
+          <div id="mask" onClick={this.props.showNote}></div>
           <div id="popup">
             <div className="title">
               我的日志
             </div>
-            <div className="icon"  onClick={this.closePopup}></div>
+            <div className="icon"  onClick={this.props.showNote}></div>
             <div className="con">
               <div className="date">
                 选择日期<br />
@@ -54,13 +51,13 @@
       }
     },
     showNote:function(){
-      this.setState({NoteShow:!this.NoteShow});
+      this.setState({NoteShow:!this.state.NoteShow});
     },
     render:function(){
       return (
         <span>
           <button id="note" type="button" name="button" onClick={this.showNote}>我的日志</button>
-          <Note_me show={this.state.NoteShow} />
+          <Note_me show={this.state.NoteShow} showNote={this.showNote}/>
         </span>
       );
     }
