@@ -1,4 +1,6 @@
 ;(function($){
+
+
   //我的日志的具体组件
   Note_me = React.createClass({
     render:function(){
@@ -64,9 +66,22 @@
   });
   //具体的个人信息组件
   var UserInf = React.createClass({
+    getInitialState:function(){
+      return {data:{}}
+    },
+    componentWillMount:function(){
+      //获取本人信息
+      var self = this;
+      $.get("http://96a8to7r.apps.qbox.me/user/overview",function(user){
+        self.setState({data:user.data})
+      });
+    },
     render:function(){
+      var data=this.state.data;
       return(
         <ul id="user" style={this.props.style}>
+          <li>{data.department}</li>
+          <li>{data.real_name}</li>
           <li id="change_dep">修改部门</li>
           <li>登出</li>
         </ul>
