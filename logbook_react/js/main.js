@@ -67,21 +67,20 @@
   //具体的个人信息组件
   var UserInf = React.createClass({
     getInitialState:function(){
-      return {data:{}}
+      return {department:"loading",real_name:"loadding"}
     },
     componentWillMount:function(){
       //获取本人信息
       var self = this;
       $.get("http://96a8to7r.apps.qbox.me/user/overview",function(user){
-        self.setState({data:user.data})
+        self.setState({department:user.data.department,real_name:user.data.real_name});
       });
     },
     render:function(){
-      var data=this.state.data;
       return(
         <ul id="user" style={this.props.style}>
-          <li>{data.department}</li>
-          <li>{data.real_name}</li>
+          <li>{this.state.department}</li>
+          <li>{this.state.real_name}</li>
           <li id="change_dep">修改部门</li>
           <li>登出</li>
         </ul>
