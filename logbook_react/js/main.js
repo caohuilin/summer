@@ -1,10 +1,64 @@
 ;(function($){
-
+  //我的日志的具体组件
+  Note_me = React.createClass({
+    render:function(){
+      return(
+        <div style={this.props.style}>
+          <div id="mask"></div>
+          <div id="popup">
+            <div className="title">
+              我的日志
+            </div>
+            <div className="icon"></div>
+            <div className="con">
+              <div className="date">
+                选择日期<br />
+                <input type="text" name="name" />
+              </div>
+              <div className="mood">
+                我的心情
+                <ul>
+                  <li><img src="../img/mood1.png" style={{}}alt="" /></li>
+                  <li><img src="../img/mood2.png" style={{marginTop:"5px"}} alt="" /></li>
+                  <li><img src="../img/mood3.png" style={{marginTop:"7px"}} alt="" /></li>
+                  <li><img src="../img/mood4.png" style={{marginTop:"5px"}} alt="" /></li>
+                </ul>
+              </div>
+              <div className="note">
+                我的日志
+                <textarea name="name"></textarea>
+              </div>
+            </div>
+            <button className="certern" type="button" name="button">确定</button>
+          </div>
+          <div className="add_com_text">
+            <div className="title">
+              我的评论
+            </div>
+            <textarea name="name"></textarea>
+            <button className="certern" type="button" name="button">确定</button>
+          </div>
+        </div>
+      )
+    }
+  });
   //Note按钮组件
   var NoteBtn = React.createClass({
+    getInitialState:function(){
+      return{
+        NoteShow:false
+      }
+    },
+    showNote:function(){
+      this.setState({NoteShow:!this.NoteShow});
+    },
     render:function(){
+      var style = {display:this.state.NoteShow?"block":"none"};
       return (
-        <button id="note" type="button" name="button">我的日志</button>
+        <span>
+          <button id="note" type="button" name="button" onClick={this.showNote}>我的日志</button>
+          <Note_me style={style} />
+        </span>
       );
     }
   });
@@ -22,17 +76,15 @@
   //个人信息Inf按钮组件
   var Inf = React.createClass({
     getInitialState:function(){
-      return {
-        UserInfShow:false
-      }
+      return{
+        InfShow:false
+      };
     },
     showInf:function(){
-      this.setState({
-        UserInfShow:!this.state.UserInfShow
-      })
+      this.setState({InfShow:!this.state.InfShow});
     },
     render:function(){
-      var style = {display:this.state.UserInfShow?"block":"none"}
+      var style = {display:this.state.InfShow?"block":"none"};
       return(
         <span>
           <button id="inf" type="button" name="button" onClick={this.showInf}>个人信息</button>
