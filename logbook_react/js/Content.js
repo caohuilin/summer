@@ -1,7 +1,7 @@
 //Content组件
 var Content = React.createClass({
   getInitialState:function(){
-    return {department:[],users:[]};
+    return {department:[],users:[],userNoteId:"5662ecda489e900001f38001"};
   },
   componentWillMount:function(){
     var self = this;
@@ -12,11 +12,14 @@ var Content = React.createClass({
       self.setState({users:users.data});
     });
   },
+  setUserNoteId:function(id){
+    this.setState({userNoteId:id});
+  },
   render:function(){
     return(
       <div className="content">
-        <LeftArea department={this.state.department} users={this.state.users}/>
-        <RightArea department={this.state.department} users={this.state.users}/>
+        <LeftArea department={this.state.department} users={this.state.users} setUserNoteId={this.setUserNoteId}/>
+        <RightArea department={this.state.department} users={this.state.users} userNoteId={this.state.userNoteId}/>
       </div>
     )
   }
