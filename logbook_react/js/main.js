@@ -1,15 +1,19 @@
 ;(function($){
   //我的日志的具体组件
   Note_me = React.createClass({
+    closePopup:function(){
+
+    },
     render:function(){
+      var style = {display:this.props.show?"block":"none"};
       return(
-        <div style={this.props.style}>
-          <div id="mask"></div>
+        <div className="note_me"style={style}>
+          <div id="mask" onClick={this.closePopup}></div>
           <div id="popup">
             <div className="title">
               我的日志
             </div>
-            <div className="icon"></div>
+            <div className="icon"  onClick={this.closePopup}></div>
             <div className="con">
               <div className="date">
                 选择日期<br />
@@ -26,7 +30,7 @@
               </div>
               <div className="note">
                 我的日志
-                <textarea name="name"></textarea>
+                <textarea name="name" className="form-control"></textarea>
               </div>
             </div>
             <button className="certern" type="button" name="button">确定</button>
@@ -53,11 +57,10 @@
       this.setState({NoteShow:!this.NoteShow});
     },
     render:function(){
-      var style = {display:this.state.NoteShow?"block":"none"};
       return (
         <span>
           <button id="note" type="button" name="button" onClick={this.showNote}>我的日志</button>
-          <Note_me style={style} />
+          <Note_me show={this.state.NoteShow} />
         </span>
       );
     }
