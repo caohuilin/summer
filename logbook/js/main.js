@@ -268,7 +268,7 @@
   });
   $(".rightArea").hover(function(){
     if($(".rightArea").hasClass("po_fx_l"))
-      $(".rightArea").removeClass("po_fx_l");
+    $(".rightArea").removeClass("po_fx_l");
     $(".leftArea").addClass("po_fx");
   });
 })(jQuery);

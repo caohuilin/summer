@@ -222,7 +222,7 @@ a {
 .leftArea .c_de {
   margin: 20px 20px;
 }
-.leftArea .c_de > li {
+.leftArea .c_de div > li {
   display: block;
   line-height: 40px;
   padding: 10px 20px;
@@ -230,7 +230,7 @@ a {
   color: #a5a5a5;
   cursor: pointer;
 }
-.leftArea .c_de > li:hover {
+.leftArea .c_de div > li:hover {
   color: #333;
 }
 .leftArea .gd {

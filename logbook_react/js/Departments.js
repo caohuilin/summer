@@ -1,16 +1,7 @@
 //Departments组件
 var Departments = React.createClass({
   getInitialState:function(){
-    return {department:[],users:[],showUser:-1};
-  },
-  componentWillMount:function(){
-    var self = this;
-    $.get("http://96a8to7r.apps.qbox.me/departments",function(department){
-      self.setState({department:department.data});
-    });
-    $.get("http://96a8to7r.apps.qbox.me/users",function(users){
-      self.setState({users:users.data});
-    });
+    return {showUser:-1};
   },
   setShowUsers:function(id){
     if(id==this.state.showUser) id=-1;
@@ -18,9 +9,11 @@ var Departments = React.createClass({
   },
   render:function(){
     var self = this;
-    var departmentNode = self.state.department.map(function(dep,id){
-      var usersNode = self.state.users.map(function(user,id2){
+    var departmentNode = self.props.department.map(function(dep,id){
+      var con = 0;
+      var usersNode = self.props.users.map(function(user,id2){
         if(user.department == dep){
+          con++;
           return (
             <li key={id2}>
               <div className="name">姓名：{user.real_name}</div>
@@ -41,10 +34,9 @@ var Departments = React.createClass({
       }else{
         style={display:"none"};
       }
-    //  console.log(self.state,id, style)
       return(
         <div key={id}>
-          <li onClick={self.setShowUsers.bind(null,id)}>{dep}</li>
+          <li onClick={self.setShowUsers.bind(null,id)}>{dep}<div className="num">共{con}人</div></li>
           <ul className="gs" style={style}>
             {usersNode}
           </ul>

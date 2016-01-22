@@ -4,7 +4,7 @@ var RightArea = React.createClass({
     return(
       <div className="rightArea">
         <Dates />
-        <Departments />
+        <Departments department={this.props.department} users={this.props.users}/>
       </div>
     )
   }
