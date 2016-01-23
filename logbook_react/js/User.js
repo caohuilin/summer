@@ -64,13 +64,13 @@ var User = React.createClass({
                 }).map(function (note, id2) {
                     var style = {};
 
-                    if (self.state.noteShow == -1) {
-                        style = {display: "none"};
-                    } else if (self.state.noteShow == id2) {
-                        style = {display: "block"};
-                    } else {
-                        style = {display: "none"};
-                    }
+                    //if (self.state.noteShow == -1) {
+                    //    style = {display: "none"};
+                    //} else if (self.state.noteShow == id2) {
+                    //    style = {display: "block"};
+                    //} else {
+                    //    style = {display: "none"};
+                    //}
                     var style2 = {};
 
                     if (self.state.allComShow == -1) {
@@ -87,7 +87,7 @@ var User = React.createClass({
                             <li key={id2} onClick={self.setNoteShow.bind(null,id2)}>
                                 {note.day}
                             </li>
-                            <div className="notess" style={style}>
+                            <div className="notess" style={{display:'block'}}>
                                 <div className="mo">{note.mood}</div>
                                 <div className="rizhi">日志：
                                     <div className="con"><span dangerouslySetInnerHTML={{__html:marked(note.content)}}></span></div>
