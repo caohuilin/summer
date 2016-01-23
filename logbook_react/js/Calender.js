@@ -9,7 +9,7 @@ var Calender = React.createClass({
         });
         cal.on("changeDate", function () {
             var date = cal.datepicker('getFormattedDate');
-            console.log('date', date);
+            self.props.setDateNow(date);
         });
         var node = ReactDOM.findDOMNode(this);
         $(node).append(cal);

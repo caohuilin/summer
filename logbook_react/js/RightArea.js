@@ -5,8 +5,8 @@ var RightArea = React.createClass({
         if (this.props.userNoteId == -1) {
             return (
                 <div className="rightArea">
-                    <Dates />
-                    <Departments department={this.props.department} users={this.props.users}/>
+                    <Dates date={this.props.date} />
+                    <Departments department={this.props.department} users={this.props.users} date={this.props.date}/>
                 </div>
             )
         } else {

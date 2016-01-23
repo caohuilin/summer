@@ -4,9 +4,18 @@ var User = React.createClass({
     },
     componentWillMount: function () {
         var self = this;
-        $.get("http://96a8to7r.apps.qbox.me/posts?uid=5662ecda489e900001f38001", function (notes) {
+        $.get("http://96a8to7r.apps.qbox.me/posts?uid="+self.props.userNoteId, function (notes) {
             self.setState({note: notes.data});
-            // console.log(self.state.note);
+             console.log(self.state.note);
+
+        });
+    },
+    componentWillReceiveProps(nextProps){
+        var self = this;
+        $.get("http://96a8to7r.apps.qbox.me/posts?uid="+self.props.userNoteId, function (notes) {
+            self.setState({note: notes.data});
+            console.log(self.state.note);
+            
         });
     },
     setNoteShow: function (id) {

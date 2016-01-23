@@ -297,11 +297,10 @@ body {
   display: inline;
   padding-right: 30px;
 }
-.rightArea .departments div .gs li {
+.rightArea .departments div .gs > li {
   display: block;
   background: #fff;
   width: 90%;
-  height: 80px;
   line-height: 30px;
   padding: 10px 20px;
   font-size: 15px;
@@ -316,6 +315,23 @@ body {
   color: #707173;
   float: left;
   display: inline;
+}
+.rightArea .departments div .gs .mood {
+  height: 30px;
+  font-weight: bold;
+  font-size: 17px;
+  margin: 15px 20px;
+  color: #555;
+}
+.rightArea .departments div .gs .note {
+  font-weight: bold;
+  font-size: 17px;
+  margin: 15px 20px;
+  color: #555;
+}
+.rightArea .departments div .gs .note .noteCon {
+  font-size: 14px;
+  color: #555;
 }
 .rightArea .date {
   font-size: 20px;

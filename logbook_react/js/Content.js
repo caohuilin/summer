@@ -1,7 +1,13 @@
 //Content组件
 var Content = React.createClass({
     getInitialState: function () {
-        return {department: [], users: [], userNoteId:-1};
+        return {
+            department: [],
+            users: [],
+            userNoteId: -1,
+            date: moment().format('YYYY-MM-DD')
+            //date: moment().subtract(moment.duration(0, 'd')).format('YYYY-MM-DD')
+        };
     },
     componentWillMount: function () {
         var self = this;
@@ -15,13 +21,16 @@ var Content = React.createClass({
     setUserNoteId: function (id) {
         this.setState({userNoteId: id});
     },
+    setDateNow: function (dateNow) {
+        this.setState({date: dateNow})
+    },
     render: function () {
         return (
             <div className="content">
                 <LeftArea department={this.state.department} users={this.state.users}
-                          setUserNoteId={this.setUserNoteId}/>
+                          setUserNoteId={this.setUserNoteId} setDateNow={this.setDateNow}/>
                 <RightArea department={this.state.department} users={this.state.users}
-                           userNoteId={this.state.userNoteId}/>
+                           userNoteId={this.state.userNoteId} date={this.state.date}/>
             </div>
         )
     }
