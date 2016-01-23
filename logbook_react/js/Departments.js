@@ -4,77 +4,55 @@ var Departments = React.createClass({
         return {showUser: -1, noteToday: []}
     },
     componentWillMount(){
-        var self = this;
-        $.get("http://96a8to7r.apps.qbox.me/posts?day=" + self.props.date, function (date) {
+        $.get(API_HOST + "/posts?day=" + this.props.date, (date) => {
             if (!date.data) {
                 date.data = [];
             }
-            self.setState({noteToday: date.data});
+            this.setState({noteToday: date.data});
         });
     },
     componentWillReceiveProps(nextProps){
-        var self = this;
         if (nextProps.date != this.props.date) {
-            $.get("http://96a8to7r.apps.qbox.me/posts?day=" + nextProps.date, function (date) {
+            $.get(API_HOST + "/posts?day=" + nextProps.date, (date)=> {
                 if (!date.data) {
                     date.data = [];
                 }
-                self.setState({noteToday: date.data});
+                this.setState({noteToday: date.data});
             });
         }
     },
-    setShowUsers: function (id) {
+    setShowUsers (id) {
         if (id == this.state.showUser) id = -1;
         this.setState({showUser: id});
     },
-    render: function () {
-        var self = this;
-        var departmentNode = self.props.department.map(function (dep, id) {
-            var con = 0;
-            var usersNode = self.props.users.map(function (user, id2) {
-                if (user.department == dep) {
-                    con++;
-                    var noteNode = self.state.noteToday.filter(function (note) {
-                        return note.user_id == user.id;
-                    });
-                    var note = '';
-                    var mood = '';
-                    if (noteNode.length > 0) {
-                        note = noteNode[0].content;
-                        mood = noteNode[0].mood;
-                    }
-                    return (
-                        <li key={id2}>
-                            <div className="name">姓名：{user.real_name}</div>
-                            <div className="mood">心情：{mood}</div>
-                            <div className="note">日志：
-                                <div className="noteCon" dangerouslySetInnerHTML={{__html:marked(note)}}></div>
-                            </div>
-                        </li>
-                    );
-                } else {
-                    return null;
+    render () {
+        var departmentNode = this.props.department.map((dep, id)=> {
+            var users = this.props.users.filter((user)=>user.department == dep).map((user, id)=> {
+                var noteNode = _.find(this.state.noteToday, (note)=> note.user_id == user.id);
+                if (!noteNode) {
+                    noteNode = {mood: "", content: ""};
                 }
+                return {real_name: user.real_name, mood: noteNode.mood, content: noteNode.content};
             });
-            var style = {};
-
-            if (self.state.showUser == -1) {
-                style = {display: "none"};
-            } else if (self.state.showUser == id) {
-                style = {display: "block"};
-            } else {
-                style = {display: "none"};
-            }
             return (
                 <div key={id}>
-                    <li onClick={self.setShowUsers.bind(null,id)}>{dep}
-                        <div className="num">共{con}人</div>
+                    <li onClick={this.setShowUsers.bind(null,id)}>{dep}
+                        <div className="num">共{users.length}人</div>
                     </li>
-                    <ul className="gs" style={style}>
-                        {usersNode}
+                    <ul className="gs" style={css_display(this.state.showUser==id)}>
+                        {users.map((user, id)=>(
+                            <li key={id}>
+                                <div className="name">姓名：{user.real_name}</div>
+                                <div className="mood">心情：{user.mood}</div>
+                                <div className="note">日志：
+                                    <div className="noteCon"
+                                         dangerouslySetInnerHTML={{__html:marked(user.content)}}></div>
+                                </div>
+                            </li>
+                        ))}
                     </ul>
                 </div>
-            );
+            )
         });
         return (
             <ul className="departments">

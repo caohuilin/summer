@@ -1,6 +1,6 @@
 //Header组件
 var Header = React.createClass({
-    render: function () {
+    render () {
         return (
             <header className="header">
                 <div className="icon">

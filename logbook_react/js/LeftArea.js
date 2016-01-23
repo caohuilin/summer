@@ -1,6 +1,6 @@
 //LeftArea组件
 var LeftArea = React.createClass({
-    render: function () {
+    render() {
         return (
             <div className="leftArea">
                 <Calender setDateNow={this.props.setDateNow}/>

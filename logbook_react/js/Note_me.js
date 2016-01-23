@@ -1,9 +1,8 @@
 //我的日志的具体组件
 Note_me = React.createClass({
-    render: function () {
-        var style = {display: this.props.show ? "block" : "none"};
+    render() {
         return (
-            <div className="note_me" style={style}>
+            <div className="note_me" style={css_display(this.props.show)}>
                 <div id="mask" onClick={this.props.showNote}></div>
                 <div id="popup">
                     <div className="title">
@@ -18,7 +17,7 @@ Note_me = React.createClass({
                         <div className="mood">
                             我的心情
                             <ul>
-                                <li><img src="../img/mood1.png" style={{}} alt=""/></li>
+                                <li><img src="../img/mood1.png" alt=""/></li>
                                 <li><img src="../img/mood2.png" style={{marginTop:"5px"}} alt=""/></li>
                                 <li><img src="../img/mood3.png" style={{marginTop:"7px"}} alt=""/></li>
                                 <li><img src="../img/mood4.png" style={{marginTop:"5px"}} alt=""/></li>

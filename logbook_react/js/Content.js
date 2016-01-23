@@ -8,7 +8,7 @@ var Content = React.createClass({
             date: moment().format('YYYY-MM-DD')
         };
     },
-    componentWillMount: function () {
+    componentWillMount () {
         $.when($.get(API_HOST + "/departments"), $.get(API_HOST + "/users")).done((department, users)=> {
             this.setState({
                 department: department[0].data.reverse(),

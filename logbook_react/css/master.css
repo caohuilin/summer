@@ -426,7 +426,6 @@ body {
 }
 /* line 363, master.less */
 .rightArea .note_nav .notess {
-  display: none;
   border: solid 1px #e5e5e5;
   border-top: none;
   height: auto;
@@ -436,38 +435,38 @@ body {
   margin: 15px;
   margin-top: 0;
 }
-/* line 373, master.less */
+/* line 372, master.less */
 .rightArea .note_nav .notess .con {
   font-size: 14px;
 }
-/* line 376, master.less */
+/* line 375, master.less */
 .rightArea .note_nav .notess .comment {
   font-size: 14px;
   margin: 10px 0;
 }
-/* line 379, master.less */
+/* line 378, master.less */
 .rightArea .note_nav .notess .comment a:hover {
   text-decoration: none;
   cursor: pointer;
 }
-/* line 383, master.less */
+/* line 382, master.less */
 .rightArea .note_nav .notess .comment .all_com {
   display: none;
   font-size: 12px;
 }
-/* line 388, master.less */
+/* line 387, master.less */
 .rightArea .note_nav .notess .add_comment {
   font-size: 14px;
   border-top: solid 1px #e5e5e5;
   height: 60px;
   line-height: 60px;
 }
-/* line 393, master.less */
+/* line 392, master.less */
 .rightArea .note_nav .notess .add_comment a:hover {
   text-decoration: none;
   cursor: pointer;
 }
-/* line 398, master.less */
+/* line 397, master.less */
 .rightArea .note_nav .notess .add_ssuccess {
   background: #2ECC71;
   color: #fff;
@@ -485,11 +484,11 @@ body {
   z-index: 10;
   opacity: 0.8;
 }
-/* line 419, master.less */
+/* line 418, master.less */
 .po_fx {
   position: fixed;
 }
-/* line 423, master.less */
+/* line 422, master.less */
 .po_fx_l {
   position: fixed;
   left: 21%;
