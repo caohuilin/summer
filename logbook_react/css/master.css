@@ -22,6 +22,9 @@ textarea {
 a {
   text-decoration: none;
 }
+body {
+  font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
 .header {
   width: 100%;
   height: 50px;
@@ -171,17 +174,25 @@ a {
   display: none;
   position: fixed;
   width: 600px;
-  height: 300px;
+  height: 333px;
   left: 50%;
   top: 35px;
   margin-left: -300px;
   z-index: 10;
   background-color: #fff;
 }
-.add_com_text .title {
+.add_com_text .icon {
+  width: 30px;
   height: 30px;
-  line-height: 30px;
-  font-size: 14px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: url("../img/close.png") no-repeat;
+}
+.add_com_text .title {
+  height: 47px;
+  line-height: 55px;
+  font-size: 20px;
   color: #555;
   padding: 5px 29px;
 }
@@ -190,15 +201,21 @@ a {
   width: 540px;
   height: 200px;
   border: solid 1px #ccc;
-  margin: 10px 29px;
-  background-color: #e5e5e5;
+  margin: 15px 29px;
+  border-radius: 2px;
 }
 .add_com_text button {
-  width: 52px;
-  height: 29px;
   margin: 10px 30px;
-  border: solid 1px rgba(149, 151, 158, 0.98);
-  color: #503F3F;
+}
+#mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 5;
 }
 .content {
   width: 100%;
@@ -322,7 +339,7 @@ a {
 .rightArea .note_nav {
   margin-top: 80px;
 }
-.rightArea .note_nav > li {
+.rightArea .note_nav div > li {
   display: block;
   height: 45px;
   line-height: 45px;
@@ -367,6 +384,23 @@ a {
 .rightArea .note_nav .notess .add_comment a:hover {
   text-decoration: none;
   cursor: pointer;
+}
+.rightArea .note_nav .notess .add_ssuccess {
+  background: #2ECC71;
+  color: #fff;
+  font-size: 18px;
+  line-height: 18px;
+  width: 250px;
+  padding: 10px;
+  margin: 10px;
+  position: fixed;
+  top: -4px;
+  right: 10px;
+  border-radius: 4px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  z-index: 10;
+  opacity: 0.8;
 }
 .po_fx {
   position: fixed;

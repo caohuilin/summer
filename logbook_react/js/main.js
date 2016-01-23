@@ -6,3 +6,9 @@ ReactDOM.render(
     </div>,
     document.getElementById('main')
 );
+/*
+$(document.body).bind('aa',function(a,bb){
+    debugger
+})
+$(document.body).trigger('aa','bb');
+*/

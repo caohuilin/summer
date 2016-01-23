@@ -31,11 +31,14 @@ var User = React.createClass({
     addSuccess:function(){
         this.setState({addComShow:false});
         var self = this;
+        console.log(0,new Date());
         setTimeout(function() {
             self.setState({addComSuccess:true});
+            console.log(1,new Date());
             setTimeout(function() {
+                console.log(2,new Date());
                 self.setState({addComSuccess:false});
-            },1000);
+            },3000);
         },1000);
 
     },
@@ -69,7 +72,7 @@ var User = React.createClass({
                         style2 = {display: "none"};
                     }
                     var style3 = {display:self.state.addComShow?"block":"none"};
-                    var style4 = {display:self.addComSuccess?"block":"none"};
+                    var style4 = {display:self.state.addComSuccess?"block":"none"};
                     return (
                         <div>
                             <li key={id2} onClick={self.setNoteShow.bind(null,id2)}>
@@ -85,7 +88,7 @@ var User = React.createClass({
                                     <div className="all_com" style={style2}>暂无评论</div>
                                 </div>
                                 <div className="add_comment"><a onClick={self.addCom}>添加评论</a></div>
-                                <div className="add_ssuccess" style="{style4}">添加成功<div>
+                                <div className="add_ssuccess" style={style4}>添加成功</div>
                                 <div id="mask" onClick={self.closeAdd} style={style3}></div>
                                 <div className="add_com_text" style={style3}>
                                     <div className="title">

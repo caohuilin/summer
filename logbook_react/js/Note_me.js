@@ -26,7 +26,7 @@ Note_me = React.createClass({
                         </div>
                         <div className="note">
                             我的日志
-                            <textarea name="name" className="form-control"> </textarea>
+                            <textarea name="name" className="form-control"></textarea>
                         </div>
                     </div>
                     <button className="certern" type="button" name="button">确定</button>
@@ -35,7 +35,7 @@ Note_me = React.createClass({
                     <div className="title">
                         我的评论
                     </div>
-                    <textarea name="name"> </textarea>
+                    <textarea name="name"></textarea>
                     <button className="certern" type="button" name="button">确定</button>
                 </div>
             </div>
