@@ -20,7 +20,7 @@ var Content = React.createClass({
         this.setState({userNoteId: id});
     },
     setDateNow (dateNow) {
-        this.setState({date: dateNow})
+        this.setState({userNoteId:-1, date: dateNow})
     },
     render () {
         return (

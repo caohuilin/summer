@@ -10,10 +10,9 @@ var Caption = React.createClass({
     render () {
         var departmentNode = this.props.department.map((dep, id)=> {
             var users = this.props.users.filter((user)=>user.department == dep);
-            // TODO: users.length 不对
             return (
                 <div key={id}>
-                    <li onClick={this.setShowUsers.bind(null,id)}>{dep}({users.length}/{users.length})</li>
+                    <li onClick={this.setShowUsers.bind(null,id)}>{dep}({users.length})</li>
                     <ul className="gd" style={css_display(this.state.showUser==id)}>
                         {
                             users.map((user, id)=>

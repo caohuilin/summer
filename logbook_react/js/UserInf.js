@@ -1,16 +1,21 @@
 //具体的个人信息组件
 var UserInf = React.createClass({
-    getInitialState: function () {
-        return {department: "loading", real_name: "loadding"}
+    getInitialState () {
+        return {
+            department: "loading",
+            real_name: "loadding"
+        }
     },
-    componentWillMount: function () {
+    componentWillMount () {
         //获取本人信息
-        var self = this;
-        $.get("http://96a8to7r.apps.qbox.me/user/overview", function (user) {
-            self.setState({department: user.data.department, real_name: user.data.real_name});
+        $.get(API_HOST + "/user/overview", (user)=> {
+            this.setState({
+                department: user.data.department,
+                real_name: user.data.real_name
+            });
         });
     },
-    render: function () {
+    render () {
         return (
             <ul id="user" style={this.props.style}>
                 <li>{this.state.department}</li>

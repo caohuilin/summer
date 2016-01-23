@@ -12,7 +12,7 @@ var NoteBtn = React.createClass({
         return (
             <span>
                  <button id="note" type="button" name="button" onClick={this.showNote}>我的日志</button>
-                 <Note_me show={this.state.NoteShow} showNote={this.showNote}/>
+                 <NoteMe show={this.state.NoteShow} showNote={this.showNote}/>
              </span>
         );
     }

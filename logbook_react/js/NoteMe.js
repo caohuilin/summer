@@ -1,5 +1,5 @@
 //我的日志的具体组件
-Note_me = React.createClass({
+var NoteMe = React.createClass({
     render() {
         return (
             <div className="note_me" style={css_display(this.props.show)}>

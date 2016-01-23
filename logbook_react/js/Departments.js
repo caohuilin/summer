@@ -43,7 +43,7 @@ var Departments = React.createClass({
                         {users.map((user, id)=>(
                             <li key={id}>
                                 <div className="name">姓名：{user.real_name}</div>
-                                <div className="mood">心情：{user.mood}</div>
+                                <div className="mood">心情：<img src={mood_img_src(user.mood)} alt="" /></div>
                                 <div className="note">日志：
                                     <div className="noteCon"
                                          dangerouslySetInnerHTML={{__html:marked(user.content)}}></div>
