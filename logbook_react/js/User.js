@@ -12,10 +12,10 @@ var User = React.createClass({
     },
     componentWillReceiveProps(nextProps){
         var self = this;
-        $.get("http://96a8to7r.apps.qbox.me/posts?uid="+self.props.userNoteId, function (notes) {
+        $.get("http://96a8to7r.apps.qbox.me/posts?uid="+nextProps.userNoteId, function (notes) {
             self.setState({note: notes.data});
             console.log(self.state.note);
-            
+
         });
     },
     setNoteShow: function (id) {
