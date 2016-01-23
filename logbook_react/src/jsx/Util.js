@@ -11,9 +11,9 @@ function mood_img_src(mood) {
         return '';
     }
     return {
-        grinning: "../img/mood1.png",
-        smile: "../img/mood2.png",
-        neutral_face: "../img/mood3.png",
-        disappointed: "../img/mood4.png"
+        grinning: "/public/img/mood1.png",
+        smile: "/public/img/mood2.png",
+        neutral_face: "/public/img/mood3.png",
+        disappointed: "/public/img/mood4.png"
     }[mood];
 }
