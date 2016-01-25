@@ -21,9 +21,20 @@ gulp.task('less', function () {
 });
 
 gulp.task('jsx', function () {
-    return gulp.src(["./src/jsx/Util.js", "./src/jsx/Content.js", "./src/jsx/Header.js", "./src/jsx/Login.js", "./src/jsx/Register.js", "./src/jsx/LeftArea.js", "./src/jsx/RightArea.js", "./src/jsx/Main.js"])
+    return gulp.src(["./src/jsx/Util.js",
+            "./src/jsx/Content.js",
+            "./src/jsx/Header.js",
+            "./src/jsx/Login.js",
+            "./src/jsx/Register.js",
+            "./src/jsx/LeftArea.js",
+            "./src/jsx/RightArea.js",
+            "./src/jsx/Main.js"])
         .pipe(concat('all.js'))
         .pipe(react())
+        .on('error', function (err) {
+            console.log('jsx error!', err.message);
+            this.end();
+        })
         .pipe(gulp.dest('./public/js'));
 });
 
