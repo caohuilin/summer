@@ -15,5 +15,8 @@
     "gulp-less": "*",
     "gulp-react": "*",
     "run-sequence": "^1.1.5"
+  },
+    "devDependencies": {
+    "gulp-react": "^3.1.0"
   }
 }
