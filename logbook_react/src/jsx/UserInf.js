@@ -1,5 +1,8 @@
 //具体的个人信息组件
 var UserInf = React.createClass({
+    propTypes:{
+        style: React.PropTypes.object.isRequired,
+    },
     getInitialState () {
         return {
             department: "loading",

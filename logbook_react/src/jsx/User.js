@@ -1,4 +1,9 @@
+
 var User = React.createClass({
+    propTypes:{
+        userNoteId: React.PropTypes.number.isRequired,
+        users: propTypesUser,
+    },
     getInitialState () {
         return {
             note: [],
@@ -47,9 +52,12 @@ var User = React.createClass({
     },
     render () {
         var user = this.props.users.find((user)=>user.id == this.props.userNoteId);
+        if(!user){
+            return null;
+        }
         var note_list = this.state.note.filter((note)=>note.user_id == user.id).map((note, id)=>(
-                <div>
-                    <li key={id} onClick={this.setNoteShow.bind(null,id)}>
+                <div key={id}>
+                    <li onClick={this.setNoteShow.bind(null,id)}>
                         {note.day}
                     </li>
                     <div className="notess">

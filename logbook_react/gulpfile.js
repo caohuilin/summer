@@ -22,9 +22,13 @@ gulp.task('less', function () {
 
 gulp.task('jsx', function () {
     return gulp.src(["./src/jsx/Util.js", "./src/jsx/Calender.js", "./src/jsx/Caption.js", "./src/jsx/Config.js", "./src/jsx/Content.js", "./src/jsx/Dates.js", "./src/jsx/Departments.js", "./src/jsx/Header.js", "./src/jsx/Inf.js", "./src/jsx/LeftArea.js", "./src/jsx/NoteBtn.js", "./src/jsx/NoteMe.js", "./src/jsx/RightArea.js", "./src/jsx/User.js", "./src/jsx/UserInf.js", "./src/jsx/Main.js"])
-        .pipe(concat('all.js'))
         .pipe(react())
-        .pipe(gulp.dest('./public/js'));
+        .on('error', function(err){
+            console.log(err);
+            this.end();
+        })
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('./public/js'))
 });
 
 gulp.task('copy_img', function () {
@@ -48,12 +52,6 @@ gulp.task('clean', function () {
     return gulp.src('./public', {read: false})
         .pipe(clean());
 });
-
-gulp.task('copy_lib', function () {
-    return gulp.src('./src/lib/*')
-        .pipe(gulp.dest('./public/lib'));
-});
-
 
 gulp.task('build', function () {
     runSequence('clean',

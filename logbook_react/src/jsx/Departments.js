@@ -1,5 +1,10 @@
 //Departments组件
 var Departments = React.createClass({
+    propTypes:{
+        users: propTypesUser,
+        department: propTypeDepartment,
+        date: React.PropTypes.string.isRequired
+    },
     getInitialState() {
         return {showUser: -1, noteToday: []}
     },

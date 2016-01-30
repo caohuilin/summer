@@ -1,5 +1,9 @@
 //我的日志的具体组件
 var NoteMe = React.createClass({
+    propTypes:{
+        show: React.PropTypes.bool.isRequired,
+        showNote: React.PropTypes.func.isRequired
+    },
     render() {
         return (
             <div className="note_me" style={css_display(this.props.show)}>

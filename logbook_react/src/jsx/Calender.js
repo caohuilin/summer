@@ -1,5 +1,8 @@
 //日历组件
 var Calender = React.createClass({
+    propTypes: {
+        setDateNow: React.PropTypes.func.isRequired
+    },
     componentDidMount () {
         var cal = this.cal = $("<div class=\"date\"/>");
         cal.datepicker({
