@@ -4,7 +4,7 @@ const RightArea = React.createClass({
         userNoteId: React.PropTypes.string.isRequired
     },
     render () {
-        if (this.props.userNoteId == "") {
+        if (this.props.userNoteId==="") {
             return (
                 <div className="rightArea">
                     <Dates {...this.props}/>

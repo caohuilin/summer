@@ -2,7 +2,7 @@
 const User = React.createClass({
     propTypes:{
         userNoteId: React.PropTypes.string.isRequired,
-        users: propTypesUser,
+        users: propTypesUser
     },
     getInitialState () {
         return {
@@ -24,13 +24,13 @@ const User = React.createClass({
         });
     },
     setNoteShow (id) {
-        if (id == this.state.noteShow) {
+        if (id===this.state.noteShow) {
             id = -1;
         }
         this.setState({noteShow: id});
     },
     viewAllComment (id) {
-        if (id == this.state.allComShow) {
+        if (id===this.state.allComShow) {
             id = -1;
         }
         this.setState({allComShow: id});
@@ -51,11 +51,11 @@ const User = React.createClass({
         }, 1000);
     },
     render () {
-        var user = this.props.users.find((user)=>user.id == this.props.userNoteId);
+        var user = this.props.users.find((user)=>user.id===this.props.userNoteId);
         if(!user){
             return null;
         }
-        var note_list = this.state.note.filter((note)=>note.user_id == user.id).map((note, id)=>(
+        var note_list = this.state.note.filter((note)=>note.user_id===user.id).map((note, id)=>(
                 <div key={id}>
                     <li onClick={this.setNoteShow.bind(null,id)}>
                         {note.day}
@@ -68,7 +68,7 @@ const User = React.createClass({
                         </div>
                         <div className="comment">
                             <a onClick={this.viewAllComment.bind(null,id)}>查看所有评论</a>
-                            <div className="all_com" style={css_display(this.state.noteShow==id)}>暂无评论</div>
+                            <div className="all_com" style={css_display(this.state.noteSho===d)}>暂无评论</div>
                         </div>
                         <div className="add_comment"><a onClick={this.addCom}>添加评论</a></div>
                         <div className="add_ssuccess" style={css_display(this.state.addComSuccess)}>添加成功</div>
