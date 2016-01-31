@@ -3,16 +3,17 @@ const Content = React.createClass({
     contextTypes: {
         router: React.PropTypes.object.isRequired
     },
-    propTypes:{
-      params: React.PropTypes.shape({
-        user: React.PropTypes.string,
-        day: React.PropTypes.string
-      })
+    propTypes: {
+        params: React.PropTypes.shape({
+            userNoteId: React.PropTypes.string,
+            day: React.PropTypes.string,
+            depId: React.PropTypes.string
+        })
     },
     getInitialState () {
         return {
             department: [],
-            users: [],
+            users: []
         };
     },
     componentWillMount () {
@@ -24,22 +25,22 @@ const Content = React.createClass({
         });
         //给路径赋默认值
         var params = this.props.params;
-        if(!params.day && !params.userNoteId){
-            this.context.router.push("/day/"+moment().format('YYYY-MM-DD'));
+        if (!params.day && !params.userNoteId && !params.depId) {
+            this.context.router.push("/day/" + moment().format('YYYY-MM-DD')+"/dep/-1");
         }
     },
     setDateNow (dateNow) {
-        this.context.router.push("/day/"+dateNow);
+        this.context.router.push("/day/" + dateNow+"/dep/"+this.props.params.depId);
     },
     render () {
         var params = this.props.params;
         var rightArea = null;
-        if(params.day){
+        if (params.day) {
             rightArea = <RightArea department={this.state.department} users={this.state.users}
-                           userNoteId={-1} date={params.day}/>
-        }else if(params.userNoteId){
+                                   userNoteId={""} date={params.day} depId={params.depId}/>
+        } else if (params.userNoteId) {
             rightArea = <RightArea department={this.state.department} users={this.state.users}
-                           userNoteId={params.userNoteId} />
+                                   userNoteId={params.userNoteId}/>
         }
         return (
             <div className="content">
