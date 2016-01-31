@@ -39,8 +39,8 @@ const Departments = React.createClass({
     },
     render () {
         var departmentNode = this.props.department.map((dep, id)=> {
-            var users = this.props.users.filter((user)=>user.department===dep).map((user, id)=> {
-                var noteNode = _.find(this.state.noteToday, (note)=> note.user_id===user.id);
+            var users = this.props.users.filter((user)=>user.department === dep).map((user, id)=> {
+                var noteNode = _.find(this.state.noteToday, (note)=> note.user_id === user.id);
                 if (!noteNode) {
                     noteNode = {mood: "", content: ""};
                 }

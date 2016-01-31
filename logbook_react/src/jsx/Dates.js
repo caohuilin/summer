@@ -1,6 +1,6 @@
 //Dates组件
 const Dates = React.createClass({
-    propTypes:{
+    propTypes: {
         date: React.PropTypes.string.isRequired
     },
     render () {

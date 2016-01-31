@@ -1,10 +1,10 @@
 //RightArea组件
 const RightArea = React.createClass({
-    propTypes:{
+    propTypes: {
         userNoteId: React.PropTypes.string.isRequired
     },
     render () {
-        if (this.props.userNoteId==="") {
+        if (this.props.userNoteId === "") {
             return (
                 <div className="rightArea">
                     <Dates {...this.props}/>

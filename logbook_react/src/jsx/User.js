@@ -1,6 +1,5 @@
-
 const User = React.createClass({
-    propTypes:{
+    propTypes: {
         userNoteId: React.PropTypes.string.isRequired,
         users: propTypesUser
     },
@@ -24,13 +23,13 @@ const User = React.createClass({
         });
     },
     setNoteShow (id) {
-        if (id===this.state.noteShow) {
+        if (id === this.state.noteShow) {
             id = -1;
         }
         this.setState({noteShow: id});
     },
     viewAllComment (id) {
-        if (id===this.state.allComShow) {
+        if (id === this.state.allComShow) {
             id = -1;
         }
         this.setState({allComShow: id});
@@ -51,11 +50,11 @@ const User = React.createClass({
         }, 1000);
     },
     render () {
-        var user = this.props.users.find((user)=>user.id===this.props.userNoteId);
-        if(!user){
+        var user = this.props.users.find((user)=>user.id === this.props.userNoteId);
+        if (!user) {
             return null;
         }
-        var note_list = this.state.note.filter((note)=>note.user_id===user.id).map((note, id)=>(
+        var note_list = this.state.note.filter((note)=>note.user_id === user.id).map((note, id)=>(
                 <div key={id}>
                     <li onClick={this.setNoteShow.bind(null,id)}>
                         {note.day}

@@ -1,6 +1,6 @@
 //侧边的部门组件
 const Caption = React.createClass({
-    propTypes:{
+    propTypes: {
         users: propTypesUser,
         department: propTypeDepartment,
     },
@@ -20,7 +20,9 @@ const Caption = React.createClass({
                     <ul className="gd" style={css_display(this.state.showUser===id)}>
                         {
                             users.map((user, id)=>
-                                <Link key={id} to={"/user/"+user.id}> <li>{user.real_name}</li></Link>
+                                <Link key={id} to={"/user/"+user.id}>
+                                    <li>{user.real_name}</li>
+                                </Link>
                             )
                         }
                     </ul>

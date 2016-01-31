@@ -1,6 +1,6 @@
 //我的日志的具体组件
 const NoteMe = React.createClass({
-    propTypes:{
+    propTypes: {
         show: React.PropTypes.bool.isRequired,
         showNote: React.PropTypes.func.isRequired
     },

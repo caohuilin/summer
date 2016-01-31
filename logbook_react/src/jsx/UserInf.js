@@ -1,6 +1,6 @@
 //具体的个人信息组件
 const UserInf = React.createClass({
-    propTypes:{
+    propTypes: {
         InfShow: React.PropTypes.bool.isRequired,
     },
     getInitialState () {

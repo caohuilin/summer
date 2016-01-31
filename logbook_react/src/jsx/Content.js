@@ -26,11 +26,11 @@ const Content = React.createClass({
         //给路径赋默认值
         var params = this.props.params;
         if (!params.day && !params.userNoteId && !params.depId) {
-            this.context.router.push("/day/" + moment().format('YYYY-MM-DD')+"/dep/-1");
+            this.context.router.push("/day/" + moment().format('YYYY-MM-DD') + "/dep/-1");
         }
     },
     setDateNow (dateNow) {
-        this.context.router.push("/day/" + dateNow+"/dep/"+this.props.params.depId);
+        this.context.router.push("/day/" + dateNow + "/dep/" + this.props.params.depId);
     },
     render () {
         var params = this.props.params;

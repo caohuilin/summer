@@ -1,4 +1,4 @@
-const API_HOST="http://96a8to7r.apps.qbox.me";
+const API_HOST = "http://96a8to7r.apps.qbox.me";
 
 const Route = ReactRouter.Route;
 const Router = ReactRouter.Router;
