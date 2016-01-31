@@ -1,5 +1,5 @@
 //个人信息Inf按钮组件
-var Inf = React.createClass({
+const Inf = React.createClass({
     getInitialState () {
         return {
             InfShow: false
@@ -12,7 +12,7 @@ var Inf = React.createClass({
         return (
             <span>
                 <button id="inf" type="button" name="button" onClick={this.showInf}>个人信息</button>
-                <UserInf style={css_display(this.state.InfShow)}/>
+                <UserInf InfShow={this.state.InfShow}/>
             </span>
         );
     }

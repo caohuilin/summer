@@ -1,5 +1,5 @@
 //Note按钮组件
-var NoteBtn = React.createClass({
+const NoteBtn = React.createClass({
     getInitialState () {
         return {
             NoteShow: false

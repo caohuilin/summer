@@ -1,11 +1,13 @@
-//加载最终页面 两个组件Header和Content
-var App = React.createClass({
+
+const Main = React.createClass({
   propTypes:{
+      // 特定形状参数的对象
     params: React.PropTypes.shape({
       user: React.PropTypes.string,
       day: React.PropTypes.string
     })
   },
+    //加载最终页面 两个组件Header和Content
   render(){
     return (
       <div className="main">
@@ -14,14 +16,6 @@ var App = React.createClass({
       </div>
       )
   }
-})
+});
 
-ReactDOM.render((
-  <Router>
-    <Route path="/" component={App}>
-      <Route name="user" path="/user/:userNoteId" component={Content}/>
-      <Route name="day" path="/day/:day" component={Content}/>
-    </Route>
-    <Route path="*" component={App}/>
-  </Router>
-), document.getElementById('main'));
+

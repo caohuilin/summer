@@ -1,7 +1,7 @@
 //具体的个人信息组件
-var UserInf = React.createClass({
+const UserInf = React.createClass({
     propTypes:{
-        style: React.PropTypes.object.isRequired,
+        InfShow: React.PropTypes.bool.isRequired,
     },
     getInitialState () {
         return {
@@ -20,7 +20,7 @@ var UserInf = React.createClass({
     },
     render () {
         return (
-            <ul id="user" style={this.props.style}>
+            <ul id="user" style={css_display(this.props.InfShow)}>
                 <li>{this.state.department}</li>
                 <li>{this.state.real_name}</li>
                 <li id="change_dep">修改部门</li>

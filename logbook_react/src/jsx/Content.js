@@ -1,5 +1,5 @@
 //Content组件
-var Content = React.createClass({
+const Content = React.createClass({
     contextTypes: {
         router: React.PropTypes.object.isRequired
     },
@@ -22,6 +22,7 @@ var Content = React.createClass({
                 users: users[0].data
             });
         });
+        //给路径赋默认值
         var params = this.props.params;
         if(!params.day && !params.userNoteId){
             this.context.router.push("/day/"+moment().format('YYYY-MM-DD'));

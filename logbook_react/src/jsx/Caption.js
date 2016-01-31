@@ -1,5 +1,5 @@
 //侧边的部门组件
-var Caption = React.createClass({
+const Caption = React.createClass({
     propTypes:{
         users: propTypesUser,
         department: propTypeDepartment,

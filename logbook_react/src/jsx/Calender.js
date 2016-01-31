@@ -1,5 +1,5 @@
 //日历组件
-var Calender = React.createClass({
+const Calender = React.createClass({
     propTypes: {
         setDateNow: React.PropTypes.func.isRequired
     },

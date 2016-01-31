@@ -1,7 +1,7 @@
 
-var User = React.createClass({
+const User = React.createClass({
     propTypes:{
-        userNoteId: React.PropTypes.number.isRequired,
+        userNoteId: React.PropTypes.string.isRequired,
         users: propTypesUser,
     },
     getInitialState () {

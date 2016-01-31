@@ -1,5 +1,5 @@
 //Header组件
-var Header = React.createClass({
+const Header = React.createClass({
     render () {
         return (
             <header className="header">

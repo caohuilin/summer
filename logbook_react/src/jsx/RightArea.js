@@ -1,7 +1,7 @@
 //RightArea组件
-var RightArea = React.createClass({
+const RightArea = React.createClass({
     propTypes:{
-        userNoteId: React.PropTypes.number.isRequired
+        userNoteId: React.PropTypes.string.isRequired
     },
     render () {
         if (this.props.userNoteId == -1) {

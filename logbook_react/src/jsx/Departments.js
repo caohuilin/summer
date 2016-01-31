@@ -1,5 +1,5 @@
 //Departments组件
-var Departments = React.createClass({
+const Departments = React.createClass({
     propTypes:{
         users: propTypesUser,
         department: propTypeDepartment,

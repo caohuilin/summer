@@ -1,5 +1,5 @@
 //LeftArea组件
-var LeftArea = React.createClass({
+const LeftArea = React.createClass({
     render() {
         return (
             <div className="leftArea">

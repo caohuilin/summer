@@ -1,5 +1,5 @@
 //Dates组件
-var Dates = React.createClass({
+const Dates = React.createClass({
     propTypes:{
         date: React.PropTypes.string.isRequired
     },

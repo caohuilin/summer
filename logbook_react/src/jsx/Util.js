@@ -1,9 +1,4 @@
-var Route = ReactRouter.Route;
-var Router = ReactRouter.Router;
-var Redirect = ReactRouter.Redirect;
-var Link = ReactRouter.Link;
-
-
+//display属性的改变
 function css_display(value) {
     if (value) {
         return {display: 'block'};
@@ -11,7 +6,7 @@ function css_display(value) {
         return {display: 'none'};
     }
 }
-
+//根据mood显示对应的心情
 function mood_img_src(mood) {
     if (!mood) {
         return '';
@@ -24,12 +19,3 @@ function mood_img_src(mood) {
     }[mood];
 }
 
-var propTypesUser = React.PropTypes.arrayOf(React.PropTypes.shape({
-          created_at: React.PropTypes.string.isRequired,
-          department: React.PropTypes.string.isRequired,
-          name: React.PropTypes.string.isRequired,
-          real_name: React.PropTypes.string.isRequired,
-          updated_at: React.PropTypes.string.isRequired
-        }));
-
-var propTypeDepartment = React.PropTypes.arrayOf(React.PropTypes.string.isRequired);
