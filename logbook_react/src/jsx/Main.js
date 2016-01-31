@@ -1,14 +1,23 @@
 const Main = React.createClass({
-    propTypes: {
-        // 特定形状参数的对象
-        params: React.PropTypes.shape({
-            userNoteId: React.PropTypes.string,
-            day: React.PropTypes.string,
-            depId: React.PropTypes.string
-        })
+    contextTypes: {
+        router: React.PropTypes.object.isRequired
+    },
+    componentWillMount(){
+        //给路径赋默认值
+        var params = this.props.params;
+        if (!params.day && !params.userNoteId && !params.depId) {
+            this.context.router.push("/day/" + moment().format('YYYY-MM-DD') + "/dep/-1");
+        }
     },
     //加载最终页面 两个组件Header和Content
     render(){
+        var params = this.props.params;
+        if (!params){
+            return null;
+        }
+        if (!params.day && !params.userNoteId && !params.depId) {
+            return null;
+        }
         return (
             <div className="main">
                 <Header/>

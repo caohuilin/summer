@@ -7,7 +7,7 @@ const Departments = React.createClass({
         users: propTypesUser,
         department: propTypeDepartment,
         date: React.PropTypes.string.isRequired,
-        depId: React.PropTypes.string
+        depId: React.PropTypes.string.isRequired
     },
     getInitialState() {
         return {noteToday: []}

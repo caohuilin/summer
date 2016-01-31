@@ -4,11 +4,15 @@ const Content = React.createClass({
         router: React.PropTypes.object.isRequired
     },
     propTypes: {
-        params: React.PropTypes.shape({
-            userNoteId: React.PropTypes.string,
-            day: React.PropTypes.string,
-            depId: React.PropTypes.string
-        })
+        params: (props, propName, componentName)=> {
+            if (props.params.day && props.params.depId) {
+                return;
+            } else if (props.params.userNoteId) {
+                return;
+            } else {
+                return new Error(' content 中 props.params 数据错误！');
+            }
+        }
     },
     getInitialState () {
         return {
@@ -23,15 +27,11 @@ const Content = React.createClass({
                 users: users[0].data
             });
         });
-        //给路径赋默认值
-        var params = this.props.params;
-        if (!params.day && !params.userNoteId && !params.depId) {
-            this.context.router.push("/day/" + moment().format('YYYY-MM-DD') + "/dep/-1");
-        }
     },
     setDateNow (dateNow) {
         this.context.router.push("/day/" + dateNow + "/dep/" + this.props.params.depId);
     },
+
     render () {
         var params = this.props.params;
         var rightArea = null;
