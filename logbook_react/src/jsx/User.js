@@ -67,7 +67,7 @@ const User = React.createClass({
                         </div>
                         <div className="comment">
                             <a onClick={this.viewAllComment.bind(null,id)}>查看所有评论</a>
-                            <div className="all_com" style={css_display(this.state.noteSho===d)}>暂无评论</div>
+                            <div className="all_com" style={css_display(this.state.noteSho===id)}>暂无评论</div>
                         </div>
                         <div className="add_comment"><a onClick={this.addCom}>添加评论</a></div>
                         <div className="add_ssuccess" style={css_display(this.state.addComSuccess)}>添加成功</div>
