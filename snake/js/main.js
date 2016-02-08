@@ -66,7 +66,7 @@ const Main = React.createClass({
             //con_1[snake_1.pop()] = null;
            // console.log(snake_1,next);
             con_1[next] = 'S';
-            if (this.nextDe) {
+            if (this.nextDe != null) {
                 de_1 = this.nextDe;
                 this.nextDe = null;
             }
@@ -78,13 +78,13 @@ const Main = React.createClass({
             var de = this.state.de;
             var code = event.nativeEvent.keyCode;
             //console.log(code);
-            if (code == 38) {
+            if (code == 38 && de !== 1) {
                 de = 0;
-            } else if (code == 40) {
+            } else if (code == 40 && de != 0) {
                 de = 1;
-            } else if (code == 37) {
+            } else if (code == 37 && de != 3) {
                 de = 2;
-            } else if (code == 39) {
+            } else if (code == 39 && de != 2) {
                 de = 3;
             } else {}
             this.nextDe = de;
