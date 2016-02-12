@@ -112,6 +112,10 @@ const SnakeReact = React.createClass({
       snake.unshift(next);
     }
 
+    if (con[bulletNext] === 'F') {
+      bulletNext = bulletGetNext(bulletNext, bulletDe);
+    }
+
     if (con[bulletNext] === 'M') {
       score = score + 5;
 
