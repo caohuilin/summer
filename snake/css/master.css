@@ -28,33 +28,66 @@ a {
 }
 .snake_game header {
   margin: 20px auto;
-  padding: 0 43%;
+  width: 200px;
   font-size: 30px;
   font-weight: 600;
+}
+.snake_game .left {
+  float: left;
+  display: inline;
+  width: 23%;
+  margin: 50px 30px;
+}
+.snake_game .left .title {
+  color: #152077;
+  font-size: 30px;
+  margin: 20px auto;
+  width: 255px;
+}
+.snake_game .left .rules {
+  font-size: 20px;
+  line-height: 30px;
+  color: #FB1801;
 }
 .snake_game .game_body {
   width: 600px;
   height: 600px;
+  margin: 0 auto;
   background: #222;
-  margin: auto;
 }
 .snake_game .game_body .cell {
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   float: left;
   display: inline;
 }
 .snake_game .game_body .food_cell {
   background: #0b3;
-  border-radius: 15px;
-  box-shadow: 0 0 5px #0b3;
-  height: 24px;
-  margin: 3px;
-  width: 24px;
+  border-radius: 7.5px;
+  box-shadow: 0 0 2.5px #0b3;
+  height: 12px;
+  margin: 1.5px;
+  width: 12px;
 }
 .snake_game .game_body .snake_cell {
   background: #39c;
-  box-shadow: 0 0 5px #39c;
+  box-shadow: 0 0 2.5px #39c;
+}
+.snake_game .game_body .bullet_cell {
+  background: #F5EF06;
+  box-shadow: 0 0 2.5px #F5EF06;
+  border-radius: 7.5px;
+  height: 12px;
+  margin: 1.5px;
+  width: 12px;
+}
+.snake_game .game_body .monster_cell {
+  background: #FB1801;
+  box-shadow: 0 0 2.5px #FB1801;
+  border-radius: 7.5px;
+  height: 12px;
+  margin: 1.5px;
+  width: 12px;
 }
 .snake_game .game_over {
   z-index: 2;

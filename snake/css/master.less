@@ -4,52 +4,84 @@
 
 .reset();
 
-.snake_game{
-  header{
-    margin:20px auto;
-    padding:0 43%;
+.snake_game {
+  header {
+    margin: 20px auto;
+    width: 200px;
     font-size: 30px;
     font-weight: 600;
   }
-  .game_body{
-    width:600px;
+  .left {
+    .fl();
+    width: 23%;
+    margin: 50px 30px;
+    .title {
+      color: #152077;
+      font-size: 30px;
+      margin: 20px auto;
+      width: 255px;
+    }
+    .rules {
+      font-size: 20px;
+      line-height: 30px;
+      color:#FB1801;
+    }
+  }
+  .game_body {
+    width: 600px;
     height: 600px;
+    margin: 0 auto;
     background: #222;
-    margin:auto;
     .cell {
-      width:30px;
-      height: 30px;
+      width: 15px;
+      height: 15px;
       .fl();
     }
-    .food_cell{
+    .food_cell {
       background: #0b3;
-      border-radius: 15px;
-      box-shadow: 0 0 5px #0b3;
-      height: 24px;
-      margin: 3px;
-      width: 24px;
+      border-radius: 7.5px;
+      box-shadow: 0 0 2.5px #0b3;
+      height: 12px;
+      margin: 1.5px;
+      width: 12px;
     }
-    .snake_cell{
+    .snake_cell {
       background: #39c;
-      box-shadow: 0 0 5px #39c;
+      box-shadow: 0 0 2.5px #39c;
+    }
+    .bullet_cell {
+      background: #F5EF06;
+      box-shadow: 0 0 2.5px #F5EF06;
+      border-radius: 7.5px;
+      height: 12px;
+      margin: 1.5px;
+      width: 12px;
+    }
+    .monster_cell {
+      background: #FB1801;
+      box-shadow: 0 0 2.5px #FB1801;
+      border-radius: 7.5px;
+      height: 12px;
+      margin: 1.5px;
+      width: 12px;
     }
   }
-  .game_over{
+  .game_over {
     z-index: 2;
     position: fixed;
-    left:43%;
-    top:50%;
-    padding:10px;
+    left: 43%;
+    top: 50%;
+    padding: 10px;
     font-size: 30px;
-    background: rgba(215,212,202,0.56);
+    background: rgba(215, 212, 202, 0.56);
   }
-  button{
+  button {
     z-index: 2;
     position: fixed;
-    left:47%;
-    top:75%;
-    padding:4px;
+    left: 47%;
+    top: 75%;
+    padding: 4px;
     font-size: 28px;
-    background: rgba(215,212,202,2.56);
+    background: rgba(215, 212, 202, 2.56);
   }
 }
