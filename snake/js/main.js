@@ -63,7 +63,18 @@ const SnakeReact = React.createClass({
     }
 
     con[monster] = 'M';
-    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, score:0, tick:0, windowWidth: window.innerWidth, windowHeight: window.innerHeight, gameLength:600, cellLength:15, };
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+    let gameBodyHeight = windowHeight - 50;
+    let gameBodyWidth = windowWidth * 0.5;
+    if (windowWidth < 450) {
+      gameBodyWidth = windowWidth;
+    }
+
+    let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
+    let cellLength = Math.floor(gameLength / numRows);
+    gameLength = cellLength * numRows;
+    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, score:0, tick:0, windowWidth: windowWidth, windowHeight: windowHeight, gameLength:gameLength, cellLength:cellLength, };
   },
 
   handleResize() {
@@ -71,6 +82,10 @@ const SnakeReact = React.createClass({
     let windowHeight = window.innerHeight;
     let gameBodyHeight = windowHeight - 50;
     let gameBodyWidth = windowWidth * 0.5;
+    if (windowWidth < 450) {
+      gameBodyWidth = windowWidth;
+    }
+
     let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
     let cellLength = Math.floor(gameLength / numRows);
     gameLength = cellLength * numRows;
@@ -225,15 +240,15 @@ const SnakeReact = React.createClass({
     for (let row = 0; row < numRows; row++) {
       for (let col = 0; col < numCols; col++) {
         if (this.state.con[row * numRows + col] === 'B') {
-          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="bullet_cell cell"></div>);
+          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="bullet_cell cell"></div>);
         } else if (this.state.con[row * numRows + col] === 'S') {
-          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="snake_cell cell"></div>);
+          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="snake_cell cell"></div>);
         } else if (this.state.con[row * numRows + col] === 'F') {
-          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="food_cell cell"></div>);
+          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="food_cell cell"></div>);
         }else if (this.state.con[row * numRows + col] === 'M') {
-          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="monster_cell cell"></div>);
+          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="monster_cell cell"></div>);
         } else {
-          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="cell"></div>);
+          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="cell"></div>);
         }
 
         id++;

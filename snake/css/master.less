@@ -7,11 +7,15 @@
 .snake_game {
   header {
     margin: 0 auto;
-    width: 200px;
-    font-size: 30px;
+    width: 20%;
+    font-size: 20px;
     font-weight: 600;
     height: 30px;
     line-height: 30px;
+    @media screen and (max-width: 520px){
+      font-size: 12px;
+      width: 40%;
+    }
   }
   .left {
     display: none;
