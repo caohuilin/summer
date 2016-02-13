@@ -16,6 +16,10 @@ function cssDisplay(value) {
   return display;
 }
 
+function setLength(length) {
+  return { height:length, width:length };
+}
+
 function getNext(node, de) {
   let x = Math.floor(node / numRows) + deSX[de];
   let y = node % numRows + deSY[de];
@@ -59,11 +63,28 @@ const SnakeReact = React.createClass({
     }
 
     con[monster] = 'M';
-    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, score:0, tick:0 };
+    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, score:0, tick:0, windowWidth: window.innerWidth, windowHeight: window.innerHeight, gameLength:600, cellLength:15, };
+  },
+
+  handleResize() {
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+    let gameBodyHeight = windowHeight - 50;
+    let gameBodyWidth = windowWidth * 0.5;
+    let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
+    let cellLength = Math.floor(gameLength / numRows);
+    gameLength = cellLength * numRows;
+    this.setState({ windowWidth: window.innerWidth, windowHeight:window.innerHeight, gameLength:gameLength, cellLength:cellLength });
+  },
+
+  //会在组件render之前执行，并且永远都只执行一次
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
   },
 
   componentDidMount() {
     this.refs.body.focus();
+    window.addEventListener('resize', this.handleResize);
     this.goNext();
 
   },
@@ -204,15 +225,15 @@ const SnakeReact = React.createClass({
     for (let row = 0; row < numRows; row++) {
       for (let col = 0; col < numCols; col++) {
         if (this.state.con[row * numRows + col] === 'B') {
-          cells.push(<div key={id} className="bullet_cell cell"></div>);
+          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="bullet_cell cell"></div>);
         } else if (this.state.con[row * numRows + col] === 'S') {
-          cells.push(<div key={id} className="snake_cell cell"></div>);
+          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="snake_cell cell"></div>);
         } else if (this.state.con[row * numRows + col] === 'F') {
-          cells.push(<div key={id} className="food_cell cell"></div>);
+          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="food_cell cell"></div>);
         }else if (this.state.con[row * numRows + col] === 'M') {
-          cells.push(<div key={id} className="monster_cell cell"></div>);
+          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="monster_cell cell"></div>);
         } else {
-          cells.push(<div key={id} className="cell"></div>);
+          cells.push(<div key={id} style={setLength(this.state.cellLength)} className="cell"></div>);
         }
 
         id++;
@@ -223,11 +244,7 @@ const SnakeReact = React.createClass({
       <div>
         <div className="snake_game">
           <header>score : {this.state.score}</header>
-          <div className="left">
-            <div className="title">贪吃蛇 消灭怪物版</div>
-            <div className="rules">游戏规则：绿色为食物，红色为怪物，只有吃了食物才能有力气打怪物哟！</div>
-          </div>
-          <div ref="body" className="game_body" tabIndex="0" onKeyDown={this.keyDown}>
+          <div ref="body" style={setLength(this.state.gameLength)} className="game_body" tabIndex="0" onKeyDown={this.keyDown}>
             {cells}
           </div>
           <div className="game_over" style={cssDisplay(this.state.gameOver)}>Game Over !</div>
