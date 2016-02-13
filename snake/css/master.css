@@ -63,10 +63,12 @@ a {
   height: 600px;
   margin: 0 auto;
   background: #222;
+  position: relative;
 }
 .snake_game .game_body .cell {
   width: 15px;
   height: 15px;
+  position: absolute;
   float: left;
   display: inline;
 }

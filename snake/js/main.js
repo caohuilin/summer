@@ -74,7 +74,7 @@ const SnakeReact = React.createClass({
     let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
     let cellLength = Math.floor(gameLength / numRows);
     gameLength = cellLength * numRows;
-    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, score:0, tick:0, windowWidth: windowWidth, windowHeight: windowHeight, gameLength:gameLength, cellLength:cellLength, };
+    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, food:foodStart, monster:monster, score:0, tick:0, windowWidth: windowWidth, windowHeight: windowHeight, gameLength:gameLength, cellLength:cellLength, };
   },
 
   handleResize() {
@@ -104,6 +104,12 @@ const SnakeReact = React.createClass({
 
   },
 
+  findPosition(conIndex) {
+    let top = Math.floor(conIndex / numRows) * this.state.cellLength;
+    let left = conIndex % numRows * this.state.cellLength;
+    return { transform: "translate(" + left + "px, " + top + "px)", width:this.state.cellLength, height:this.state.cellLength };
+  },
+
   goNext() {
     // console.log('goNext');
     let snake = this.state.snake;
@@ -113,6 +119,8 @@ const SnakeReact = React.createClass({
     let bulletDe = this.state.bulletDe;
     let score = this.state.score;
     let tick = this.state.tick;
+    let food = this.state.food;
+    let monster = this.state.monster;
     let next = -1;
     let bulletNext = -1;
     if (bulletDe != -1) {
@@ -131,7 +139,7 @@ const SnakeReact = React.createClass({
       }
 
       if (con[next] === 'F') {
-        let food = next;
+        food = next;
         while (con[food]) {
           food = Math.floor(Math.random() * numCols * numRows);
         }
@@ -155,7 +163,7 @@ const SnakeReact = React.createClass({
     if (con[bulletNext] === 'M') {
       score = score + 5;
 
-      let monster = bulletNext;
+      monster = bulletNext;
       while (con[monster]) {
         monster = Math.floor(Math.random() * numCols * numRows);
       }
@@ -201,8 +209,8 @@ const SnakeReact = React.createClass({
       tick = 0;
     }
 
-    this.setState({ snake: snake, con: con, de: de, bullet: bullet, bulletDe: bulletDe, score:score, tick:tick });
-    setTimeout(this.goNext, 10);
+    this.setState({ snake: snake, con: con, de: de, bullet: bullet, bulletDe: bulletDe, score:score, tick:tick, food:food, monster:monster });
+    setTimeout(this.goNext, 100);
   },
 
   keyDown(event)
@@ -210,7 +218,7 @@ const SnakeReact = React.createClass({
     let de = this.state.de;
     let code = event.nativeEvent.keyCode;
 
-    // console.log(code);
+    //console.log(code);
     if (code == 38 && de !== 1) {
       de = 0;
     } else if (code == 40 && de != 0) {
@@ -235,23 +243,19 @@ const SnakeReact = React.createClass({
   },
 
   render() {
-    const cells = [];
-    let id = 0;
-    for (let row = 0; row < numRows; row++) {
-      for (let col = 0; col < numCols; col++) {
-        if (this.state.con[row * numRows + col] === 'B') {
-          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="bullet_cell cell"></div>);
-        } else if (this.state.con[row * numRows + col] === 'S') {
-          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="snake_cell cell"></div>);
-        } else if (this.state.con[row * numRows + col] === 'F') {
-          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="food_cell cell"></div>);
-        }else if (this.state.con[row * numRows + col] === 'M') {
-          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="monster_cell cell"></div>);
-        } else {
-          cells.push(<div key={id} style={{ width:this.state.cellLength, height:this.state.cellLength }} className="cell"></div>);
-        }
+    let snakeCell = [];
+    let snake = this.state.snake;
+    for (let i = 0; i < snake.length; i++) {
+      if(snake[0] >= 0) {
+        snakeCell.push(<div key={i} style={this.findPosition(snake[i])} className="snake_cell cell"></div>);
+      }
+    }
 
-        id++;
+    let bulletCell = [];
+    let bullet = this.state.bullet;
+    for (let i = 0; i < bullet.length; i++) {
+      if (bullet[i] >= 0) {
+        bulletCell.push(<div key={i} style={this.findPosition(bullet[i])} className="bullet_cell cell"></div>);
       }
     }
 
@@ -260,7 +264,10 @@ const SnakeReact = React.createClass({
         <div className="snake_game">
           <header>score : {this.state.score}</header>
           <div ref="body" style={setLength(this.state.gameLength)} className="game_body" tabIndex="0" onKeyDown={this.keyDown}>
-            {cells}
+            <div style={this.findPosition(this.state.food)} className="food_cell cell"></div>
+            <div style={this.findPosition(this.state.monster)}className="monster_cell cell"></div>
+            <div className="snake">{snakeCell}</div>
+            <div className="bullet">{bulletCell}</div>
           </div>
           <div className="game_over" style={cssDisplay(this.state.gameOver)}>Game Over !</div>
           <button style={cssDisplay(this.state.gameOver)} onClick={this.resume}>重置</button>
