@@ -26,6 +26,9 @@ textarea {
 a {
   text-decoration: none;
 }
+.snake_game {
+  outline: none;
+}
 .snake_game header {
   margin: 0 auto;
   width: 20%;
@@ -74,6 +77,7 @@ a {
 }
 .snake_game .game_body .food_cell {
   background: #0b3;
+  border-radius: 7.5px;
   box-shadow: 0 0 2.5px #0b3;
 }
 .snake_game .game_body .snake_cell {
@@ -83,10 +87,12 @@ a {
 .snake_game .game_body .bullet_cell {
   background: #F5EF06;
   box-shadow: 0 0 2.5px #F5EF06;
+  border-radius: 7.5px;
 }
 .snake_game .game_body .monster_cell {
   background: #FB1801;
   box-shadow: 0 0 2.5px #FB1801;
+  border-radius: 7.5px;
 }
 .snake_game .game_over {
   z-index: 2;

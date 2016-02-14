@@ -107,6 +107,12 @@ const SnakeReact = React.createClass({
   findPosition(conIndex) {
     let top = Math.floor(conIndex / numRows) * this.state.cellLength;
     let left = conIndex % numRows * this.state.cellLength;
+    return { transform: "translate(" + left + "px, " + top + "px)", width:this.state.cellLength, height:this.state.cellLength, borderRadius:this.state.cellLength / 2 };
+  },
+
+  findPosition2(conIndex) {
+    let top = Math.floor(conIndex / numRows) * this.state.cellLength;
+    let left = conIndex % numRows * this.state.cellLength;
     return { transform: "translate(" + left + "px, " + top + "px)", width:this.state.cellLength, height:this.state.cellLength };
   },
 
@@ -156,25 +162,6 @@ const SnakeReact = React.createClass({
       snake.unshift(next);
     }
 
-    if (con[bulletNext] === 'F') {
-      bulletNext = bulletGetNext(bulletNext, bulletDe);
-    }
-
-    if (con[bulletNext] === 'M') {
-      score = score + 5;
-
-      monster = bulletNext;
-      while (con[monster]) {
-        monster = Math.floor(Math.random() * numCols * numRows);
-      }
-
-      con[bulletNext] = null;
-      con[bullet.pop()] = null;
-      bullet = [];
-      bulletNext = -1;
-      con[monster] = "M";
-    }
-
     if (this.nextDe != null) {
       if (this.nextDe === 4) {
         con[bullet[0]] = null;
@@ -193,6 +180,24 @@ const SnakeReact = React.createClass({
       }
 
       this.nextDe = null;
+    }
+
+    if (con[bulletNext] === 'F') {
+      bulletNext = bulletGetNext(bulletNext, bulletDe);
+    }
+
+    if (con[bulletNext] === 'M') {
+      score = score + 5;
+      monster = bulletNext;
+      while (con[monster]) {
+        monster = Math.floor(Math.random() * numCols * numRows);
+      }
+
+      con[bulletNext] = null;
+      con[bullet.pop()] = null;
+      bullet = [];
+      bulletNext = -1;
+      con[monster] = "M";
     }
 
     if (bulletNext != -1) {
@@ -246,8 +251,8 @@ const SnakeReact = React.createClass({
     let snakeCell = [];
     let snake = this.state.snake;
     for (let i = 0; i < snake.length; i++) {
-      if(snake[0] >= 0) {
-        snakeCell.push(<div key={i} style={this.findPosition(snake[i])} className="snake_cell cell"></div>);
+      if (snake[0] >= 0) {
+        snakeCell.push(<div key={i} style={this.findPosition2(snake[i])} className="snake_cell cell"></div>);
       }
     }
 
@@ -261,9 +266,9 @@ const SnakeReact = React.createClass({
 
     return (
       <div>
-        <div className="snake_game">
+        <div ref="body" className="snake_game" onKeyDown={this.keyDown} tabIndex="0">
           <header>score : {this.state.score}</header>
-          <div ref="body" style={setLength(this.state.gameLength)} className="game_body" tabIndex="0" onKeyDown={this.keyDown}>
+          <div  style={setLength(this.state.gameLength)} className="game_body" >
             <div style={this.findPosition(this.state.food)} className="food_cell cell"></div>
             <div style={this.findPosition(this.state.monster)}className="monster_cell cell"></div>
             <div className="snake">{snakeCell}</div>
