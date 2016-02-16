@@ -1,6 +1,4 @@
 "use strict";
-const numRows = 40;
-const numCols = 40;
 const deX = [-1, +1, 0, 0];
 const deY = [0, 0, -1, +1];
 const deSX = [-1, +1, 0, 0];
@@ -12,6 +10,7 @@ let pointStart;
 let pointEnd;
 let timeStart;
 let timeEnd;
+let time = null;
 
 function cssDisplay(value) {
   let display = null;
@@ -28,7 +27,7 @@ function setLength(length) {
   return { height:length, width:length };
 }
 
-function getNext(node, de) {
+function getNext(node, de, numRows, numCols) {
   let x = Math.floor(node / numRows) + deSX[de];
   let y = node % numRows + deSY[de];
   if (x >= numRows) x = 0;
@@ -40,7 +39,7 @@ function getNext(node, de) {
   return x * numRows + y;
 }
 
-function bulletGetNext(node, de) {
+function bulletGetNext(node, de, numRows, numCols) {
   let x = Math.floor(node / numRows) + deX[de];
   let y = node % numRows + deY[de];
   if (x >= 0 && x < numRows && y >= 0 && y < numCols) {
@@ -77,7 +76,9 @@ function getSwipeDirection(p2, p1) {
 
 const SnakeReact = React.createClass({
   getInitialState() {
-    const start = [4, 3, 2, 1, 0];
+    let start = [1, 0];
+    let numRows = 20;
+    let numCols = 20;
     let con = [];
     for (let i = 0; i < start.length; i++) {
       con[start[i]] = 'S';
@@ -97,7 +98,7 @@ const SnakeReact = React.createClass({
     con[monster] = 'M';
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
-    let gameBodyHeight = windowHeight - 50;
+    let gameBodyHeight = windowHeight - 100;
     let gameBodyWidth = windowWidth * 0.5;
     if (windowWidth < 980) {
       gameBodyWidth = windowWidth - 5;
@@ -106,14 +107,18 @@ const SnakeReact = React.createClass({
     let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
     let cellLength = Math.floor(gameLength / numRows);
     gameLength = cellLength * numRows;
-    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, food:foodStart, monster:monster, score:0, tick:0, windowWidth: windowWidth, windowHeight: windowHeight, gameLength:gameLength, cellLength:cellLength, };
+    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, food:foodStart,
+      monster:monster, score:0, tick:0, windowWidth: windowWidth, windowHeight: windowHeight, gameLength:gameLength,
+      cellLength:cellLength, numRows:numRows, numCols:numCols, speed:100, };
   },
 
   handleResize() {
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
-    let gameBodyHeight = windowHeight - 50;
+    let gameBodyHeight = windowHeight - 100;
     let gameBodyWidth = windowWidth * 0.5;
+    let numRows = this.state.numRows;
+    let numCols = this.state.numCols;
     if (windowWidth < 980) {
       gameBodyWidth = windowWidth - 5;
     }
@@ -137,12 +142,14 @@ const SnakeReact = React.createClass({
   },
 
   findPosition(conIndex) {
+    let numRows = this.state.numRows;
     let top = Math.floor(conIndex / numRows) * this.state.cellLength;
     let left = conIndex % numRows * this.state.cellLength;
     return { transform: "translate(" + left + "px, " + top + "px)", width:this.state.cellLength, height:this.state.cellLength, borderRadius:this.state.cellLength / 2 };
   },
 
   findPosition2(conIndex) {
+    let numRows = this.state.numRows;
     let top = Math.floor(conIndex / numRows) * this.state.cellLength;
     let left = conIndex % numRows * this.state.cellLength;
     return { transform: "translate(" + left + "px, " + top + "px)", width:this.state.cellLength, height:this.state.cellLength };
@@ -159,16 +166,18 @@ const SnakeReact = React.createClass({
     let tick = this.state.tick;
     let food = this.state.food;
     let monster = this.state.monster;
+    let numRows = this.state.numRows;
+    let numCols = this.state.numCols;
     let next = -1;
     let bulletNext = -1;
     if (bulletDe != -1) {
-      bulletNext = bulletGetNext(bullet[0], bulletDe);
+      bulletNext = bulletGetNext(bullet[0], bulletDe, numRows, numCols);
     } else {
       bullet = [];
     }
 
     if (tick == 0) {
-      next = getNext(snake[0], de);
+      next = getNext(snake[0], de, numRows, numCols);
       if (this.state.con[next] === 'S' || this.state.con[next] === 'M') {
         this.setState({ gameOver: true });
 
@@ -200,10 +209,10 @@ const SnakeReact = React.createClass({
         bullet = [];
         bullet[0] = snake[0];
         bulletDe = de;
-        bulletNext = bulletGetNext(bullet[0], bulletDe);
+        bulletNext = bulletGetNext(bullet[0], bulletDe, numRows, numCols);
         snake.shift();
         if (next != -1) {
-          next = getNext(snake[0], de);
+          next = getNext(snake[0], de, numRows, numCols);
         }
 
         con[bullet[0]] = 'B';
@@ -215,7 +224,7 @@ const SnakeReact = React.createClass({
     }
 
     if (con[bulletNext] === 'F') {
-      bulletNext = bulletGetNext(bulletNext, bulletDe);
+      bulletNext = bulletGetNext(bulletNext, bulletDe, numRows, numCols);
     }
 
     if (con[bulletNext] === 'M') {
@@ -247,26 +256,35 @@ const SnakeReact = React.createClass({
     }
 
     this.setState({ snake: snake, con: con, de: de, bullet: bullet, bulletDe: bulletDe, score:score, tick:tick, food:food, monster:monster });
-    setTimeout(this.goNext, 100);
+    if (time) {
+      clearInterval(time);
+    }
+
+    time = setInterval(this.goNext, this.state.speed);
   },
 
   keyDown(event)
   {
     let de = this.state.de;
+    let snake = this.state.snake;
     let code = event.nativeEvent.keyCode;
 
     //console.log(code);
-    if (code == 38 && de !== 1) {
-      de = 0;
-    } else if (code == 40 && de != 0) {
-      de = 1;
-    } else if (code == 37 && de != 3) {
-      de = 2;
-    } else if (code == 39 && de != 2) {
-      de = 3;
-    } else if (code == 32) {
-      de = 4;
-    } else {
+    if (snake.length > 1) {
+      if (code == 38 && de !== 1) {
+        de = 0;
+      } else if (code == 40 && de != 0) {
+        de = 1;
+      } else if (code == 37 && de != 3) {
+        de = 2;
+      } else if (code == 39 && de != 2) {
+        de = 3;
+      } else if (code == 32) {
+        de = 4;
+      } else {
+        de = this.state.de;
+      }
+    }else {
       de = this.state.de;
     }
 
@@ -274,9 +292,43 @@ const SnakeReact = React.createClass({
   },
 
   resume() {
+    window.clearInterval(time);
     this.setState({ gameOver: false });
     this.setState(this.getInitialState());
     this.goNext();
+  },
+
+  setDif(i) {
+    let numRows = this.state.numRows;
+    let numCols = this.state.numCols;
+    let speed = this.state.speed;
+    if (i == 1) {
+      numCols = 20;
+      numRows = 20;
+      speed = 100;
+    } else if (i == 2) {
+      numCols = 30;
+      numRows = 30;
+      speed = 200;
+    } else {
+      numCols = 40;
+      numRows = 40;
+      speed = 300;
+    }
+
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+    let gameBodyHeight = windowHeight - 100;
+    let gameBodyWidth = windowWidth * 0.5;
+    if (windowWidth < 980) {
+      gameBodyWidth = windowWidth - 5;
+    }
+
+    let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
+    let cellLength = Math.floor(gameLength / numRows);
+    gameLength = cellLength * numRows;
+
+    //this.setState({ windowWidth: window.innerWidth, windowHeight:window.innerHeight, gameLength:gameLength, cellLength:cellLength,numCols:numCols, numRows:numRows, speed:speed });
   },
 
   //获取touch的点(兼容mouse事件)
@@ -351,6 +403,10 @@ const SnakeReact = React.createClass({
       <div>
         <div ref="body" className="snake_game" onKeyDown={this.keyDown} tabIndex="0">
           <header>score : {this.state.score}</header>
+          <div className="left">
+            <div className="title">贪吃蛇 消灭怪物版</div>
+            <div className="rules">游戏规则：绿色为食物，红色为怪物，只有吃了食物才能有力气打怪物哟！</div>
+          </div>
           <div  style={setLength(this.state.gameLength)} className="game_body" onTouchStart={this.startEvtHandler} onTouchMove={this.moveEvtHandler} onTouchEnd={this.endEvtHandler} >
             <div style={this.findPosition(this.state.food)} className="food_cell cell"></div>
             <div style={this.findPosition(this.state.monster)}className="monster_cell cell"></div>
@@ -359,6 +415,12 @@ const SnakeReact = React.createClass({
           </div>
           <div className="game_over" style={cssDisplay(this.state.gameOver)}>Game Over !</div>
           <button style={cssDisplay(this.state.gameOver)} onClick={this.resume}>重置</button>
+          <footer>
+            <button onClick={this.setDif(1)}>简单</button>
+            <button onClick={this.setDif(2)}>一般</button>
+            <button onClick={this.setDif(3)}>复杂</button>
+            <button onClick={this.resume}>重新开始</button>
+          </footer>
         </div>
       </div>
     );
