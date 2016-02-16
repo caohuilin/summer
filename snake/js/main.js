@@ -5,6 +5,14 @@ const deX = [-1, +1, 0, 0];
 const deY = [0, 0, -1, +1];
 const deSX = [-1, +1, 0, 0];
 const deSY = [0, 0, -1, +1];
+const SWIPE_DISTANCE = 30;  //移动30px之后才认为swipe事件
+const SWIPE_TIME = 500;     //swipe最大经历时间
+
+let pointStart;
+let pointEnd;
+let timeStart;
+let timeEnd;
+
 function cssDisplay(value) {
   let display = null;
   if (value) {
@@ -43,6 +51,30 @@ function bulletGetNext(node, de) {
   }
 }
 
+//计算两点之间距离
+function getDist(p1, p2) {
+  if (!p1 || !p2) return 0;
+  return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
+}
+
+//计算两点之间所成角度
+function getAngle(p1, p2) {
+  let r = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+  let a = r * 180 / Math.PI;
+  return a;
+}
+
+//获取swipe的方向
+function getSwipeDirection(p2, p1) {
+  let dx = p2.x - p1.x;
+  let dy = -p2.y + p1.y;
+  let angle = Math.atan2(dy, dx) * 180 / Math.PI;
+  if (angle >= 45 && angle < 135) return 0;
+  if (angle >= -135 && angle <= -45) return 1;
+  if (angle >= 135 || angle < -135) return 2;
+  if (angle < 45 && angle > -45) return 3;
+}
+
 const SnakeReact = React.createClass({
   getInitialState() {
     const start = [4, 3, 2, 1, 0];
@@ -67,8 +99,8 @@ const SnakeReact = React.createClass({
     let windowHeight = window.innerHeight;
     let gameBodyHeight = windowHeight - 50;
     let gameBodyWidth = windowWidth * 0.5;
-    if (windowWidth < 450) {
-      gameBodyWidth = windowWidth;
+    if (windowWidth < 980) {
+      gameBodyWidth = windowWidth - 5;
     }
 
     let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
@@ -82,8 +114,8 @@ const SnakeReact = React.createClass({
     let windowHeight = window.innerHeight;
     let gameBodyHeight = windowHeight - 50;
     let gameBodyWidth = windowWidth * 0.5;
-    if (windowWidth < 450) {
-      gameBodyWidth = windowWidth;
+    if (windowWidth < 980) {
+      gameBodyWidth = windowWidth - 5;
     }
 
     let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
@@ -247,6 +279,57 @@ const SnakeReact = React.createClass({
     this.goNext();
   },
 
+  //获取touch的点(兼容mouse事件)
+  getTouchPos(e) {
+    let touches = e.touches;
+    if (touches && touches[0]) {
+      return { x:touches[0].clientX,
+        y: touches[0].clientY, };
+    }
+
+    return { x: e.clientX, y: e.clientY };
+  },
+
+  startEvtHandler(e) {
+    let touches = e.touches;
+    if (!touches || touches.length == 1) { //touches为空，代表鼠标点击
+      pointStart = this.getTouchPos(e);
+      timeStart = Date.now();
+    }
+  },
+
+  moveEvtHandler(e) {
+    pointEnd = this.getTouchPos(e);
+    e.preventDefault();
+  },
+
+  endEvtHandler(e) {
+    let timeEnd = Date.now();
+    let de = this.state.de;
+
+    //距离和时间都符合
+    if (getDist(pointStart, pointEnd) > SWIPE_DISTANCE && timeStart - timeEnd < SWIPE_TIME) {
+      let dir = getSwipeDirection(pointEnd, pointStart);
+
+      if (dir == 0 && de !== 1) {
+        de = 0;
+      } else if (dir == 1 && de != 0) {
+        de = 1;
+      } else if (dir == 2 && de != 3) {
+        de = 2;
+      } else if (dir == 3 && de != 2) {
+        de = 3;
+      } else if (code == 32) {
+        de = 4;
+      } else {
+        de = this.state.de;
+      }
+
+      this.nextDe = de;
+    }
+
+  },
+
   render() {
     let snakeCell = [];
     let snake = this.state.snake;
@@ -268,7 +351,7 @@ const SnakeReact = React.createClass({
       <div>
         <div ref="body" className="snake_game" onKeyDown={this.keyDown} tabIndex="0">
           <header>score : {this.state.score}</header>
-          <div  style={setLength(this.state.gameLength)} className="game_body" >
+          <div  style={setLength(this.state.gameLength)} className="game_body" onTouchStart={this.startEvtHandler} onTouchMove={this.moveEvtHandler} onTouchEnd={this.endEvtHandler} >
             <div style={this.findPosition(this.state.food)} className="food_cell cell"></div>
             <div style={this.findPosition(this.state.monster)}className="monster_cell cell"></div>
             <div className="snake">{snakeCell}</div>
