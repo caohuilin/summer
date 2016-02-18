@@ -122,6 +122,34 @@ body {
   border: none;
   border-radius: 3px;
 }
+.snake_game .reStart {
+  z-index: 2;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  font-size: 18px;
+  color: #FB1801;
+  background: rgba(215, 212, 202, 0.9);
+}
+@media screen and (max-width: 980px) {
+  .snake_game .reStart {
+    padding: 2%;
+  }
+}
+.snake_game .reStart button {
+  background: rgba(238, 228, 218, 0.35);
+  padding: 3px;
+  border-radius: 2px;
+  border: 1px solid rgba(238, 228, 218, 0.4);
+  margin: 36px 13% 15px;
+}
+@media screen and (max-width: 980px) {
+  .snake_game .reStart button {
+    margin: 20px 13% 10px;
+  }
+}
 .snake_game footer {
   display: flex;
   justify-content: space-around;

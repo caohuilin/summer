@@ -110,7 +110,7 @@ const SnakeReact = React.createClass({
     let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
     let cellLength = Math.floor(gameLength / numRows);
     gameLength = cellLength * numRows;
-    return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, food:foodStart,
+    return { snake: start, de: 3, gameOver: false, reStart:false, con: con, bullet: [], bulletDe: -1, food:foodStart,
       monster:monster, score:0, tick:0, windowWidth: windowWidth, windowHeight: windowHeight, gameLength:gameLength,
       cellLength:cellLength, numRows:numRows, numCols:numCols, speed:speeds, };
   },
@@ -359,6 +359,21 @@ const SnakeReact = React.createClass({
 
   },
 
+  reStart() {
+    clearInterval(time);
+    this.setState({ reStart:true });
+  },
+
+  reStartTrue() {
+    this.setState(this.getInitialState());
+    time = setInterval(this.goNext, this.state.speed);
+  },
+
+  reStartFalse() {
+    this.setState({ reStart:false });
+    this.goNext();
+  },
+
   render() {
     let snakeCell = [];
     let snake = this.state.snake;
@@ -392,11 +407,16 @@ const SnakeReact = React.createClass({
           </div>
           <div className="game_over" style={cssDisplay(this.state.gameOver)}>Game Over !</div>
           <button style={cssDisplay(this.state.gameOver)} onClick={()=> {this.setState(this.getInitialState());}}>重置</button>
+          <div className="reStart" style={cssDisplay(this.state.reStart)}>
+            <div>真的要放弃我吗？</div>
+            <button onClick={this.reStartTrue}>确定</button>
+            <button onClick={this.reStartFalse}>取消</button>
+          </div>
           <footer>
             <button onClick={this.setDif.bind(null, 1)}>简单</button>
             <button onClick={this.setDif.bind(null, 2)}>一般</button>
             <button onClick={this.setDif.bind(null, 3)}>复杂</button>
-            <button onClick={()=> {this.setState(this.getInitialState());}}>重新开始</button>
+            <button onClick={this.reStart}>重新开始</button>
           </footer>
         </div>
       </div>
