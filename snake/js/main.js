@@ -11,6 +11,9 @@ let pointEnd;
 let timeStart;
 let timeEnd;
 let time = null;
+let numRow = 20;
+let numCol = 20;
+let speeds = 100;
 
 function cssDisplay(value) {
   let display = null;
@@ -77,8 +80,8 @@ function getSwipeDirection(p2, p1) {
 const SnakeReact = React.createClass({
   getInitialState() {
     let start = [1, 0];
-    let numRows = 20;
-    let numCols = 20;
+    let numRows = numRow;
+    let numCols = numCol;
     let con = [];
     for (let i = 0; i < start.length; i++) {
       con[start[i]] = 'S';
@@ -109,7 +112,7 @@ const SnakeReact = React.createClass({
     gameLength = cellLength * numRows;
     return { snake: start, de: 3, gameOver: false, con: con, bullet: [], bulletDe: -1, food:foodStart,
       monster:monster, score:0, tick:0, windowWidth: windowWidth, windowHeight: windowHeight, gameLength:gameLength,
-      cellLength:cellLength, numRows:numRows, numCols:numCols, speed:100, };
+      cellLength:cellLength, numRows:numRows, numCols:numCols, speed:speeds, };
   },
 
   handleResize() {
@@ -270,65 +273,39 @@ const SnakeReact = React.createClass({
     let code = event.nativeEvent.keyCode;
 
     //console.log(code);
-    if (snake.length > 1) {
-      if (code == 38 && de !== 1) {
-        de = 0;
-      } else if (code == 40 && de != 0) {
-        de = 1;
-      } else if (code == 37 && de != 3) {
-        de = 2;
-      } else if (code == 39 && de != 2) {
-        de = 3;
-      } else if (code == 32) {
-        de = 4;
-      } else {
-        de = this.state.de;
-      }
-    }else {
+    if (code == 38 && de !== 1) {
+      de = 0;
+    } else if (code == 40 && de != 0) {
+      de = 1;
+    } else if (code == 37 && de != 3) {
+      de = 2;
+    } else if (code == 39 && de != 2) {
+      de = 3;
+    } else if (code == 32 && snake.length > 1) {
+      de = 4;
+    } else {
       de = this.state.de;
     }
 
     this.nextDe = de;
   },
 
-  resume() {
-    window.clearInterval(time);
-    this.setState({ gameOver: false });
-    this.setState(this.getInitialState());
-    this.goNext();
-  },
-
   setDif(i) {
-    let numRows = this.state.numRows;
-    let numCols = this.state.numCols;
-    let speed = this.state.speed;
     if (i == 1) {
-      numCols = 20;
-      numRows = 20;
-      speed = 100;
+      numCol = 20;
+      numRow = 20;
+      speeds = 100;
     } else if (i == 2) {
-      numCols = 30;
-      numRows = 30;
-      speed = 200;
+      numCol = 30;
+      numRow = 30;
+      speeds = 90;
     } else {
-      numCols = 40;
-      numRows = 40;
-      speed = 300;
+      numCol = 40;
+      numRow = 40;
+      speeds = 70;
     }
 
-    let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
-    let gameBodyHeight = windowHeight - 100;
-    let gameBodyWidth = windowWidth * 0.5;
-    if (windowWidth < 980) {
-      gameBodyWidth = windowWidth - 5;
-    }
-
-    let gameLength = Math.min(gameBodyHeight, gameBodyWidth);
-    let cellLength = Math.floor(gameLength / numRows);
-    gameLength = cellLength * numRows;
-
-    //this.setState({ windowWidth: window.innerWidth, windowHeight:window.innerHeight, gameLength:gameLength, cellLength:cellLength,numCols:numCols, numRows:numRows, speed:speed });
+    this.setState(this.getInitialState());
   },
 
   //获取touch的点(兼容mouse事件)
@@ -414,12 +391,12 @@ const SnakeReact = React.createClass({
             <div className="bullet">{bulletCell}</div>
           </div>
           <div className="game_over" style={cssDisplay(this.state.gameOver)}>Game Over !</div>
-          <button style={cssDisplay(this.state.gameOver)} onClick={this.resume}>重置</button>
+          <button style={cssDisplay(this.state.gameOver)} onClick={()=> {this.setState(this.getInitialState());}}>重置</button>
           <footer>
-            <button onClick={this.setDif(1)}>简单</button>
-            <button onClick={this.setDif(2)}>一般</button>
-            <button onClick={this.setDif(3)}>复杂</button>
-            <button onClick={this.resume}>重新开始</button>
+            <button onClick={this.setDif.bind(null, 1)}>简单</button>
+            <button onClick={this.setDif.bind(null, 2)}>一般</button>
+            <button onClick={this.setDif.bind(null, 3)}>复杂</button>
+            <button onClick={()=> {this.setState(this.getInitialState());}}>重新开始</button>
           </footer>
         </div>
       </div>
