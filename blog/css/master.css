@@ -175,8 +175,10 @@ a {
   left: 0;
   top: 0;
   transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
+  -webkit-transition: transform 0.6s ease-in-out;
 }
 .st-panel {
   background-color: #F3FAFB;
@@ -191,6 +193,7 @@ a {
   top: 0;
   margin-left: -100px;
   transform: translateY(-50%) rotate(45deg);
+  -webkit-transform: translateY(-50%) rotate(45deg);
 }
 .st-panel h2,
 .st-panel h3 {
@@ -202,6 +205,7 @@ a {
   left: 10%;
   top: 50%;
   transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
   text-shadow: 1px 1px 1px rgba(132, 202, 235, 0.2);
   backface-visibility: hidden;
 }
@@ -225,6 +229,11 @@ a {
   text-align: center;
   backface-visibility: hidden;
   color: #8b8b8b;
+}
+@media screen and (max-width: 480px) {
+  .st-panel p {
+    font-size: 14px;
+  }
 }
 .st-color {
   background: #88d6e5;
@@ -257,6 +266,7 @@ a {
   left: 50%;
   top: 80%;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
 }
 #st-panel-5 h3 {
   font-weight: 900;
@@ -266,18 +276,22 @@ a {
 }
 #st-control-1:checked ~ .st-scroll {
   transform: translateY(0%);
+  -webkit-transform: translateY(0%);
 }
 #st-control-2:checked ~ .st-scroll {
   transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
 }
 #st-control-3:checked ~ .st-scroll {
   transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
 }
 #st-control-4:checked ~ .st-scroll {
   transform: translateY(-300%);
+  -webkit-transform: translateY(-300%);
 }
 #st-control-5:checked ~ .st-scroll {
-  transform: translateY(-400%);
+  -webkit-transform: translateY(-400%);
 }
 [data-icon]:after {
   content: attr(data-icon);
@@ -293,15 +307,18 @@ a {
   top: 61%;
   margin: -100px 0 0 -100px;
   transform: rotate(-45deg) translateY(25%);
+  -webkit-transform: rotate(-45deg) translateY(25%);
   text-shadow: 1px 1px 1px rgba(151, 24, 64, 0.2);
 }
 @keyframes moveDown {
   0% {
     transform: translateY(-150px);
+    -webkit-transform: translateY(-150px);
     opacity: 0;
   }
   100% {
     transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
     opacity: 1;
   }
 }
@@ -310,6 +327,7 @@ a {
 #st-control-3:checked ~ .st-scroll #st-panel-3 h2,
 #st-control-4:checked ~ .st-scroll #st-panel-4 h2,
 #st-control-5:checked ~ .st-scroll #st-panel-5 h2 {
+  -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
   animation: moveDown 0.6s ease-in-out 0.2s backwards;
 }
 #st-control-1:checked ~ .st-scroll #st-panel-1 h3,
@@ -317,15 +335,18 @@ a {
 #st-control-3:checked ~ .st-scroll #st-panel-3 h3,
 #st-control-4:checked ~ .st-scroll #st-panel-4 h3,
 #st-control-5:checked ~ .st-scroll #st-panel-5 h3 {
+  -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
   animation: moveDown 0.6s ease-in-out 0.2s backwards;
 }
 @keyframes moveUp {
   0% {
     transform: translateY(40px);
+    -webkit-transform: translateY(40px);
     opacity: 0;
   }
   100% {
     transform: translateY(0px);
+    -webkit-transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -335,6 +356,7 @@ a {
 #st-control-4:checked ~ .st-scroll #st-panel-4 p,
 #st-control-5:checked ~ .st-scroll #st-panel-5 p {
   animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
 }
 @media screen and (max-width: 520px) {
   .st-panel h2 {
@@ -360,6 +382,7 @@ a {
   }
   [data-icon]:after {
     font-size: 60px;
+    -webkit-transform: translateY(15) rotate(45deg);
     transform: translateY(15) rotate(45deg);
   }
 }
@@ -586,12 +609,14 @@ a {
 .foot #left-foot {
   left: 3%;
   bottom: 10%;
+  -webkit-transform: rotate(84deg);
   transform: rotate(84deg);
   animation: footLeft 40s ease-in-out 2s backwards infinite;
 }
 .foot #right-foot {
   left: 3%;
   bottom: 4%;
+  -webkit-transform: rotate(22deg);
   transform: rotate(22deg);
   animation: footRight 40s ease-in-out 4s backwards infinite;
 }
