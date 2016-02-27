@@ -84,6 +84,11 @@ body {
   font-weight: bold;
   text-shadow: 1px 1px 1px #f2bed1;
 }
+@media screen and (max-width: 680px) {
+  .emphasis {
+    padding: 0 0 0 42px !important;
+  }
+}
 .bold {
   font-weight: 700;
 }
@@ -104,6 +109,14 @@ body {
     box-shadow: none;
   }
 }
+@media screen and (max-width: 680px) {
+  .mainBody {
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
 header {
   height: 110px;
   background-color: #F3FAFB;
@@ -117,12 +130,24 @@ header {
     padding: 0 7%;
   }
 }
+@media screen and (max-width: 680px) {
+  header {
+    height: 60px;
+    padding: 0 7%;
+  }
+}
 header #logo {
   font-family: 'Hex-monograms';
   font-size: 70px;
   color: #84cad7;
   padding: 13px 9px -2px 3px;
   line-height: 70px;
+}
+@media screen and (max-width: 680px) {
+  header #logo {
+    font-size: 55px;
+    margin-top: 10px;
+  }
 }
 header .null {
   flex: 1;
@@ -132,6 +157,11 @@ header #bigName {
   margin: 12px auto;
 }
 @media print {
+  header #bigName {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 680px) {
   header #bigName {
     margin: 0;
   }
@@ -146,8 +176,18 @@ header #bigName {
     padding: 0;
   }
 }
+@media screen and (max-width: 680px) {
+  .content {
+    padding: 3% 0;
+  }
+}
 .content .term {
   position: relative;
+}
+@media screen and (max-width: 680px) {
+  .content .term {
+    margin-bottom: 21px;
+  }
 }
 .content .term .icon {
   width: 30px;
@@ -169,6 +209,13 @@ header #bigName {
     visibility: hidden;
   }
 }
+@media screen and (max-width: 680px) {
+  .content .term .icon {
+    height: 5px;
+    width: 5px;
+    visibility: hidden;
+  }
+}
 .content .term h3 {
   display: inline-block;
   line-height: 30px;
@@ -177,8 +224,15 @@ header #bigName {
 }
 @media print {
   .content .term h3 {
+    line-height: 40px;
+    left: 25px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .content .term h3 {
     line-height: 15px;
     left: 25px;
+    margin-left: 0;
   }
 }
 .content .term .line {
@@ -190,6 +244,11 @@ header #bigName {
   left: 15px;
 }
 @media print {
+  .content .term .line {
+    display: none;
+  }
+}
+@media screen and (max-width: 680px) {
   .content .term .line {
     display: none;
   }
@@ -212,6 +271,13 @@ header #bigName {
     padding-top: 3px;
   }
 }
+@media screen and (max-width: 680px) {
+  .content .term > ul,
+  .content .term p {
+    line-height: 20px;
+    padding: 0 24px;
+  }
+}
 .content .term > ul .fa,
 .content .term p .fa {
   margin-right: 8px;
@@ -220,6 +286,12 @@ header #bigName {
 .content .term p ul li {
   display: flex;
   flex-direction: row;
+}
+@media screen and (max-width: 680px) {
+  .content .term > ul ul li,
+  .content .term p ul li {
+    display: block;
+  }
 }
 .content .term > ul ul li .fa,
 .content .term p ul li .fa {

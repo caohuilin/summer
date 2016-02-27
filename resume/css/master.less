@@ -64,6 +64,9 @@ body{
   color: #D0648A;
   font-weight: bold;
   text-shadow:1px 1px 1px #f2bed1;
+  @media screen and (max-width: 680px){
+    padding: 0 0 0 42px !important;
+  }
 }
 .bold{
   font-weight: 700;
@@ -82,6 +85,13 @@ body{
     border: none;
     box-shadow: none;
   }
+  @media screen and (max-width: 680px){
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+
+  }
 }
 header{
   height: 110px;
@@ -93,6 +103,10 @@ header{
     height: 60px;
     padding: 0 7%;
   }
+  @media screen and (max-width: 680px){
+    height: 60px;
+    padding: 0 7%;
+  }
 
   #logo{
     font-family: 'Hex-monograms';
@@ -100,6 +114,10 @@ header{
     color: #84cad7;
     padding:13px 9px -2px 3px;
     line-height: 70px;
+    @media screen and (max-width: 680px){
+      font-size: 55px;
+      margin-top: 10px;
+    }
   }
   .null{
     flex:1;
@@ -108,6 +126,9 @@ header{
     color: #84cad7;
     margin: 12px auto;
     @media print {
+      margin: 0;
+    }
+    @media screen and(max-width: 680px){
       margin: 0;
     }
   }
@@ -119,8 +140,14 @@ header{
   @media print {
     padding: 0;
   }
+  @media screen and (max-width: 680px){
+    padding: 3% 0;
+  }
    .term{
     position: relative;
+     @media screen and (max-width: 680px){
+       margin-bottom: 21px;
+     }
     .icon{
       width:30px;
       height: 30px;
@@ -138,6 +165,11 @@ header{
         height: 15px;
         visibility: hidden;
       }
+      @media screen and (max-width: 680px){
+        height: 5px;
+        width: 5px;
+        visibility: hidden;
+      }
     }
     h3{
       display: inline-block;
@@ -145,8 +177,13 @@ header{
       margin-left: 20px;
       position: absolute;
       @media print {
+        line-height: 40px;
+        left: 25px;
+      }
+      @media screen and (max-width: 680px){
         line-height: 15px;
         left: 25px;
+        margin-left: 0;
       }
     }
     .line{
@@ -157,6 +194,9 @@ header{
       top:32px;
       left:15px;
       @media print {
+        display: none;
+      }
+      @media screen and (max-width: 680px){
         display: none;
       }
     }
@@ -173,6 +213,10 @@ header{
         line-height: 20px;
         padding-top: 3px;
       }
+      @media screen and (max-width: 680px) {
+        line-height: 20px;
+        padding: 0 24px;
+      }
       .fa{
         margin-right: 8px;
       }
@@ -180,6 +224,9 @@ header{
         li{
           display: flex;
           flex-direction: row;
+          @media screen and (max-width: 680px){
+            display: block;
+          }
           .fa{
             margin-top: 7px;
           }
