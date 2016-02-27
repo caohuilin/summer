@@ -135,7 +135,7 @@ header{
         transform:translate(-50%,-50%);
       }
       @media print {
-        height: 10px;
+        height: 15px;
         visibility: hidden;
       }
     }
@@ -145,7 +145,7 @@ header{
       margin-left: 20px;
       position: absolute;
       @media print {
-        line-height: 10px;
+        line-height: 15px;
       }
     }
     .line{
@@ -169,8 +169,8 @@ header{
       padding:10px 43px;
       line-height: 30px;
       @media print {
-        line-height: 15px;
-        padding-top: 1px;
+        line-height: 20px;
+        padding-top: 3px;
       }
       span{
         display: inline-block;
@@ -180,6 +180,64 @@ header{
       }
       .blank-row{
         padding:0 13px;
+      }
+      .hide{
+        display: none;
+      }
+      .more,.less{
+        position: absolute;
+        width:54px;
+        height: 20px;
+        line-height: 20px;
+        right:44px;
+        bottom:8px;
+        z-index: 1;
+        color: #D0648A;
+        text-shadow:1px 1px 1px #f2bed1;
+      }
+      .less{
+        display: none;
+      }
+      input{
+        width:54px;
+        height: 20px;
+        position: absolute;
+        right:44px;
+        bottom:2px;
+        opacity: 0;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      .more-input{
+        z-index: 3;
+        &:checked{
+          display: none;
+        }
+        &:checked ~ .hide{
+          display: block;
+        }
+        &:checked ~ .more{
+          display: none;
+        }
+        &:checked ~ .less{
+          display: block;
+        }
+      }
+      .less-input{
+        z-index: 2;
+        &:checked ~ .more-input{
+          display: block;
+        }
+        &:checked ~ .hide{
+          display: none;
+        }
+        &:checked ~ .more{
+          display: block;
+        }
+        &:checked ~ .less{
+          display: none;
+        }
       }
     }
     a:hover{

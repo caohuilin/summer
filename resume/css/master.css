@@ -165,7 +165,7 @@ header #bigName {
 }
 @media print {
   .content .term .icon {
-    height: 10px;
+    height: 15px;
     visibility: hidden;
   }
 }
@@ -177,7 +177,7 @@ header #bigName {
 }
 @media print {
   .content .term h3 {
-    line-height: 10px;
+    line-height: 15px;
   }
 }
 .content .term .line {
@@ -205,8 +205,8 @@ header #bigName {
 }
 @media print {
   .content .term p {
-    line-height: 15px;
-    padding-top: 1px;
+    line-height: 20px;
+    padding-top: 3px;
   }
 }
 .content .term p span {
@@ -217,6 +217,65 @@ header #bigName {
 }
 .content .term p .blank-row {
   padding: 0 13px;
+}
+.content .term p .hide {
+  display: none;
+}
+.content .term p .more,
+.content .term p .less {
+  position: absolute;
+  width: 54px;
+  height: 20px;
+  line-height: 20px;
+  right: 44px;
+  bottom: 8px;
+  z-index: 1;
+  color: #D0648A;
+  text-shadow: 1px 1px 1px #f2bed1;
+}
+.content .term p .less {
+  display: none;
+}
+.content .term p input {
+  width: 54px;
+  height: 20px;
+  position: absolute;
+  right: 44px;
+  bottom: 2px;
+  opacity: 0;
+}
+.content .term p input:hover {
+  cursor: pointer;
+}
+.content .term p .more-input {
+  z-index: 3;
+}
+.content .term p .more-input:checked {
+  display: none;
+}
+.content .term p .more-input:checked ~ .hide {
+  display: block;
+}
+.content .term p .more-input:checked ~ .more {
+  display: none;
+}
+.content .term p .more-input:checked ~ .less {
+  display: block;
+}
+.content .term p .less-input {
+  z-index: 2;
+}
+.content .term p .less-input:checked ~ .more-input {
+  display: block;
+}
+.content .term p .less-input:checked ~ .hide {
+  display: none;
+}
+.content .term p .less-input:checked ~ .more {
+  display: block;
+}
+.content .term p .less-input:checked ~ .less {
+  display: none;
 }
 .content .term a:hover {
   text-decoration: underline;
