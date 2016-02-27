@@ -36,13 +36,13 @@
 
 @media not print {
   .only-print {
-    display: none;
+    display: none !important;
   }
 }
 
 @media print {
   .only-screen {
-    display: none;
+    display: none !important;
   }
 }
 body{
@@ -146,6 +146,7 @@ header{
       position: absolute;
       @media print {
         line-height: 15px;
+        left: 25px;
       }
     }
     .line{
@@ -165,12 +166,24 @@ header{
      .line-middle{
        width:200px;
      }
-    p{
+    >ul,p{
       padding:10px 43px;
       line-height: 30px;
       @media print {
         line-height: 20px;
         padding-top: 3px;
+      }
+      .fa{
+        margin-right: 8px;
+      }
+      ul{
+        li{
+          display: flex;
+          flex-direction: row;
+          .fa{
+            margin-top: 7px;
+          }
+        }
       }
       span{
         display: inline-block;
@@ -186,7 +199,7 @@ header{
       }
       .more,.less{
         position: absolute;
-        width:54px;
+        width:70px;
         height: 20px;
         line-height: 20px;
         right:44px;
@@ -199,7 +212,7 @@ header{
         display: none;
       }
       input{
-        width:54px;
+        width:70px;
         height: 20px;
         position: absolute;
         right:44px;
@@ -239,6 +252,7 @@ header{
           display: none;
         }
       }
+
     }
     a:hover{
       text-decoration: underline;
@@ -250,9 +264,6 @@ header{
     .con{
       display: block;
       margin-left: 32px;
-    }
-    .sk-icon{
-      margin:0 8px 0 0;
     }
     .sk-icon-r{
       margin:0 0 0 8px;
