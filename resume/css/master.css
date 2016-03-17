@@ -74,6 +74,9 @@ body {
     text-decoration: underline;
   }
 }
+a:hover {
+  color: #D0648A;
+}
 .clr {
   width: 0;
   height: 0;
@@ -166,6 +169,17 @@ header #bigName {
     margin: 0;
   }
 }
+header .online {
+  display: none;
+  position: absolute;
+  top: 44px;
+  right: 0;
+}
+@media print {
+  header .online {
+    display: inline-block;
+  }
+}
 .content {
   margin: 0 auto;
   padding: 5% 10%;
@@ -224,6 +238,7 @@ header #bigName {
 }
 @media print {
   .content .term h3 {
+    height: 60px;
     line-height: 40px;
     left: 25px;
   }
@@ -268,7 +283,7 @@ header #bigName {
   .content .term > ul,
   .content .term p {
     line-height: 20px;
-    padding-top: 3px;
+    padding-top: 15px;
   }
 }
 @media screen and (max-width: 680px) {
@@ -303,7 +318,7 @@ header #bigName {
 }
 .content .term > ul .blank,
 .content .term p .blank {
-  padding: 0 5px;
+  padding: 0 4px;
 }
 .content .term > ul .blank-row,
 .content .term p .blank-row {
@@ -399,8 +414,8 @@ header #bigName {
   margin: 0 0 0 8px;
 }
 .content .term .source {
-  position: absolute;
-  right: 44px;
+  float: right;
+  margin-right: 18px;
 }
 .content .term .source a {
   color: #D0648A;
@@ -409,6 +424,33 @@ header #bigName {
 .content .term .source .fa {
   color: #D0648A;
 }
-.content .term .demo {
-  right: 128px;
+.download {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+}
+@media screen and (max-width: 1256px) {
+  .download {
+    display: none;
+  }
+}
+.download ul li {
+  background: #84cad7;
+  width: 64px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 30px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #999999;
+}
+.download ul li a {
+  color: #000;
+}
+.download ul li a:hover {
+  color: #D0648A;
+  text-decoration: underline;
+}
+.download ul li:first-child {
+  margin-bottom: 20px;
 }
